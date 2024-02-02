@@ -1,23 +1,19 @@
 "use client";
 import React from "react";
+import Image from 'next/image'; // Import the Image component from Next.js
 
+import backgroundImage from '../public/ada1.jpg';
 
-import backgroundImage from '../public/landingPic.webp'
+const myBackgroundImage = '/ada1.jpg';
 
-const YourComponent: React.FC = () => {
-  const backgroundStyle: React.CSSProperties = {
-    background: `url(${backgroundImage}) center center / cover no-repeat`,
-    height: "100vh",
-    width: "100%",
-    // Add more styles as needed
-  };
-  
-
+const Page: React.FC = () => {
   return (
-    <div style={backgroundStyle}>
-      haydddddddda
+    <div style={{ backgroundImage: `url(${myBackgroundImage})`, height: '100vh', width: '100vw', backgroundSize: 'cover' }} 
+     >
+    {/* Use the Image component with the src attribute */}
+      {/* Other components or content */}
     </div>
   );
 };
 
-export default YourComponent;
+export default Page;

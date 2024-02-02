@@ -20,10 +20,10 @@ export default function SearchComp({buttonName}: any) {
     return (
         <>
         <div className='flex flex-col '>
-        <div className='flex flex-row items-center px-4 py-2 border-2 border-orange-500 text-white
+        <div  onClick={() => dispatch(navSearchToggle())} className='flex flex-row items-center px-4 py-2 border-2 border-orange-500 text-white
          bg-orange-500 hover:bg-white rounded-xl hover:text-orange-600 space-x-2 ' >
             <IoMdSearch size={27} />
-            <div className='text-md tracking-widest' onClick={() => dispatch(navSearchToggle())}>
+            <div className='text-md tracking-widest'>
                 {buttonName}
             </div>
             <FaChevronDown size={20} />

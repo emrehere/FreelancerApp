@@ -22,7 +22,7 @@ const NavItem: React.FC<NavItemProps> = ({ title, href, icon }) => {
           <span>{icon}</span>
           <span> {title}</span>
           
-         
+       
         </Link>
       </div>
     </div>
