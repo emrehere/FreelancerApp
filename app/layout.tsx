@@ -26,8 +26,14 @@ export default function RootLayout({
       <Head>
         <title>Title</title>
         <meta name='description' content='Description' />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap"
+            rel="stylesheet"
+          />
       </Head>
-        <body className={inter.className}> 
+        <body style={{ fontFamily: 'Jockey One, sans-serif' }} className={inter.className}> 
         <Navbar/>
         {children} 
         <Footer/>
