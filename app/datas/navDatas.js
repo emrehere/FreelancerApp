@@ -1,24 +1,19 @@
+import { FaSignInAlt } from "react-icons/fa";
+import { MdJoinFull } from "react-icons/md";
+
 const navDatas = [
     {
-        "title": "POST PROJECT",
-        "href": "/"
-    },
-    {
-        "title": "HOW IT WORKS",
-        "href": "/about"
-    },
-    {
         "title": "SIGN IN",
-        "href": "/contact"
+        "href": "/contact",
+        "icon": <FaSignInAlt size={20} />
+        
     },
     {
         "title": "SIGN UP",
-        "href": "/about"
-    },
-    {
-        "title": "FREELANCER?",
-        "href": "/contact"
-    },
+        "href": "/about",
+        "icon": <MdJoinFull size={20} />
+        
+    }
 ];
 
 export default navDatas

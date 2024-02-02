@@ -10,19 +10,18 @@ function Navbar() {
 
 
   return (
-    <div className='flex flex-row px-[2%] py-[2%] font-bold items-center bg-blue-50 '>
-      <div className='w-[35vw]'>
-        LOGO
+    <div className='flex flex-row px-[1%] py-[1%] font-bold  bg-blue-50 h-[12vh]'>
+      <div className='w-[60vw]'>
+        
+        <p className='text-2xl pl-[5%]'>LOGO</p>
       </div>
      <SearchComp buttonName={buttonName} />
-      <div className='flex-grow' >
-
-      </div>
-      <div className='flex flex-row w-[50vw] justify-evenly text-sm  ' >
+      
+      <div className='flex flex-row  text-md flex-grow justify-end items-center mr-[2%] space-x-4 ' >
         {
           NavDatas.map((item: any) => {
             return (
-              <NavItem  key={item.title} title={item.title} href={item.href} />
+              <NavItem icon={item.icon} key={item.title} title={item.title} href={item.href} />
             )
           })
         }
