@@ -4,13 +4,16 @@ import SearchBar from "./components/LandingComp/searchBar";
 import Page2 from "./components/LandingComp/page2";
 import Page3 from "./components/LandingComp/page3";
 
-const myBackgroundImage = '/ada1.jpg';
+
+const desktopBackgroundImage = '/ada1.jpg';
+const mobileBackgroundImage = '/cropada1.jpg';
 
 
 
 const Page: React.FC = () => {
 
   const [color, setColor] = useState('red');
+  const [backgroundImage, setBackgroundImage] = useState(desktopBackgroundImage);
 
   function changeFontColor() {
     setInterval(() => {
@@ -26,10 +29,25 @@ const Page: React.FC = () => {
     changeFontColor();
   }, []);
 
+  useEffect(() => {
+    
+    const handleResize = () => {
+      const newBackgroundImage = window.innerWidth < 500 ? mobileBackgroundImage : desktopBackgroundImage;
+      setBackgroundImage(newBackgroundImage);
+    };
+
+    handleResize(); // Initial call
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="h-[380vh]">
 
-    <div  style={{ backgroundImage: `url(${myBackgroundImage})`, height: '100vh', width: '100vw', backgroundSize: 'cover' }} >
+    <div  style={{ backgroundImage: `url(${backgroundImage})`, height: '100vh', width: '100vw', backgroundSize: 'cover' }} >
       <div className="flex items-center h-[110vh] mt-[12vh]">
         <div className="flex flex-col">
       <div className="flex flex-col w-[40vw]  ml-[3vw] tracking-wide leading-relaxed
