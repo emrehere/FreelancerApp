@@ -10,6 +10,7 @@ import Head from "next/head";
 import React from "react";
 import Footer from "./components/footer";
 import Navbar from "./components/NavbarComp/navbar";
+import MobileNavbar from "./components/NavbarComp/mobileNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
       <Head>
         <title>Title</title>
         <meta name='description' content='Description' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link
@@ -37,6 +39,10 @@ export default function RootLayout({
         <div className="fixed top-0 left-0 w-full z-10 sm:block hidden ">
         <Navbar/>
         </div>
+        <div className="fixed top-0 left-0 w-[100vw] z-10 sm:hidden  " >
+          <MobileNavbar/>
+        </div>
+      
        
             {children}
           
