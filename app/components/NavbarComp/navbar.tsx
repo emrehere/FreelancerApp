@@ -10,7 +10,7 @@ function Navbar() {
 
 
   return (
-    <div className='flex flex-row px-[1%] py-[1%] font-bold  bg-blue-50 h-[12vh]'>
+    <div className='flex flex-row px-[1%] py-[1%] font-bold  bg-blue-50 h-[12vh] '>
       <div className='w-[60vw]'>
         
         <p className='text-2xl pl-[5%]'>LOGO</p>

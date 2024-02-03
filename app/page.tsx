@@ -27,8 +27,10 @@ const Page: React.FC = () => {
   }, []);
 
   return (
+    <div className="h-[380vh]">
+
     <div  style={{ backgroundImage: `url(${myBackgroundImage})`, height: '100vh', width: '100vw', backgroundSize: 'cover' }} >
-      <div className="flex items-center h-[100vh]">
+      <div className="flex items-center h-[110vh] mt-[12vh]">
         <div className="flex flex-col">
       <div className="flex flex-col w-[40vw]  ml-[3vw] tracking-wide leading-relaxed
        bg-blue-50 items-center -mt-[20vh] pl-2  rounded-3xl " >
@@ -40,10 +42,11 @@ const Page: React.FC = () => {
       </div>
       </div>
       </div>
-      <div className="h-[15vh]"></div>
+      <div className="h-[5vh]"></div>
       <Page2 />
       <div className="h-[15vh]"></div>
       <Page3 />
+    </div>
     </div>
   );
 };
