@@ -60,9 +60,9 @@ const Page: React.FC = () => {
       </div>
       </div>
       </div>
-      <div className="h-[5vh]"></div>
+      <div className="-mt-[9vh] sm:mt-0 h-[5vh]"></div>
       <Page2 />
-      <div className="h-[15vh]"></div>
+      <div className="sm:h-[15vh] h-[2vh]"></div>
       <Page3 />
     </div>
     </div>
