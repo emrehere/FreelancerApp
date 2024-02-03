@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./components/LandingComp/searchBar";
-
+import Page2 from "./components/LandingComp/page2";
+import Page3 from "./components/LandingComp/page3";
 
 const myBackgroundImage = '/ada1.jpg';
 
@@ -39,7 +40,10 @@ const Page: React.FC = () => {
       </div>
       </div>
       </div>
-      
+      <div className="h-[15vh]"></div>
+      <Page2 />
+      <div className="h-[15vh]"></div>
+      <Page3 />
     </div>
   );
 };

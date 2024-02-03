@@ -36,7 +36,7 @@ export default function RootLayout({
         <body style={{ fontFamily: 'Jockey One, sans-serif' }} className={inter.className}> 
         <Navbar/>
         {children} 
-        <Footer/>
+        {/* <Footer/> */}
         </body>
       </Provider>
     </html>
