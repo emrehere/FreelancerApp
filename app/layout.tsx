@@ -34,7 +34,7 @@ export default function RootLayout({
           />
       </Head>
         <body style={{ fontFamily: 'Jockey One, sans-serif' }} className={inter.className}> 
-        <div className="fixed top-0 left-0 w-full z-10 ">
+        <div className="fixed top-0 left-0 w-full z-10 sm:block hidden ">
         <Navbar/>
         </div>
        
@@ -42,6 +42,7 @@ export default function RootLayout({
           
          
           <Footer />
+       
           
         </body>
       </Provider>
