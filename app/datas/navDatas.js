@@ -10,7 +10,7 @@ const navDatas = [
     },
     {
         "title": "SIGN UP",
-        "href": "/about",
+        "href": "/signup",
         "icon": <MdJoinFull size={20} />
         
     }
