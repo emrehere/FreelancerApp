@@ -46,7 +46,7 @@ const Page: React.FC = () => {
 
   return (
     <div className="sm:h-[380vh] h-[335vh]">
-
+      
     <div  style={{ backgroundImage: `url(${backgroundImage})`, height: '100vh', width: '100vw', backgroundSize: 'cover' }} >
       <div className="flex items-center h-[110vh] sm:mt-[12vh]">
         <div className="flex flex-col">
