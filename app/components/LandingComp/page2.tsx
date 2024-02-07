@@ -9,7 +9,7 @@ function page2() {
                  <div className='block sm:hidden sm:w-[48vw] sm:h-[110vh] rounded-r-xl'>
                     <img className='sm:w-[48vw] sm:h-[110vh] rounded-r-xl' src="/kadin.jpg" alt="kadin" />
                 </div>
-                <div className='sm:w-[48vw] flex flex-col px-[7%] sm:px-0  p-[3%] 
+                <div className='sm:w-[48vw] flex flex-col px-[7%]   p-[3%] 
                  tracking-widest leading-loose sm:space-y-8 justify-center mt-[5vh] sm:mt-0 
                  space-y-12'>
                     <p className='text-md font-extrabold text-gray-500'>Işletmenizi büyütün</p>

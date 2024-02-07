@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
+import CheckboxComp from '../components/radixUI/checkboxComp';
+import { FaDotCircle } from "react-icons/fa";
 
 export default function SingIn() {
 
@@ -26,13 +28,13 @@ export default function SingIn() {
         setPasswordType((prevType) => (prevType === "password" ? "text" : "password"));
         setTimeout(() => {
           setPasswordType("password");
-        }, 500);
+        }, 750);
       };
 
     return (       
         <div className='bg-blue-50 pb-[20vh] pt-[5vh] '>
             <div className="flex flex-col items-center justify-center
-            h-[90vh] w-[90vw] mt-[10vh] bg-white mx-auto  " >
+            h-[115vh] w-[90vw] mt-[10vh] bg-white mx-auto  " >
                 <h1 className='text-3xl font-bold text-gray-800 mb-2 '>Log In</h1>
                 <p className='font-thin text-gray-500 text-md mb-8'>Don't have an account?
                  <span className='text-orange-500 text-lg font-semibold '> Sign Up</span></p>
@@ -56,14 +58,20 @@ export default function SingIn() {
                         <p className='text-gray-500 font-bold'>EMAIL</p>
                         <input className='w-[35vw] bg-blue-200 bg-opacity-50 h-12 rounded-xl outline-orange-500' type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <p className='text-gray-500 font-bold mt-4'>PASSWORD</p>
-                        <div>
+                        <div className='flex items-center'>
                         <input className='w-[35vw] bg-blue-200 bg-opacity-50 h-12 rounded-xl outline-orange-500' type={passwordType} value={password} onChange={(e) => setPassword(e.target.value)} /> 
-                        <span onClick={changePasswordType} className='absolute -ml-[2vw]'>dot</span>
+                        <span onClick={changePasswordType} className=' -ml-[2vw] text-gray-500 '><FaDotCircle /></span>
+                        </div>
+                        <div className='text-gray-500  font-semibold mt-4 mx-2 items-center flex flex-row justify-between'>
+                        <CheckboxComp NamedByParent="Remember me" />
+                        <p className='font-medium text-[13px] '>Forgot Password?</p>
+                        
                         </div>
                   
-                    <button onClick={signIn} >Sign In</button>
+                    <button onClick={signIn} className='text-white bg-orange-500 w-[35vw] rounded-xl
+                    h-12 mt-4 font-bold tracking-widest text-xl hover:scale-105 transition ease-in-out' >LOG IN</button>
                     {
-                        warning ? <p className='text-red-500'>Please check your email and password</p> : null
+                        warning ? <p className='text-red-500 flex justify-center mt-2'>Please check your email and password</p> : null
                     }
                     </div>
                     </div>

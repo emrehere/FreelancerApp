@@ -11,6 +11,9 @@ import React from "react";
 import Footer from "./components/footer";
 import Navbar from "./components/NavbarComp/navbar";
 import MobileNavbar from "./components/NavbarComp/mobileNavbar";
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +39,7 @@ export default function RootLayout({
           />
       </Head>
         <body style={{ fontFamily: 'Jockey One, sans-serif' }} className={inter.className}> 
+        <Theme>
         <div className="fixed top-0 left-0 w-full z-10 sm:block hidden ">
         <Navbar/>
         </div>
@@ -49,7 +53,7 @@ export default function RootLayout({
          
           <Footer />
        
-          
+        </Theme>
         </body>
       </Provider>
     </html>

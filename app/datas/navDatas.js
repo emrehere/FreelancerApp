@@ -4,7 +4,7 @@ import { MdJoinFull } from "react-icons/md";
 const navDatas = [
     {
         "title": "SIGN IN",
-        "href": "/contact",
+        "href": "/signin",
         "icon": <FaSignInAlt size={20} />
         
     },
