@@ -39,7 +39,7 @@ export default function SignUp() {
         <input className="sm:w-[40vw] w-[80vw] h-11 p-2" type="text" placeholder="Password" />
         <div className="sm:pt-[5vh] pt-[3vh]">
         <button className="bg-orange-600 py-4 font-bold text-white tracking-widest rounded-xl
-        hover:scale-105  w-[40vw]  ">SIGN UP</button>
+        hover:scale-105  sm:w-[40vw]  w-[80vw] ">SIGN UP</button>
         <p className="text-sm pt-4 text-gray-400">Already have an account?</p>
         </div>
       </div>

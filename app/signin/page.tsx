@@ -69,7 +69,7 @@ export default function SingIn() {
                         
                         </div>
                   
-                    <button onClick={signIn} className='text-white bg-orange-500 w-[35vw] rounded-xl
+                    <button onClick={signIn} className='text-white bg-orange-500 sm:w-[35vw] w-[70vw] rounded-xl
                     h-12 mt-4 font-bold tracking-widest text-xl hover:scale-105 transition ease-in-out' >LOG IN</button>
                     {
                         warning ? <p className='text-red-500 flex justify-center mt-2'>Please check your email and password</p> : null
