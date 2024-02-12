@@ -4,6 +4,7 @@ import { searchParamSetter } from "../components/LandingComp/searchReducer"
 import { RootState } from '../store/RootReducer';
 import SearchBar from '../components/LandingComp/searchBar';
 import { jobOrTalentSetter } from './searchPageReducer';
+import PageForJobs from '../components/searchPageComp/pageForJobs';
 
 export default function JobsPage(){
 
@@ -59,6 +60,12 @@ export default function JobsPage(){
                 
             </div>
                
+            </div>
+
+            <div>
+                {
+                    jobOrTalent === "work" ? <PageForJobs /> : ""
+                }
             </div>
         </div>
     )
