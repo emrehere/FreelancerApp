@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const searchPageSlice = createSlice({
   name: 'searchPageReducer',
   initialState: {
-    jobOrTalent: "", // Corrected spelling of 'searchParam'
+    jobOrTalent: "work", // Corrected spelling of 'searchParam'
   },
   reducers: {
     // Use (state, action) instead of just (state)
