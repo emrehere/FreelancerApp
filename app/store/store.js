@@ -1,6 +1,6 @@
 "use client"
 import { configureStore } from '@reduxjs/toolkit'
-import RootReducer from './RootReducer'
+import rootReducer from './RootReducer';
 import globalSaga from './globalSagas'
 import createSagaMiddleware from 'redux-saga';
 
@@ -9,7 +9,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   
-  reducer: RootReducer,
+  reducer: rootReducer,
    middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({
         thunk: false

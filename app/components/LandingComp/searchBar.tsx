@@ -1,12 +1,22 @@
 import { IoMdSearch } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchParamSetter } from "./searchReducer"; 
+import { RootState } from "../../store/RootReducer"
+import { useRouter } from 'next/navigation'
 
 const SearchBar = ( { color} ) => {
 
     const [showMenu, setShowMenu] = useState(false)
     const [category1, setCategory1] = useState("Eleman")
     const [category2, setCategory2] = useState("Is Ara")
+
+    const dispatch = useDispatch();
+    
+    const searchParam = useSelector((state: RootState) => state.searchParamReducer.searchParam);
+
+    const router = useRouter()
 
     const handleShowMenu = () => {
         setShowMenu(!showMenu)
@@ -21,6 +31,25 @@ const SearchBar = ( { color} ) => {
             setCategory2("Is Ara")
         }
     }
+
+   
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(searchParamSetter(event.target.value));
+      
+    };
+
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter') {
+        navigateToSearchResults();
+      }
+    };
+  
+    const navigateToSearchResults = () => {
+      router.push('/searchPage');
+    };
+  
+
+    
 
 
   return (
@@ -38,13 +67,16 @@ const SearchBar = ( { color} ) => {
             </div>
            
       <input
+       value={searchParam}
+       onChange={handleInputChange}
+       onKeyDown={handleKeyPress}
         className="sm:w-[50vw] w-[70vw] h-20 px-12 bg-blue-50 rounded-3xl border-none outline-none
          text-slate-950 shadow-2xl shadow-slate-600 font-medium tracking-wider text-md " 
         placeholder='Dene "Grafik designer" '
       />
       
       <div style={{ backgroundColor: color }} className="h-20 sm:w-[5vw] w-[10vw]
-       translate-x-[-10vw] rounded-r-3xl flex items-center justify-center text-blue-50 ">
+       translate-x-[-3vw] rounded-r-3xl flex items-center justify-center text-blue-50 ">
       <IoMdSearch className="" size={32} />
       </div>
     </div>
