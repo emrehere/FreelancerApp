@@ -31,16 +31,30 @@ export default function JobsPage(){
                 <div className=' bg-[#18202b] h-[35vh] min-h-[200px] flex items-center w-full tracking-wide '>
                    <div className='flex -mt-[5vh] flex-col'>
                    <p className='text-3xl font-semibold ml-[3vw] text-blue-50'>{searchParam.toUpperCase()} Offers & Services</p>
-                    <p className='text-sm ml-[3vw] text-gray-400'>Looking for Web Developer offers and services? PeoplePerHour has you covered.</p>
+                    <p className='text-sm ml-[3vw] text-gray-400'>Looking for {searchParam} offers and services? PeoplePerHour has you covered.</p>
                    </div>
                 </div>
                 <div className='-mt-10 flex justify-center'>
                     <SearchBar color="orange" />
                 </div>
-                <div>
-                    <p onClick={handleTalent}>YETENEK</p>
-                    <p onClick={handleWork}>ISLER</p>
+                <div className='space-x-12 flex flex-row ml-[8vw] mt-[10vh] tracking-wider font-bold text-3xl '>
+                    <div className='hover:text-[#ffa500]'>
+                    <p className= {jobOrTalent === "talent" ? "text-[#ffa500]" : "text-gray-600"}  onClick={handleTalent}>YETENEK</p>
+                    
+                    </div>
+                    <p className= {jobOrTalent === "work" ? "text-[#ffa500]" : "text-gray-600"} onClick={handleWork}>ISLER</p>
                 </div>
+    
+                <div className='h-0.5 ml-[8vw] w-[83vw] my-4 bg-gray-700 opacity-30 '></div>
+                <div className=' ml-[8vw] space-x-8 -mt-5 z-10 flex flex-row ' >
+                {
+                    jobOrTalent === "talent" ? <p className='h-2 w-36   bg-[#ffa500] rounded-xl ' ></p> : <p className='h-2 w-36   bg-[#ffa500] rounded-xl opacity-0 ' ></p>
+                }
+                {
+                    jobOrTalent === "work" ? <p className='h-2 w-28   bg-[#ffa500] rounded-xl ' ></p> : ""
+                }
+                </div>
+                <div className='h-[20vh]'></div>
             <div>
                 
             </div>
