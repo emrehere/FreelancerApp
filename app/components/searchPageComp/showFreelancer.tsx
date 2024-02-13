@@ -15,9 +15,10 @@ export default function ShowFreelancer() {
 
     return (
         <div>
-            <div className='flex flex-row h-[100vh] fixed z-50  bg-gray-700 bg-opacity-70 '>
+            <div className='flex flex-row min-h-[100vh] h-screen fixed z-50
+             bg-gray-700 bg-opacity-70 overflow-y-auto'>
                 <div className='w-[30vw] '> </div>
-                <div className=' w-[70vw] bg-blue-50 rounded-3xl '>
+                <div className=' w-[70vw] bg-blue-50 overflow-y-auto h-screen rounded-3xl '>
                     <div className='ml-4 mr-8  '>
                         <button className='text-orange-500  ' onClick={() => dispatch(showFreelancerSetter(false))}><FaArrowLeft size={35} /></button>
                         <div className='border-[1px] border-gray-400 border-opacity-50
