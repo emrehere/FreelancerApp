@@ -1,4 +1,24 @@
-const freelancers = [
+type FreelancerData = {
+  freelancer: {
+    name: string;
+    location: string;
+    jobSuccess: string;
+    totalJobs: number;
+    totalHours: number;
+    hoursPerWeek: string;
+    responseTime: string;
+  };
+  skills: string[];
+  availability: {
+    readyToWork: boolean;
+    contractToHire: boolean;
+    responseTime: string;
+  };
+  linkedAccounts: string[];
+  profileDescription: string;
+};
+
+const freelancers: FreelancerData[] = [
     {
         "freelancer": {
           "name": "Alice W.",

@@ -19,7 +19,7 @@ export interface JobItem {
   }
   
 
-const jobsData = [
+const jobsData: JobItem[] = [
     {
         "projectDetails": {
             "title": "E-commerce Website Redesign",
