@@ -86,9 +86,9 @@ const SearchBar = ( { color} ) => {
     <div>
             {
                  showMenu && 
-                 <div onClick={handleCategory} style={{ backgroundColor: color }} className=" h-20 px-4 w-[10vw] translate-x-[2vw]
-                 text-blue-50 rounded-bl-3xl -mt-[3vh] flex flex-col  justify-center font-semibold text-xl
-                 space-x-4 ">
+                 <div onClick={handleCategory} style={{ backgroundColor: color }} className=" h-20 px-4 sm:w-[10vw] w-[25vw] sm:translate-x-[2vw]
+                 text-blue-50 rounded-bl-3xl sm:-mt-[3vh] -mt-4  flex sm:flex-col items-center justify-center font-semibold text-xl
+                 space-x-4  -ml-1 sm:ml-0  ">
                     <p>{category2}</p>
                     
                     

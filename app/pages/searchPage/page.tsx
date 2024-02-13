@@ -46,7 +46,7 @@ export default function SearchPage() {
                         <p className='text-sm ml-[3vw] text-gray-400'>Looking for {searchParam} offers and services? PeoplePerHour has you covered.</p>
                     </div>
                 </div>
-                <div className='-mt-10 flex justify-center'>
+                <div className='-mt-10 ml-4 flex justify-center'>
                     <SearchBar color="orange" />
                 </div>
                 <div className='space-x-12 flex flex-row ml-[8vw] mt-[10vh] tracking-wider font-bold text-3xl '>
