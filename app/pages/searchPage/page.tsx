@@ -1,11 +1,13 @@
 "use client"
 import { useDispatch, useSelector } from 'react-redux';
-import { searchParamSetter } from "../components/LandingComp/searchReducer"
-import { RootState } from '../store/RootReducer';
-import SearchBar from '../components/LandingComp/searchBar';
+import { searchParamSetter } from "../../components/LandingComp/searchReducer"
+import { RootState } from '../../store/RootReducer';
+import SearchBar from '../../components/LandingComp/searchBar';
 import { jobOrTalentSetter } from './searchPageReducer';
-import PageForJobs from '../components/searchPageComp/pageForJobs';
-import PageForFreelancers from '../components/searchPageComp/pageForFreelancers';
+import PageForJobs from '../../components/searchPageComp/pageForJobs';
+import PageForFreelancers from '../../components/searchPageComp/pageForFreelancers';
+import { showFreelancerSetter } from '../../pages/searchPage/searchPageReducer'
+
 
 export default function SearchPage() {
 
@@ -13,6 +15,7 @@ export default function SearchPage() {
 
     const searchParam = useSelector((state: RootState) => state.searchParamReducer.searchParam)
     const jobOrTalent = useSelector((state: RootState) => state.searchPageReducer.jobOrTalent)
+    const showFreelancer = useSelector((state: RootState) => state.searchPageReducer.showFreelancer)
 
     console.log(searchParam)
     console.log(jobOrTalent)
@@ -28,7 +31,17 @@ export default function SearchPage() {
 
     return (
         <div className="min-h-[100vh] w-full bg-blue-100 bg-opacity-80  text-gray-900 ">
+            {
+                showFreelancer && (
+                    <div className='flex flex-row h-[100vh] fixed z-50  '>
+                        <div className='w-[30vw] bg-gray-700 opacity-70'> </div>
+                        <div className=' w-[70vw] bg-blue-100 '> 
+                        <button onClick={() => dispatch(showFreelancerSetter(false))}>Go back</button>
+                        </div>
+                    </div>
+                )
 
+            }
             <div className="pt-[15vh] flex flex-col ">
                 <div className=' bg-[#18202b] h-[35vh] min-h-[200px] flex items-center w-full tracking-wide '>
                     <div className='flex -mt-[5vh] flex-col'>

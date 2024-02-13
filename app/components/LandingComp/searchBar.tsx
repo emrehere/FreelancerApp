@@ -45,7 +45,7 @@ const SearchBar = ( { color} ) => {
     };
   
     const navigateToSearchResults = () => {
-      router.push('/searchPage');
+      router.push('/pages/searchPage');
     };
   
 

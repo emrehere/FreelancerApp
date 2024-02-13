@@ -2,7 +2,7 @@ import FreelancerDatas from '../../datas/freelancerDatas'
 import FreelancerItem from '../searchPageComp/freelancerItem'
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { showFreelancerSetter, freelancerIndexSetter } from '../../searchPage/searchPageReducer'
+import { showFreelancerSetter, freelancerIndexSetter } from '../../pages/searchPage/searchPageReducer'
 
 export default function PageForFreelancers() {
 
@@ -23,7 +23,10 @@ export default function PageForFreelancers() {
 
 
     return (
+        <>
+       
         <div>
+            
             <div className='ml-[5vw] -mt-[7vh] flex flex-col text-gray-800'>
                 <div>
 
@@ -46,5 +49,6 @@ export default function PageForFreelancers() {
                 </div>
             </div>
         </div>
+        </>
     );
 }

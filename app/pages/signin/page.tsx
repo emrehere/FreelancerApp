@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
-import CheckboxComp from '../components/radixUI/checkboxComp';
+import CheckboxComp from '../../components/radixUI/checkboxComp';
 import { FaDotCircle } from "react-icons/fa";
 
 export default function SingIn() {

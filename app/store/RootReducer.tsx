@@ -3,7 +3,7 @@
 import { combineReducers } from 'redux';
 import NavReducer from '../components/NavbarComp/NavReducer'
 import searchParamsReducer from '../components/LandingComp/searchReducer'
-import searchPageReducer from '../searchPage/searchPageReducer'
+import searchPageReducer from '../pages/searchPage/searchPageReducer'
 
 
 const rootReducer = combineReducers({
