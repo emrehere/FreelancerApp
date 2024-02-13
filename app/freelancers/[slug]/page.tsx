@@ -9,3 +9,5 @@ interface Params {
       </div>
     )
   }
+
+  //belki isimize yarar kalsin kosede

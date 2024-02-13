@@ -1,15 +1,26 @@
 import FreelancerDatas from '../../datas/freelancerDatas'
 import FreelancerItem from '../searchPageComp/freelancerItem'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { showFreelancerSetter, freelancerIndexSetter } from '../../searchPage/searchPageReducer'
 
 export default function PageForFreelancers() {
 
     const searchParam = useSelector((state: any) => state.searchParamReducer.searchParam)
 
-    const [showProfile, setShowProfile] = useState(false)
+    
+
+    const dispatch = useDispatch()
     
     
+    const handleFreelancerClick = ( index: any ) => {
+
+        dispatch(showFreelancerSetter(true))
+        dispatch(freelancerIndexSetter(index))
+       
+
+    }
+
 
     return (
         <div>
@@ -25,7 +36,7 @@ export default function PageForFreelancers() {
                         {
                             FreelancerDatas.map((item, index) => {
                                 return (
-                                    <div onClick={() => setShowProfile(!showProfile)} key={index} >
+                                    <div onClick={ () => handleFreelancerClick(index) } key={index} >
                                         <FreelancerItem item={item} />
                                     </div>
                                 )
