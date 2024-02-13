@@ -14,7 +14,7 @@ export default function Reviews() {
                         return (
                             <div className='border-b-2 hover:bg-orange-50  border-gray-300 p-8' key={index}>
                                 <p className='font-semibold text-xl text-gray-800 '>{item.jobTitle}</p>
-                                <div className='flex flex-row text-gray-600 mb-4 mt-2'>
+                                <div className='flex sm:flex-row flex-col text-gray-600 mb-4 mt-2'>
                                 <p>{item.duration}  &nbsp; - &nbsp;  </p>
                                 <p>Earning : {item.earnings}  &nbsp; - &nbsp; </p>
                                 <p>Rating : {item.employeeFeedback.rating}</p>

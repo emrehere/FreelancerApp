@@ -42,7 +42,7 @@ export default function PageForFreelancers() {
        
         <div>
             
-            <div  className='ml-[5vw] -mt-[7vh] flex flex-col text-gray-800'>
+            <div  className='sm:ml-[5vw] -mt-[7vh] flex flex-col text-gray-800'>
                 <div>
 
                     <div className='flex justify-center text-2xl font-semibold -ml-[10vw] '>

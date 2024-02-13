@@ -17,8 +17,8 @@ export default function ShowFreelancer() {
         <div>
             <div className='flex flex-row min-h-[100vh] h-screen fixed z-50
              bg-gray-700 bg-opacity-70 overflow-y-auto'>
-                <div className='w-[30vw] '> </div>
-                <div className=' w-[70vw] bg-blue-50 overflow-y-auto h-screen rounded-3xl '>
+                <div className='sm:w-[30vw]  '> </div>
+                <div className=' sm:w-[70vw] w-[100vw] bg-blue-50 overflow-y-auto h-screen rounded-3xl '>
                     <div className='ml-4 mr-8  '>
                         <button className='text-orange-500  ' onClick={() => dispatch(showFreelancerSetter(false))}><FaArrowLeft size={35} /></button>
                         <div className='border-[1px] border-gray-400 border-opacity-50
@@ -39,7 +39,7 @@ export default function ShowFreelancer() {
                             <p className='text-gray-900'>{FreelancerDatas[freelancerIndex].profileDescription}</p>
                         </div>
                         <div className='border-[1px] border-gray-400 border-opacity-50
-                           flex flex-col px-16 py-8 items-center tracking-wide rounded-b-2xl'>
+                           flex flex-col sm:px-16 py-8 items-center tracking-wide rounded-b-2xl'>
                             <p className='text-2xl text-gray-800 font-semibold mb-4'>Work history</p>
                             <div>
                         <Reviews />

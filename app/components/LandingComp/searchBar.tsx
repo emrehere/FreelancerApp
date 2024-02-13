@@ -56,7 +56,7 @@ const SearchBar = ( { color} ) => {
 
   return (
     <div>
-    <div className="flex items-center sm:ml-0 -ml-[3vw]">
+    <div className="flex items-center sm:ml-0 -ml-[7vw]">
         <div onClick={handleShowMenu} style={{ backgroundColor: color }} className=" h-20 
         w-[25vw] sm:w-[10vw] sm:translate-x-[2vw] translate-x-[6vw]
          text-blue-50 rounded-l-3xl flex items-center justify-center font-semibold sm:text-xl
