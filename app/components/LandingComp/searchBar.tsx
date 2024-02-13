@@ -49,7 +49,9 @@ const SearchBar = ( { color} ) => {
     };
   
 
-    
+    const directFunc = () => {
+        router.push('/pages/searchPage');
+    }
 
 
   return (
@@ -63,7 +65,7 @@ const SearchBar = ( { color} ) => {
             <p>{category1}</p>
            
             </div>
-            <FaChevronDown size={22} />
+            <FaChevronDown  size={22} />
             </div>
            
       <input
@@ -75,9 +77,9 @@ const SearchBar = ( { color} ) => {
         placeholder='Dene "Grafik designer" '
       />
       
-      <div style={{ backgroundColor: color }} className="h-20 sm:w-[5vw] w-[10vw]
+      <div onClick={ directFunc} style={{ backgroundColor: color }} className="h-20 sm:w-[5vw] w-[10vw]
        translate-x-[-3vw] rounded-r-3xl flex items-center justify-center text-blue-50 ">
-      <IoMdSearch className="" size={32} />
+      <IoMdSearch  size={32} />
       </div>
     </div>
 

@@ -2,7 +2,7 @@ export default function FreelancerItem({ item }: any) {
     return (
         <div>
             <div className="bg-orange-50 bg-opacity-50 hover:bg-orange-100 hover:bg-opacity-60 shadow-sm shadow-orange-300
-             flex flex-col m-4 w-[80vw] h-[44vh] min-h-[250px] py-4 px-8 space-y-4 rounded-xl">
+             flex flex-col m-4 w-[80vw] h-[44vh] min-h-[200px] py-4 px-8 space-y-4 rounded-xl">
                 <div className="flex flex-row">
                     <img className="rounded-full h-24 w-24" src="/kadin.jpg" />
                     <div className="ml-8 space-y-1 ">

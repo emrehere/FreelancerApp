@@ -5,7 +5,7 @@ export default function jobItem({ item }: any) {
     return (
         <div>
             <div className="bg-orange-50 bg-opacity-50 hover:bg-orange-100 hover:bg-opacity-60 shadow-sm shadow-orange-300
-             flex flex-col m-4 w-[80vw] h-[42vh] min-h-[250px] p-8 rounded-xl">
+             flex flex-col m-4 w-[80vw] h-[42vh] min-h-[200px] p-8 rounded-xl">
                 <div className="-mt-2">
                     <p className="text-[14px] te">  posted bla bla ago </p>
                     <p className="text-xl font-bold my-1">  {item.projectDetails.title}</p>

@@ -1,14 +1,26 @@
 import jobsData from '../../datas/jobsData'
-import JobItem from './jobItem';
-import { useSelector } from 'react-redux';
+import JobItem from './jobItem'
 import { RootState } from '../../store/RootReducer';
+import { showWorkSetter, workIndexSetter } from '../../pages/searchPage/searchPageReducer'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
 export default function PageForJobs() {
-    const searchParam = useSelector((state: RootState) => state.searchParamReducer.searchParam)
+   
+    const workIndex = useSelector((state: any) => state.searchPageReducer.workIndex)
+    const showWork = useSelector((state: any) => state.searchPageReducer.showWork)
+    const searchParam = useSelector((state: RootState) => state.searchPageReducer.jobOrTalent)
 
-    console.log(jobsData)
+    const dispatch = useDispatch()
+
+    const handleShowWork = (index : any) => {
+
+        dispatch(showWorkSetter(true))
+        dispatch(workIndexSetter(index))
+        
+    }
+
 
     return (
         <div>
@@ -21,8 +33,8 @@ export default function PageForJobs() {
                 {
                     jobsData.map((item, index) => {
                         return (
-                            <div  key={index}>
-                                <JobItem item={item} />
+                            <div onClick={() => handleShowWork(index) } key={index}>
+                                <JobItem  item={item} />
                             </div>
                         )
                     })
