@@ -1,4 +1,24 @@
 
+export interface JobItem {
+    projectDetails: {
+      title: string;
+      hourlyRate: string;
+      duration: string;
+      experienceLevel: string;
+      remoteJob: boolean;
+      projectType: string;
+    };
+    skillsAndExpertise: {
+      ecommerceDevelopmentSkills: boolean;
+      skills: string[];
+    };
+    activity: {
+      // ...;
+    };
+    jobDescription: string;
+  }
+  
+
 const jobsData = [
     {
         "projectDetails": {

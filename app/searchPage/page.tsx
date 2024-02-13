@@ -7,7 +7,7 @@ import { jobOrTalentSetter } from './searchPageReducer';
 import PageForJobs from '../components/searchPageComp/pageForJobs';
 import PageForFreelancers from '../components/searchPageComp/pageForFreelancers';
 
-export default function JobsPage() {
+export default function SearchPage() {
 
     const dispatch = useDispatch()
 
@@ -27,7 +27,7 @@ export default function JobsPage() {
 
 
     return (
-        <div className="min-h-[100vh] w-full bg-blue-100  text-gray-900 ">
+        <div className="min-h-[100vh] w-full bg-blue-100 bg-opacity-80  text-gray-900 ">
 
             <div className="pt-[15vh] flex flex-col ">
                 <div className=' bg-[#18202b] h-[35vh] min-h-[200px] flex items-center w-full tracking-wide '>
