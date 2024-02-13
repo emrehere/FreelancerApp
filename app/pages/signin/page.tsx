@@ -5,6 +5,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import CheckboxComp from '../../components/radixUI/checkboxComp';
 import { FaDotCircle } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 
 export default function SingIn() {
 
@@ -12,6 +13,8 @@ export default function SingIn() {
     const [password, setPassword] = useState("")
     const [passwordType, setPasswordType] = useState("password")
     const [warning, setWarning] = useState(false)
+
+    const router = useRouter()
 
     const signIn = () => {
         if(email.includes("@") && password.length >= 6) {
@@ -65,7 +68,7 @@ export default function SingIn() {
                         </div>
                         <div className='text-gray-500  font-semibold mt-4 mx-2 items-center flex flex-row justify-between'>
                         <CheckboxComp NamedByParent="Remember me" />
-                        <p className='font-medium text-[13px] '>Forgot Password?</p>
+                        <p onClick={ () => router.push('/pages/forgotPassword') } className='font-medium text-[13px] '>Forgot Password?</p>
                         
                         </div>
                   
