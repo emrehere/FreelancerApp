@@ -2,6 +2,7 @@ import { showFreelancerSetter } from '../../pages/searchPage/searchPageReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { FaArrowLeft } from "react-icons/fa6";
 import FreelancerDatas from '../../datas/freelancerDatas'
+import Reviews from './reviews';
 
 
 export default function ShowFreelancer() {
@@ -41,7 +42,9 @@ export default function ShowFreelancer() {
                             <p className='text-2xl font-medium mb-8'>Work history</p>
                             
                         </div>
-                        <p></p>
+                       <div>
+                        <Reviews />
+                       </div>
                     </div>
 
                 </div>
