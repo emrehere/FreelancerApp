@@ -1,12 +1,13 @@
 import FreelancerDatas from '../../datas/freelancerDatas'
 import FreelancerItem from '../searchPageComp/freelancerItem'
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { showFreelancerSetter, freelancerIndexSetter } from '../../pages/searchPage/searchPageReducer'
 
 export default function PageForFreelancers() {
 
     const searchParam = useSelector((state: any) => state.searchParamReducer.searchParam)
+    const ShowFreelancer = useSelector((state: any) => state.searchPageReducer.showFreelancer)
 
     
 
@@ -21,13 +22,27 @@ export default function PageForFreelancers() {
 
     }
 
+    useEffect(() => {
+        // Disable scroll when ShowFreelancer is true
+        if (ShowFreelancer) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          // Re-enable scroll when ShowFreelancer is false
+          document.body.style.overflow = 'auto';
+        }
+    
+        // Cleanup the effect on component unmount
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [ShowFreelancer]);
 
     return (
         <>
        
         <div>
             
-            <div className='ml-[5vw] -mt-[7vh] flex flex-col text-gray-800'>
+            <div  className='ml-[5vw] -mt-[7vh] flex flex-col text-gray-800'>
                 <div>
 
                     <div className='flex justify-center text-2xl font-semibold -ml-[10vw] '>

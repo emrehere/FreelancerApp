@@ -3,9 +3,12 @@ import React, { useEffect } from 'react';
 import NavDatas from '../../datas/navDatas'
 import NavItem from '../NavbarComp/NavItem'
 import SearchComp from '../NavbarComp/searchComp'
+import { useRouter} from 'next/navigation'
 
 function Navbar() {
   const buttonName = "SEARCH"
+
+  const router = useRouter()
 
 
 
@@ -13,7 +16,7 @@ function Navbar() {
     <div className='flex flex-row px-[1%] py-[1%] font-bold  bg-blue-50 h-[12vh] '>
       <div className='w-[60vw]'>
         
-        <p className='text-2xl pl-[5%]'>LOGO</p>
+        <p className='text-2xl pl-[5%]' onClick={ () => router.push("/") } >LOGO</p>
       </div>
      <SearchComp buttonName={buttonName} />
       

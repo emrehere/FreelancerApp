@@ -40,12 +40,12 @@ export default function ShowFreelancer() {
                         </div>
                         <div className='border-[1px] border-gray-400 border-opacity-50
                            flex flex-col px-16 py-8 items-center tracking-wide rounded-b-2xl'>
-                            <p className='text-2xl font-medium mb-8'>Work history</p>
-                            
-                        </div>
-                       <div>
+                            <p className='text-2xl text-gray-800 font-semibold mb-4'>Work history</p>
+                            <div>
                         <Reviews />
                        </div>
+                        </div>
+                       
                     </div>
 
                 </div>
