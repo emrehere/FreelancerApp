@@ -13,7 +13,8 @@ export interface JobItem {
       skills: string[];
     };
     activity: {
-      // ...;
+      proposals: string;
+      lastViewedByClient: string;
     };
     jobDescription: string;
   }

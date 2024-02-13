@@ -7,6 +7,7 @@ import { jobOrTalentSetter } from './searchPageReducer';
 import PageForJobs from '../../components/searchPageComp/pageForJobs';
 import PageForFreelancers from '../../components/searchPageComp/pageForFreelancers';
 import ShowFreelancer from '../../components/searchPageComp/showFreelancer';
+import ShowWork from '../../components/searchPageComp/showWork';
 
 
 export default function SearchPage() {
@@ -16,9 +17,9 @@ export default function SearchPage() {
     const searchParam = useSelector((state: RootState) => state.searchParamReducer.searchParam)
     const jobOrTalent = useSelector((state: RootState) => state.searchPageReducer.jobOrTalent)
     const showFreelancer = useSelector((state: RootState) => state.searchPageReducer.showFreelancer)
+    const showWork = useSelector((state: RootState) => state.searchPageReducer.showWork) 
 
-    console.log(searchParam)
-    console.log(jobOrTalent)
+    console.log(showWork)
 
     const handleTalent = () => {
         dispatch(jobOrTalentSetter("talent"))
@@ -34,6 +35,9 @@ export default function SearchPage() {
             {
                 showFreelancer && <ShowFreelancer />
 
+            }
+            {
+                showWork && <ShowWork />
             }
             <div className="pt-[15vh] flex flex-col ">
                 <div className=' bg-[#18202b] h-[35vh] min-h-[200px] flex items-center w-full tracking-wide '>

@@ -3,6 +3,7 @@ import JobItem from './jobItem'
 import { RootState } from '../../store/RootReducer';
 import { showWorkSetter, workIndexSetter } from '../../pages/searchPage/searchPageReducer'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 
 
@@ -20,6 +21,21 @@ export default function PageForJobs() {
         dispatch(workIndexSetter(index))
         
     }
+
+    useEffect(() => {
+     
+        if ( showWork ) {
+          document.body.style.overflow = 'hidden';
+        } else {
+      
+          document.body.style.overflow = 'auto';
+        }
+    
+       
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [ showWork ]);
 
 
     return (

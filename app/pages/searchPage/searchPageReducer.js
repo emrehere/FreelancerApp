@@ -24,11 +24,12 @@ const searchPageSlice = createSlice({
     },
     workIndexSetter: (state, action) => {
         state.workIndex= action.payload; // Corrected action.payload assignment
-        console.log(state.workIndex)
+      
     },
     showWorkSetter: (state, action) => {
         state.showWork= action.payload; // Corrected action.payload assignment
         console.log(state.showWork)
+      
     }
 
   },
