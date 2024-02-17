@@ -8,8 +8,6 @@ import { Provider } from 'react-redux';
 
 import Head from "next/head";
 import React from "react";
-import Footer from "./components/footer";
-import Navbar from "./components/NavbarComp/navbar";
 import MobileNavbar from "./components/NavbarComp/mobileNavbar";
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
@@ -40,9 +38,7 @@ export default function RootLayout({
       </Head>
         <body style={{ fontFamily: 'Jockey One, sans-serif' }} className={inter.className}> 
         <Theme>
-        <div className="fixed top-0 left-0 w-full z-10 sm:block hidden ">
-        <Navbar/>
-        </div>
+     
         <div className="fixed top-0 left-0 w-[100vw] z-10 sm:hidden  " >
           <MobileNavbar/>
         </div>
@@ -50,8 +46,7 @@ export default function RootLayout({
        
             {children}
           
-         
-          <Footer />
+
        
         </Theme>
         </body>

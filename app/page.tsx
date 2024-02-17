@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./components/LandingComp/searchBar";
 import Page2 from "./components/LandingComp/page2";
 import Page3 from "./components/LandingComp/page3";
+import Footer from "./components/footer";
+import Navbar from "./components/NavbarComp/navbar";
 
 
 const desktopBackgroundImage = '/ada1.jpg';
@@ -45,6 +47,11 @@ const Page: React.FC = () => {
   }, []);
 
   return (
+    <>
+    <div className="fixed top-0 left-0 w-full z-10 sm:block hidden ">
+    <Navbar/>
+    </div>
+
     <div className="sm:h-[380vh] h-[335vh]">
       
     <div  style={{ backgroundImage: `url(${backgroundImage})`, height: '100vh', width: '100vw', backgroundSize: 'cover' }} >
@@ -66,6 +73,8 @@ const Page: React.FC = () => {
       <Page3 />
     </div>
     </div>
+     <Footer />
+     </>
   );
 };
 
