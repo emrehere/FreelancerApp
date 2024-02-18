@@ -1,4 +1,11 @@
-const modalDatas =  {
+interface ModalDatas {
+  [key: string]: {
+    soru: string;
+    secenekler: string[];
+  };
+}
+
+export const modalDatas: ModalDatas = {
       "Ev Temizliği": {
         "soru": "Ev temizliği hizmeti almak istediğiniz alanı seçin:",
         "secenekler": ["Ev İçi Temizlik", "Ofis Temizliği", "Dış Cephe Temizliği"]
