@@ -62,7 +62,7 @@ export default function YourSpecificPage() {
 
                 {
                     filteredDatas.length === 0 || searchTerm.length > 0 || (
-                        <div>
+                        <div className="w-full flex flex-col items-center">
                             <h3 className="text-lg font-medium text-gray-500 mb-2">POPÜLER HİZMETLER</h3>
 
                             {
