@@ -5,25 +5,27 @@ import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
 
+
 // modalDatas.slice(0, 6) : []
 
 export default function YourSpecificPage() {
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [filteredDatas, setFilteredDatas] = useState(modalDatas);
-  
+    const [filteredDatas, setFilteredDatas] = useState([]);
+
+    const slicedDatas = modalDatas.slice(0, 6)
+
+    function filterBySearchTerm() {
+        const filtered = slicedDatas.filter((data) =>
+            data.unvan.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredDatas(filtered);
+    }
+
     useEffect(() => {
-      // Filter the modalDatas based on the search term
-      const filtered = Object.keys(modalDatas)
-        .filter(key => key.toLowerCase().includes(searchTerm.toLowerCase()))
-        .reduce((obj, key) => {
-          obj[key] = modalDatas[key];
-          return obj;
-        }, {});
-  
-      setFilteredDatas(filtered);
-    }, [searchTerm]);
-        
+        filterBySearchTerm();
+    }, [searchTerm])
+
 
 
     return (
@@ -33,25 +35,47 @@ export default function YourSpecificPage() {
                 <FaRunning size={80} />
                 <h1>Ustam Kosuyor</h1>
             </div>
-            <div className="bg-white w-[70vw] h-[70vh] rounded-2xl flex flex-col items-center justify-center p-4 ">
+            <div className="bg-white w-[70vw] h-[70vh] rounded-2xl flex flex-col items-center  p-4 ">
                 <h2 className="text-2xl font-medium text-gray-700" >Hangi hizmete ihtiyacın var?</h2>
-                <div className="flex flex-row w-full m-2 items-center ">
-                <IoSearch className="absolute text-gray-400 ml-4" size={20} />
-                    <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="outline-none text-sm w-full h-10 px-8 font-medium m-2 text-gray-600 border-2 border-opacity-50 border-gray-400 " placeholder="Hizmete ihtiyacınız varsa buraya yazın" />
-                    
+                <div className="flex flex-col w-full m-2  ">
+                    <div className="flex flex-row w-full m-2 items-center ">
+                        <IoSearch className="absolute text-gray-400 ml-4" size={20} />
+                        <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="outline-none text-sm w-full h-10 px-8 font-medium m-2 text-gray-600 border-2 border-opacity-50 border-gray-400 " placeholder="Hizmete ihtiyacınız varsa buraya yazın" />
+                    </div>
+                    {
+                        searchTerm.length > 0 && filteredDatas.length > 0 && (
+                            <ul>
+                                {filteredDatas.map((item: any) => (
+                                    <li
+                                        key={item.unvan}
+                                        className="hover:bg-gray-100 w-full p-2 text-sm flex justify-center tracking-wide text-gray-600"
+                                    >
+                                        {item.unvan}
+                                    </li>
+                                ))}
+                            </ul>
+                        )
+                    }
                 </div>
 
-                <h3 className="text-xl font-medium text-gray-700 m-2">POPÜLER HİZMETLER</h3>
-                {
-                    Object.keys(modalDatas).slice(0, 6).map((key) => {
-                        const item = modalDatas[key];
-                        return (
-                            <div className="flex m-2 flex-row space-x-2 items-center text-gray-600" key={key}>
 
-                                <p>{key}</p>
-                            </div>
-                        );
-                    })
+
+                {
+                    filteredDatas.length === 0 || searchTerm.length > 0 || (
+                        <div>
+                            <h3 className="text-lg font-medium text-gray-500 mb-2">POPÜLER HİZMETLER</h3>
+
+                            {
+                                slicedDatas.map((item: any) => {
+                                    return (
+                                        <p className="hover:bg-gray-100 w-full p-2 text-sm flex justify-center tracking-wide text-gray-600">{item.unvan}</p>
+
+                                    )
+                                }
+                                )
+                            }
+                        </div>
+                    )
                 }
 
             </div>
