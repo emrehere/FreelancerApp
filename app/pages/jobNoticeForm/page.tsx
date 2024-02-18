@@ -9,6 +9,22 @@ import { IoSearch } from "react-icons/io5";
 
 export default function YourSpecificPage() {
 
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredDatas, setFilteredDatas] = useState(modalDatas);
+  
+    useEffect(() => {
+      // Filter the modalDatas based on the search term
+      const filtered = Object.keys(modalDatas)
+        .filter(key => key.toLowerCase().includes(searchTerm.toLowerCase()))
+        .reduce((obj, key) => {
+          obj[key] = modalDatas[key];
+          return obj;
+        }, {});
+  
+      setFilteredDatas(filtered);
+    }, [searchTerm]);
+        
+
 
     return (
 
@@ -21,8 +37,8 @@ export default function YourSpecificPage() {
                 <h2 className="text-2xl font-medium text-gray-700" >Hangi hizmete ihtiyacın var?</h2>
                 <div className="flex flex-row w-full m-2 items-center ">
                 <IoSearch className="absolute text-gray-400 ml-4" size={20} />
-                    <input className="outline-none text-sm w-full h-10 px-8 font-medium m-2 text-gray-600 border-2 border-opacity-50 border-gray-400 " placeholder="Hizmete ihtiyacınız varsa buraya yazın" />
-                   
+                    <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="outline-none text-sm w-full h-10 px-8 font-medium m-2 text-gray-600 border-2 border-opacity-50 border-gray-400 " placeholder="Hizmete ihtiyacınız varsa buraya yazın" />
+                    
                 </div>
 
                 <h3 className="text-xl font-medium text-gray-700 m-2">POPÜLER HİZMETLER</h3>
