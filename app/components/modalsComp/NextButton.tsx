@@ -1,0 +1,40 @@
+import React from 'react'
+import { motion } from 'framer-motion'
+import { FaArrowRightLong } from "react-icons/fa6";
+import { goToNextPage, goToPrevPage } from '../../pages/jobNoticeForm/modalReducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/app/store/RootReducer';
+
+
+function NextButton({ }) {
+
+
+    const dispatch = useDispatch()
+
+    const modalIndex = useSelector((state: RootState) => state.modalReducer.modalIndex)
+
+
+    console.log(modalIndex)
+
+
+
+    return (
+        <div className="w-full flex justify-center bg-[#1a1c28]  text-white ">
+            <div className="w-[70vw]  flex justify-end ">
+                <div className=' px-4 py-4  space-x-4 flex flex-row' onClick={() => dispatch(goToNextPage())}>
+                    <button className="tect-2xl font-medium tracking-widest" > ILERI</button>
+                    <motion.div
+                        className="pr-4"
+                        whileHover={{ x: [0, 8, 0, 8, 0], transition: { duration: 1 } }}
+                    >
+                        <FaArrowRightLong size={20} />
+                    </motion.div>
+                </div>
+            </div>
+
+        </div>
+
+    )
+}
+
+export default NextButton
