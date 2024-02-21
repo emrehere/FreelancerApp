@@ -6,6 +6,8 @@ interface City {
     counties: string[];
 }
 
+
+
 const CitiesData: City[] = [
     {
       "name": "adana",

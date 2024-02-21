@@ -23,11 +23,6 @@ export default function ScrollAreaByCounty() {
     
 
 
-
-
-
- 
-
     const handleClickOutside = (event: MouseEvent) => {
         if (scrollAreaRef.current && event.target && !scrollAreaRef.current.contains(event.target as Node)) {
             dispatch(showCounty(false));

@@ -19,7 +19,7 @@ function page4() {
                 <h1>Ustam Kosuyor</h1>
                 </div>
             </div>
-            <div style={{ height: countyOpen ? "25rem" : "15rem"}} className="bg-white overflow-hidden w-[70vw]  rounded-2xl flex flex-col items-center  ">
+            <div style={{ height: countyOpen || citiesOpen ? "25rem" : "15rem"}} className="bg-white overflow-hidden w-[70vw]  rounded-2xl flex flex-col items-center  ">
             
 
 

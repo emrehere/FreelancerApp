@@ -1,30 +1,43 @@
 import React from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import CitiesData from '../../datas/cities'
-import { useDispatch, useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
-import { showCities } from '@/app/pages/jobNoticeForm/modalReducer';
+import { showCities, getChosenCity } from '@/app/pages/jobNoticeForm/modalReducer';
+
 
 type City = {
     name: string;
     plate: string;
-  };
+};
 
 export default function scrollAreaByCity() {
-    
+
+
+    const scrollAreaRef = useRef<HTMLDivElement>(null);
 
     const [citySearchTerm, setCitySearchTerm] = useState("");
     const [filteredDatas, setFilteredDatas] = useState([]);
+    
 
     const citiesOpen = useSelector((state: RootState) => state.modalReducer.citiesOpen)
- 
+    const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity)
+
     const dispatch = useDispatch();
 
-    const getCityINdex = (city: City) => {
-        console.log( city.plate )
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setCitySearchTerm(event.target.value);
     }
-    
+
+    useEffect(() => {       
+        if (chosenCity) {
+            setCitySearchTerm(chosenCity.name);
+        }
+        dispatch(showCities(false))
+    }, [chosenCity])
+
 
 
     function filterByCitySearchTerm() {
@@ -38,26 +51,48 @@ export default function scrollAreaByCity() {
         filterByCitySearchTerm();
     }, [citySearchTerm])
 
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if ( scrollAreaRef.current && event.target && !scrollAreaRef.current.contains(event.target as Node)) {
+            
+                dispatch(showCities(false))
+        
+        }
+    };
+
+    console.log(citiesOpen)
+
+    useEffect(() => {
+        if (citiesOpen) {
+          document.addEventListener("mousedown", handleClickOutside);
+        }
+      
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      
+      }, [citiesOpen, dispatch, scrollAreaRef]);
+
     return (
-        <ScrollArea.Root className="w-[300px]   rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-white">
+        <ScrollArea.Root ref={scrollAreaRef} className="w-[300px]   rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-white">
             <ScrollArea.Viewport className="w-full h-full rounded">
                 <div className="py-[15px] px-5">
                     <div onClick={() => dispatch(showCities())} className="text-violet11 text-[15px] h-[40px] leading-[18px] font-medium flex items-center justify-center">
-                        <input value={citySearchTerm} onChange={(e) => setCitySearchTerm(e.target.value)} className='h-[30px] w-full px-4' type="text" placeholder='Search' />
+                        <input value={citySearchTerm} onChange={handleSearchChange} className='h-[30px] w-full px-4' type="text" placeholder='Search' />
                     </div>
                     {
                         citiesOpen && (
                             <div className='h-[180px]'>
-                                {filteredDatas.map((city : City) => (
-                        <div
-                        onClick={()=> getCityINdex(city)}
-                            className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
+                                {filteredDatas.map((city: City) => (
+                                    <div
+                                        onClick={() => dispatch(getChosenCity(city))}
+                                        className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
                  cursor-pointer leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6 flex justify-center items-center"
-                            key={city.plate}
-                        >
-                            <p className='pb-2'>{city.name.charAt(0).toUpperCase() + city.name.slice(1)}</p>
-                        </div>
-                    ))}
+                                        key={city.plate}
+                                    >
+                                        <p className='pb-2'>{city.name.charAt(0).toUpperCase() + city.name.slice(1)}</p>
+                                    </div>
+                                ))}
                             </div>
                         )
                     }
