@@ -10,7 +10,7 @@ function mobileNavbar() {
   const toggleMobileMenu = () => {
     setIsOpen(!isOpen);
     document.documentElement.style.overflow = isOpen ? 'auto' : 'hidden';
-    console.log(isOpen)
+
   }
 
 

@@ -19,7 +19,7 @@ export default function SearchPage() {
     const showFreelancer = useSelector((state: RootState) => state.searchPageReducer.showFreelancer)
     const showWork = useSelector((state: RootState) => state.searchPageReducer.showWork) 
 
-    console.log(showWork)
+  
 
     const handleTalent = () => {
         dispatch(jobOrTalentSetter("talent"))

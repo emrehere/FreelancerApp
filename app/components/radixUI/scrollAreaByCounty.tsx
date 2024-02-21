@@ -1,4 +1,3 @@
-import React from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import { useState, useEffect, useRef } from 'react';
 import CitiesData from '../../datas/cities'
@@ -7,12 +6,16 @@ import { RootState } from '@/app/store/RootReducer';
 import { showCounty } from '@/app/pages/jobNoticeForm/modalReducer';
 
 export default function ScrollAreaByCounty() {
-   
+    const  [chosenCounty, setChosenCounty] = useState<string>("");
+    const [countySearch, setCountySearch] = useState<string>("");
    
     
     const scrollAreaRef = useRef<HTMLDivElement>(null);
 
+    
+
     const countyOpen = useSelector((state: RootState) => state.modalReducer.countyOpen)
+    const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity)
 
  
     const dispatch = useDispatch();
@@ -31,26 +34,35 @@ export default function ScrollAreaByCounty() {
 
     useEffect(() => {
     
-        document.addEventListener("mousedown", handleClickOutside);
+        if (countyOpen ) {
+            document.addEventListener("mousedown", handleClickOutside);
     
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [dispatch, scrollAreaRef]);
+        }
+    }, [countyOpen, dispatch, scrollAreaRef]);
 
+    
+    const handleChosenCounty = (event: React.MouseEvent<HTMLDivElement>) => {
+        setChosenCounty(event.currentTarget.textContent as string);
+        dispatch(showCounty(false))
+        setCountySearch(event.currentTarget.textContent as string)
+    }
+    
 
     return (
         <ScrollArea.Root ref={scrollAreaRef}  className="w-[300px]   rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-white">
             <ScrollArea.Viewport className="w-full h-full rounded">
                 <div className="py-[15px] px-5">
                     <div onClick={handleCountyOpen} className="text-violet11 text-[15px] h-[40px] leading-[18px] font-medium flex items-center justify-center">
-                        <input  className='h-[30px] w-full px-4' type="text" placeholder='Search' />
+                        <input value={countySearch} onChange={ (e) => setCountySearch(e.target.value) }  className='h-[30px] w-full px-4' type="text" placeholder='Search' />
                     </div>
                     {
                         countyOpen && (
-                            <div   className='h-[180px]'>
-                                ((county) => (
-                        <div
+                            <div   className='h-[120px]'>
+                              {   chosenCity.counties.map((county) => (
+                        <div onClick={handleChosenCounty}
                             className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
                  cursor-pointer leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6 flex justify-center items-center"
                             key={county}

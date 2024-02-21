@@ -14,7 +14,7 @@ export default function SearchComp({buttonName}: any) {
   
 
     useEffect(() => {
-      console.log(searchToggle)
+
     }, [searchToggle])
 
     return (

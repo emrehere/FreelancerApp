@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import CitiesData from '../../datas/cities'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
-import { showCities, getChosenCity } from '@/app/pages/jobNoticeForm/modalReducer';
+import { showCities, getChosenCity, getCitySearchTerm } from '@/app/pages/jobNoticeForm/modalReducer';
 
 
 type City = {
@@ -17,23 +17,26 @@ export default function scrollAreaByCity() {
 
     const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-    const [citySearchTerm, setCitySearchTerm] = useState("");
     const [filteredDatas, setFilteredDatas] = useState([]);
     
 
     const citiesOpen = useSelector((state: RootState) => state.modalReducer.citiesOpen)
     const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity)
+    const citySearchTerm = useSelector((state: RootState) => state.modalReducer.citySearchTerm)
+  
 
     const dispatch = useDispatch();
 
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCitySearchTerm(event.target.value);
+        dispatch(getCitySearchTerm(event.target.value))     
     }
+
+   
 
     useEffect(() => {       
         if (chosenCity) {
-            setCitySearchTerm(chosenCity.name);
+            dispatch(getCitySearchTerm(chosenCity.name))
         }
         dispatch(showCities(false))
     }, [chosenCity])
@@ -60,7 +63,7 @@ export default function scrollAreaByCity() {
         }
     };
 
-    console.log(citiesOpen)
+
 
     useEffect(() => {
         if (citiesOpen) {

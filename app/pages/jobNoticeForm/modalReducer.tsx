@@ -9,6 +9,7 @@ const modalSlice = createSlice({
     citiesOpen: false,
     countyOpen: false,
     chosenCity: "",
+    citySearchTerm: "",
   },
   reducers: {
 
@@ -20,7 +21,7 @@ const modalSlice = createSlice({
     },
     displayIndexFunc: (state, action) => {
         state.modalDisplayIndex = action.payload
-        console.log(state.modalDisplayIndex)
+ 
     },
     showCities: (state, action) => {
         state.citiesOpen = !state.citiesOpen 
@@ -28,15 +29,18 @@ const modalSlice = createSlice({
     },
     showCounty: (state , action) => {
         state.countyOpen = !state.countyOpen 
-        console.log(state.countyOpen)
+    
     },
     getChosenCity: (state, action) => {
         state.chosenCity = action.payload
+    },
+    getCitySearchTerm: (state, action) => {
+        state.citySearchTerm = action.payload
     }
   },
 });
 
 export const { goToNextPage, goToPrevPage, displayIndexFunc, showCities, showCounty,
-  getChosenCity } = modalSlice.actions;
+  getChosenCity, getCitySearchTerm } = modalSlice.actions;
 
 export default modalSlice.reducer;

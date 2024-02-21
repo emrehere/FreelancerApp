@@ -28,7 +28,7 @@ const searchPageSlice = createSlice({
     },
     showWorkSetter: (state, action) => {
         state.showWork= action.payload; // Corrected action.payload assignment
-        console.log(state.showWork)
+       
       
     }
 
