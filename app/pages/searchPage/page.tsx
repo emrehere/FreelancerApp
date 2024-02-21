@@ -47,7 +47,7 @@ export default function SearchPage() {
                     </div>
                 </div>
                 <div className='-mt-10 ml-4 flex justify-center'>
-                    <SearchBar color="orange" />
+                    <SearchBar hrefFromParent="/pages/searchPage" color="orange" />
                 </div>
                 <div className='space-x-12 flex flex-row ml-[8vw] mt-[10vh] tracking-wider font-bold text-3xl '>
                     <div className='hover:text-[#ffa500]'>

@@ -1,6 +1,7 @@
 import React from 'react'
 import NextButton from "@/app/components/modalsComp/NextButton";
 import { FaRunning } from "react-icons/fa";
+import ScrollAreaDemo from '../radixUI/scrollArea';
 
 function page4() {
   return (
@@ -15,7 +16,9 @@ function page4() {
             
 
 
-                    Page4
+                  <div className='mt-12'>
+                  <ScrollAreaDemo />
+                  </div>
 
              
                 <div className="flex flex-grow"></div>

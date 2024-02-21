@@ -63,7 +63,7 @@ const Page: React.FC = () => {
         <h2 className="text-2xl text-gray-700 p-4 font-semibold ">1 milyon işletme tarafından güvenilen freelancer web sitesinde küresel yeteneklere erişim sağlayın.</h2>
       </div>
       <div className="ml-[3vw] mt-[4vh]" >
-      <SearchBar  color={color} />
+      <SearchBar hrefFromParent={'/pages/jobNoticeForm'}  color={color} />
       </div>
       </div>
       </div>
