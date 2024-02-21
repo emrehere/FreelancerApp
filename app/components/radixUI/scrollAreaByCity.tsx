@@ -6,22 +6,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import { showCities } from '@/app/pages/jobNoticeForm/modalReducer';
 
+type City = {
+    name: string;
+    plate: string;
+  };
+
 export default function scrollAreaByCity() {
-    const cityNames = CitiesData.map((city) => city.name);
+    
 
     const [citySearchTerm, setCitySearchTerm] = useState("");
-    const [filteredDatas, setFilteredDatas] = useState(cityNames);
+    const [filteredDatas, setFilteredDatas] = useState([]);
 
     const citiesOpen = useSelector((state: RootState) => state.modalReducer.citiesOpen)
  
     const dispatch = useDispatch();
+
+    const getCityINdex = (city: City) => {
+        console.log( city.plate )
+    }
     
 
 
     function filterByCitySearchTerm() {
         const filteredCities = CitiesData.filter((data) =>
             data.name.toLowerCase().includes(citySearchTerm.toLowerCase())
-        ).map(city => city.name);
+        ).map(city => city);
         setFilteredDatas(filteredCities);
     }
 
@@ -39,13 +48,14 @@ export default function scrollAreaByCity() {
                     {
                         citiesOpen && (
                             <div className='h-[180px]'>
-                                {filteredDatas.map((city) => (
+                                {filteredDatas.map((city : City) => (
                         <div
+                        onClick={()=> getCityINdex(city)}
                             className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
                  cursor-pointer leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6 flex justify-center items-center"
-                            key={city}
+                            key={city.plate}
                         >
-                            <p className='pb-2'>{city.charAt(0).toUpperCase() + city.slice(1)}</p>
+                            <p className='pb-2'>{city.name.charAt(0).toUpperCase() + city.name.slice(1)}</p>
                         </div>
                     ))}
                             </div>

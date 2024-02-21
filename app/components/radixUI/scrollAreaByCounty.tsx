@@ -7,10 +7,9 @@ import { RootState } from '@/app/store/RootReducer';
 import { showCounty } from '@/app/pages/jobNoticeForm/modalReducer';
 
 export default function ScrollAreaByCounty() {
-    const cityNames = CitiesData.map((city) => city.name);
-
-    const [citySearchTerm, setCitySearchTerm] = useState("");
-    const [filteredDatas, setFilteredDatas] = useState(cityNames);
+   
+   
+    
     const scrollAreaRef = useRef<HTMLDivElement>(null);
 
     const countyOpen = useSelector((state: RootState) => state.modalReducer.countyOpen)
@@ -24,21 +23,10 @@ export default function ScrollAreaByCounty() {
     
 
 
-    function filterByCitySearchTerm() {
-        const filteredCities = CitiesData.filter((data) =>
-            data.name.toLowerCase().includes(citySearchTerm.toLowerCase())
-        ).map(city => city.name);
-        setFilteredDatas(filteredCities);
-    }
+
+
 
  
-
-
-
-    useEffect(() => {
-        filterByCitySearchTerm();
-       
-    }, [citySearchTerm])
 
     const handleClickOutside = (event: MouseEvent) => {
         if (scrollAreaRef.current && event.target && !scrollAreaRef.current.contains(event.target as Node)) {
@@ -55,28 +43,24 @@ export default function ScrollAreaByCounty() {
         };
     }, [dispatch, scrollAreaRef]);
 
-    useEffect(() => {
-        console.log(scrollAreaRef)
-    console.log(scrollAreaRef.current)
-    },[])
 
     return (
         <ScrollArea.Root ref={scrollAreaRef}  className="w-[300px]   rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-white">
             <ScrollArea.Viewport className="w-full h-full rounded">
                 <div className="py-[15px] px-5">
                     <div onClick={handleCountyOpen} className="text-violet11 text-[15px] h-[40px] leading-[18px] font-medium flex items-center justify-center">
-                        <input value={citySearchTerm} onChange={(e) => setCitySearchTerm(e.target.value)} className='h-[30px] w-full px-4' type="text" placeholder='Search' />
+                        <input  className='h-[30px] w-full px-4' type="text" placeholder='Search' />
                     </div>
                     {
                         countyOpen && (
                             <div   className='h-[180px]'>
-                                {filteredDatas.map((city) => (
+                                ((county) => (
                         <div
                             className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
                  cursor-pointer leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6 flex justify-center items-center"
-                            key={city}
+                            key={county}
                         >
-                            <p className='pb-2'>{city.charAt(0).toUpperCase() + city.slice(1)}</p>
+                            <p className='pb-2'>{county.charAt(0).toUpperCase() + county.slice(1)}</p>
                         </div>
                     ))}
                             </div>

@@ -24,10 +24,10 @@ function page4() {
 
 
                   <div className='mt-12'>
-                    {/* <ScrollAreaByCity /> */}
+                    <ScrollAreaByCity />
                   </div>
                   <div className='mt-4'>
-                    <ScrollAreaByCounty />
+                    {/* <ScrollAreaByCounty /> */}
                   </div>
 
              
