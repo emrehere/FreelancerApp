@@ -5,6 +5,7 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState: {
     modalIndex: 0,
+    modalDisplayIndex: 0
   },
   reducers: {
 
@@ -13,10 +14,14 @@ const modalSlice = createSlice({
     },
     goToPrevPage: (state) => {
       state.modalIndex = state.modalIndex - 1;
+    },
+    displayIndexFunc: (state, action) => {
+        state.modalDisplayIndex = action.payload
+        console.log(state.modalDisplayIndex)
     }
   },
 });
 
-export const { goToNextPage, goToPrevPage } = modalSlice.actions;
+export const { goToNextPage, goToPrevPage, displayIndexFunc } = modalSlice.actions;
 
 export default modalSlice.reducer;

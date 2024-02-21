@@ -4,6 +4,8 @@ import NextButton from "@/app/components/modalsComp/NextButton";
 import { FaRunning } from "react-icons/fa";
 import modalDatas from "@/app/datas/modalDatas";
 import { useEffect, useState } from "react";
+import { displayIndexFunc } from '@/app/pages/jobNoticeForm/modalReducer';
+import { useDispatch } from 'react-redux';
 
 
 interface filteredDatas {
@@ -17,6 +19,7 @@ function page1() {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredDatas, setFilteredDatas] = useState<filteredDatas[]>([]);
+    const dispatch = useDispatch();
     
 
     const slicedDatas = modalDatas.slice(0, 6)
@@ -32,10 +35,11 @@ function page1() {
         filterBySearchTerm();
     }, [searchTerm])
 
-    const handleIndexClick = (modalIndex: string) => {
-        
-        console.log(modalIndex)
-        
+
+    const handleIndexClick = (displayId: string) => {
+
+      dispatch(displayIndexFunc(displayId))
+              
     }
 
     
