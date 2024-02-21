@@ -17,32 +17,32 @@ import Page6 from "@/app/components/modalsComp/page6";
 export default function ModalPage() {
 
     
-    const modalIndex = useSelector((state: RootState) => state.modalReducer.modalIndex)
+    const modalPageIndex = useSelector((state: RootState) => state.modalReducer.modalPageIndex)
 
 
-    console.log(modalIndex)
+  
 
 
     return (
 
         <div className="min-h-[100vh] bg-[#4d4e6c] overflow-hidden  flex justify-center items-center flex-col">
             {
-                modalIndex === 0 && <Page1 />
+                modalPageIndex === 0 && <Page1 />
             }
             {
-                modalIndex === 1 && <Page2 />
+                modalPageIndex === 1 && <Page2 />
             }
             {
-                modalIndex === 2 && <Page3 />
+                modalPageIndex === 2 && <Page3 />
             }
             {
-                modalIndex === 3 && <Page4 />
+                modalPageIndex === 3 && <Page4 />
             }
             {
-                modalIndex === 4 && <Page5 />
+                modalPageIndex === 4 && <Page5 />
             }
             {
-                modalIndex === 5 && <Page6 />
+                modalPageIndex === 5 && <Page6 />
             }
         </div>
 

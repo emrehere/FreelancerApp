@@ -4,15 +4,17 @@ import NextButton from "@/app/components/modalsComp/NextButton";
 import { FaRunning } from "react-icons/fa";
 import modalDatas from "@/app/datas/modalDatas";
 import { useEffect, useState } from "react";
-import { displayIndexFunc } from '@/app/pages/jobNoticeForm/modalReducer';
-import { useDispatch } from 'react-redux';
+import { displayIndexFunc, goToNextPage } from '@/app/pages/jobNoticeForm/modalReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/app/store/RootReducer';
+
 
 
 interface filteredDatas {
     unvan: string
     soru: string
     secenekler: string
-    modalIndex: string
+    modalPageIndex: string
 }
 
 function page1() {
@@ -20,6 +22,7 @@ function page1() {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredDatas, setFilteredDatas] = useState<filteredDatas[]>([]);
     const dispatch = useDispatch();
+    const modalPageIndex = useSelector((state: RootState) => state.modalReducer.modalPageIndex)
     
 
     const slicedDatas = modalDatas.slice(0, 6)
@@ -37,7 +40,7 @@ function page1() {
 
 
     const handleIndexClick = (displayId: string) => {
-
+      dispatch(goToNextPage())
       dispatch(displayIndexFunc(displayId))
               
     }
@@ -65,8 +68,8 @@ function page1() {
                             <ul>
                                 {filteredDatas.map((item, index) => (
                                     <li
-                                        onClick={ () => handleIndexClick(item.modalIndex) }
-                                        key={item.modalIndex}
+                                        onClick={ () => handleIndexClick(item.modalPageIndex) }
+                                        key={item.modalPageIndex}
                                         className="hover:bg-gray-100 w-full p-2 text-sm flex justify-center tracking-wide text-gray-600"
                                     >
                                         {item.unvan}
@@ -88,7 +91,7 @@ function page1() {
                             {
                                 slicedDatas.map((item: any) => {
                                     return (
-                                        <p key={item.modalIndex} onClick={ () => handleIndexClick(item.modalIndex)} className="hover:bg-gray-100 w-full p-1 text-sm flex justify-center tracking-wide text-gray-600">{item.unvan}</p>
+                                        <p key={item.modalPageIndex} onClick={ () => handleIndexClick(item.modalPageIndex)} className="hover:bg-gray-100 w-full p-1 text-sm flex justify-center tracking-wide text-gray-600">{item.unvan}</p>
 
                                     )
                                 }

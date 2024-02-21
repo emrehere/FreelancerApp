@@ -12,7 +12,7 @@ function NextButton() {
 
     const dispatch = useDispatch()
 
-    const modalIndex = useSelector((state: RootState) => state.modalReducer.modalIndex)
+    const modalPageIndex = useSelector((state: RootState) => state.modalReducer.modalPageIndex)
 
 
   
@@ -24,7 +24,7 @@ function NextButton() {
             <div className="w-[70vw]  flex justify-end ">
                 <div className=' px-4 py-4  flex flex-row justify-between w-[70vw]' >
                     {
-                        modalIndex !== 0 && (
+                        modalPageIndex !== 0 && (
                             <div onClick={() => dispatch(goToPrevPage())} className='flex flex-row items-center space-x-4 '>
                                 <motion.div
                                     className="pl-4"
@@ -39,7 +39,7 @@ function NextButton() {
                     }
                     <div className='flex-grow'></div>
                     {
-                        modalIndex !== 5 && (
+                        modalPageIndex !== 5 && (
                             <div onClick={() => dispatch(goToNextPage())} className='flex flex-row items-center space-x-4 '>
                                 <button className="text-lg font-medium tracking-widest" > ILERI</button>
                                 <motion.div
