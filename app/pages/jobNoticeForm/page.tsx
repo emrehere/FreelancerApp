@@ -1,86 +1,49 @@
 "use client"
-import { FaRunning } from "react-icons/fa";
-import modalDatas from "@/app/datas/modalDatas";
-import { useEffect, useState } from "react";
-import { IoSearch } from "react-icons/io5";
-import NextButton from "@/app/components/modalsComp/NextButton";
+import Page1 from "@/app/components/modalsComp/page1"
+import { useSelector } from 'react-redux'
+import { RootState } from '@/app/store/RootReducer';
+import Page2 from "@/app/components/modalsComp/page2";
+import Page3 from "@/app/components/modalsComp/page3";
+import Page4 from "@/app/components/modalsComp/page4";
+import Page5 from "@/app/components/modalsComp/page5";
+import Page6 from "@/app/components/modalsComp/page6";
+
+
 
 
 
 // modalDatas.slice(0, 6) : []
 
-export default function YourSpecificPage() {
+export default function ModalPage() {
 
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filteredDatas, setFilteredDatas] = useState([]);
+    
+    const modalIndex = useSelector((state: RootState) => state.modalReducer.modalIndex)
 
-    const slicedDatas = modalDatas.slice(0, 6)
 
-    function filterBySearchTerm() {
-        const filtered = slicedDatas.filter((data) =>
-            data.unvan.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setFilteredDatas(filtered);
-    }
-
-    useEffect(() => {
-        filterBySearchTerm();
-    }, [searchTerm])
-
+    console.log(modalIndex)
 
 
     return (
 
         <div className="min-h-[100vh] bg-[#4d4e6c] overflow-hidden  flex justify-center items-center flex-col">
-            <div className="text-white text-4xl tracking-wider font-extrabold flex flex-row items-center space-x-2 mb-2">
-                <FaRunning size={80} />
-                <h1>Ustam Kosuyor</h1>
-            </div>
-            <div className="bg-white overflow-hidden w-[70vw] h-[75vh] rounded-2xl flex flex-col items-center  ">
-                <h2 className="text-2xl font-medium text-gray-700 pt-2" >Hangi hizmete ihtiyacın var?</h2>
-                <div className="flex flex-col w-full  ">
-                    <div className="flex flex-row w-full m-2 items-center p-2">
-                        <IoSearch className="absolute text-gray-400 ml-4" size={20} />
-                        <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="outline-none text-sm w-full h-10 px-8 font-medium m-2 text-gray-600 border-2 border-opacity-50 border-gray-400 " placeholder="Hizmete ihtiyacınız varsa buraya yazın" />
-                    </div>
-                    {
-                        searchTerm.length > 0 && filteredDatas.length > 0 && (
-                            <ul>
-                                {filteredDatas.map((item: any) => (
-                                    <li
-                                        key={item.unvan}
-                                        className="hover:bg-gray-100 w-full p-2 text-sm flex justify-center tracking-wide text-gray-600"
-                                    >
-                                        {item.unvan}
-                                    </li>
-                                ))}
-                            </ul>
-                        )
-                    }
-                </div>
-
-
-
-                {
-                    filteredDatas.length === 0 || searchTerm.length > 0 || (
-                        <div className="w-full flex flex-col items-center">
-                            <h3 className="text-lg font-medium text-gray-500  mb-2">POPÜLER HİZMETLER</h3>
-
-                            {
-                                slicedDatas.map((item: any) => {
-                                    return (
-                                        <p className="hover:bg-gray-100 w-full p-1 text-sm flex justify-center tracking-wide text-gray-600">{item.unvan}</p>
-
-                                    )
-                                }
-                                )
-                            }
-                        </div>
-                    )
-                }
-                <div className="flex flex-grow"></div>
-                <NextButton />
-            </div>
+            {
+                modalIndex === 0 && <Page1 />
+            }
+            {
+                modalIndex === 1 && <Page2 />
+            }
+            {
+                modalIndex === 2 && <Page3 />
+            }
+            {
+                modalIndex === 3 && <Page4 />
+            }
+            {
+                modalIndex === 4 && <Page5 />
+            }
+            {
+                modalIndex === 5 && <Page6 />
+            }
         </div>
 
     );

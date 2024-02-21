@@ -21,14 +21,29 @@ function NextButton({ }) {
     return (
         <div className="w-full flex justify-center bg-[#1a1c28]  text-white ">
             <div className="w-[70vw]  flex justify-end ">
-                <div className=' px-4 py-4  space-x-4 flex flex-row' onClick={() => dispatch(goToNextPage())}>
-                    <button className="tect-2xl font-medium tracking-widest" > ILERI</button>
-                    <motion.div
-                        className="pr-4"
-                        whileHover={{ x: [0, 8, 0, 8, 0], transition: { duration: 1 } }}
-                    >
-                        <FaArrowRightLong size={20} />
-                    </motion.div>
+                <div className=' px-4 py-4  flex flex-row justify-between w-[70vw]' >
+                    {
+                        modalIndex !== 0 && (
+                            <div onClick={() => dispatch(goToPrevPage())} className='flex flex-row items-center space-x-4 '>
+                                <button className="text-lg font-medium tracking-widest" > ILERI</button>
+                                <motion.div
+                                    className="pr-4"
+                                    whileHover={{ x: [0, 8, 0, 8, 0], transition: { duration: 1 } }}
+                                >
+                                    <FaArrowRightLong size={20} />
+                                </motion.div>
+                            </div>
+                        )
+                    }
+                    <div onClick={() => dispatch(goToNextPage())} className='flex flex-row items-center space-x-4 '>
+                        <button className="text-lg font-medium tracking-widest" > ILERI</button>
+                        <motion.div
+                            className="pr-4"
+                            whileHover={{ x: [0, 8, 0, 8, 0], transition: { duration: 1 } }}
+                        >
+                            <FaArrowRightLong size={20} />
+                        </motion.div>
+                    </div>
                 </div>
             </div>
 
