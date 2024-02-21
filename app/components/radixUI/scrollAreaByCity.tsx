@@ -1,38 +1,51 @@
 import React from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
-import { useState} from 'react';
-import CitiesData from '../../datas/cities' 
+import { useState, useEffect } from 'react';
+import CitiesData from '../../datas/cities'
+import { useDispatch, useSelector } from 'react-redux'; 
+import { RootState } from '@/app/store/RootReducer';
+import { showCities } from '@/app/pages/jobNoticeForm/modalReducer';
 
-export default function ScrollAreaDemo() {
+export default function scrollAreaByCity() {
+    const cityNames = CitiesData.map((city) => city.name);
 
-    const [open, setOpen] = useState(false);
-    const [conditionalHeight, setConditionalHeight] = useState("250px");
+    const [citySearchTerm, setCitySearchTerm] = useState("");
+    const [filteredDatas, setFilteredDatas] = useState(cityNames);
 
+    const citiesOpen = useSelector((state: RootState) => state.modalReducer.citiesOpen)
+ 
+    const dispatch = useDispatch();
     
-    
 
-    function showCities() {
-        setOpen(!open)
-        
+
+    function filterByCitySearchTerm() {
+        const filteredCities = CitiesData.filter((data) =>
+            data.name.toLowerCase().includes(citySearchTerm.toLowerCase())
+        ).map(city => city.name);
+        setFilteredDatas(filteredCities);
     }
 
+    useEffect(() => {
+        filterByCitySearchTerm();
+    }, [citySearchTerm])
+
     return (
-        <ScrollArea.Root className="w-[300px]  rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-white">
+        <ScrollArea.Root className="w-[300px]   rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-white">
             <ScrollArea.Viewport className="w-full h-full rounded">
                 <div className="py-[15px] px-5">
-                    <div onClick={showCities} className="text-violet11 text-[15px] h-[40px] leading-[18px] font-medium flex items-center justify-center">
-                        <input className='h-[30px] w-full px-4' type="text" placeholder='Search' />
+                    <div onClick={() => dispatch(showCities())} className="text-violet11 text-[15px] h-[40px] leading-[18px] font-medium flex items-center justify-center">
+                        <input value={citySearchTerm} onChange={(e) => setCitySearchTerm(e.target.value)} className='h-[30px] w-full px-4' type="text" placeholder='Search' />
                     </div>
                     {
-                        open && (
+                        citiesOpen && (
                             <div className='h-[180px]'>
-                                {CitiesData.map((city) => (
+                                {filteredDatas.map((city) => (
                         <div
                             className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
                  cursor-pointer leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6 flex justify-center items-center"
-                            key={city.name}
+                            key={city}
                         >
-                            <p className='pb-2'>{city.name.charAt(0).toUpperCase() + city.name.slice(1)}</p>
+                            <p className='pb-2'>{city.charAt(0).toUpperCase() + city.slice(1)}</p>
                         </div>
                     ))}
                             </div>
