@@ -7,6 +7,7 @@ import { goToNextPage, goToPrevPage } from '../../pages/jobNoticeForm/modalReduc
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/app/store/RootReducer';
 import { FaRegThumbsUp } from "react-icons/fa6";
+import Link from 'next/link';
 
 
 function NextButton() {
@@ -17,7 +18,7 @@ function NextButton() {
     const modalPageIndex = useSelector((state: RootState) => state.modalReducer.modalPageIndex)
 
 
-  
+
 
 
 
@@ -42,18 +43,20 @@ function NextButton() {
                     <div className='flex-grow'></div>
                     {
                         modalPageIndex === 7 ? (
-                            (
-                                <div onClick={() => dispatch(goToNextPage())} className='flex flex-row items-center space-x-4 '>
-                                    <button className="text-lg font-medium tracking-widest" > TAMAMLA </button>
-                                    <m.div
-                                        className="pr-4"
-                                        whileHover={{ y: [0, -4, 0, -4, 0], transition: { duration: 1 } }}
-                                    >
-                                        <FaRegThumbsUp size={20} />
-                                    </m.div>
+                            (   
+                                <Link href="/pages/searchPage">
+                                <div className='flex flex-row items-center space-x-4 '>                     
+                                        <button className="text-lg font-medium tracking-widest" > TAMAMLA </button>
+                                        <m.div
+                                            className="pr-4"
+                                            whileHover={{ y: [0, -4, 0, -4, 0], transition: { duration: 1 } }}
+                                        >
+                                            <FaRegThumbsUp size={20} />
+                                        </m.div>                                
                                 </div>
+                                </Link>
                             )
-                        ): (
+                        ) : (
                             (
                                 <div onClick={() => dispatch(goToNextPage())} className='flex flex-row items-center space-x-4 '>
                                     <button className="text-lg font-medium tracking-widest" > ILERI</button>
