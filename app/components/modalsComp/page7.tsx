@@ -32,7 +32,7 @@ function Page7() {
         <h1 className=' font-semibold text-[#1a1c28] text-2xl -mt-8'>Cep telefonun?</h1>
         <p className='text-gray-500 text-md  mt-2'>Hizmet verenimiz seninle bu numaradan iletişime geçecek</p>
         <input
-          className='mt-8 w-[60vw] border-[#1a1c28] border-2 border-opacity-20 outline-none p-2'
+          className='mt-8 w-[50vw] border-[#1a1c28] border-2 border-opacity-20 outline-none p-2'
           type="tel"
           id="phoneNumber"
           name="phoneNumber"
