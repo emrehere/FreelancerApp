@@ -14,11 +14,11 @@ const PageForJobs = dynamic(() => import('../../components/searchPageComp/pageFo
 const  PageForFreelancers = dynamic(() => import('../../components/searchPageComp/pageForFreelancers'), {
     ssr: false
 })
-const showFreelancer= dynamic(() => import('../../components/searchPageComp/showFreelancer'), {
+const ShowFreelancer= dynamic(() => import('../../components/searchPageComp/showFreelancer'), {
     ssr: false
 })
 
-const showWork = dynamic(() => import('../../components/searchPageComp/showWork'), {
+const ShowWork = dynamic(() => import('../../components/searchPageComp/showWork'), {
     ssr: false
 })
 

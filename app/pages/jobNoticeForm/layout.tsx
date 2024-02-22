@@ -1,4 +1,5 @@
 "use client"
+import { LazyMotion, domAnimation } from "framer-motion"
 
 
 export default function SignUpLayout({
@@ -8,8 +9,9 @@ export default function SignUpLayout({
   }) {
     return (
       <>
-         
+         <LazyMotion features={domAnimation}>
         {children}
+        </LazyMotion>
      
       </>
     )

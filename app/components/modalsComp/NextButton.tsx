@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { motion } from 'framer-motion'
+import { m } from "framer-motion";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { goToNextPage, goToPrevPage } from '../../pages/jobNoticeForm/modalReducer'
@@ -27,12 +27,12 @@ function NextButton() {
                     {
                         modalPageIndex !== 0 && (
                             <div onClick={() => dispatch(goToPrevPage())} className='flex flex-row items-center space-x-4 '>
-                                <motion.div
+                                <m.div
                                     className="pl-4"
                                     whileHover={{ x: [0, -8, 0, -8, 0], transition: { duration: 1 } }}
                                 >
                                     <FaArrowLeftLong size={20} />
-                                </motion.div>
+                                </m.div>
                                 <button className="text-lg font-medium tracking-widest" > GERI</button>
 
                             </div>
@@ -43,12 +43,12 @@ function NextButton() {
                         modalPageIndex !== 5 && (
                             <div onClick={() => dispatch(goToNextPage())} className='flex flex-row items-center space-x-4 '>
                                 <button className="text-lg font-medium tracking-widest" > ILERI</button>
-                                <motion.div
+                                <m.div
                                     className="pr-4"
                                     whileHover={{ x: [0, 8, 0, 8, 0], transition: { duration: 1 } }}
                                 >
                                     <FaArrowRightLong size={20} />
-                                </motion.div>
+                                </m.div>
                             </div>
                         )
                     }
