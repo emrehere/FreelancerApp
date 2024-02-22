@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 function page2() {
     return (
@@ -7,7 +8,7 @@ function page2() {
             <div className='bg-[#0A0F26] sm:h-[110vh] h-[95vh] w-[96vw] mx-auto text-blue-50
              flex sm:flex-row flex-col rounded-xl'>
                  <div className='block sm:hidden sm:w-[48vw] sm:h-[110vh] rounded-r-xl'>
-                    <img className='sm:w-[48vw] sm:h-[110vh] rounded-r-xl' src="/kadin.jpg" alt="kadin" />
+                    <Image width={300} height={300} className='sm:w-[48vw] sm:h-[110vh] rounded-r-xl' src="/kadin.webp" alt="kadin" />
                 </div>
                 <div className='sm:w-[48vw] flex flex-col px-[7%]   p-[3%] 
                  tracking-widest leading-loose sm:space-y-8 justify-center mt-[5vh] sm:mt-0 
@@ -21,7 +22,7 @@ function page2() {
                     </div>
                 </div>
                 <div className='sm:block hidden sm:w-[48vw] sm:h-[110vh] rounded-r-xl'>
-                    <img className='sm:w-[48vw] sm:h-[110vh] rounded-r-xl' src="/kadin.jpg" alt="kadin" />
+                <Image width={300} height={300} className='sm:w-[48vw] sm:h-[110vh] rounded-r-xl' src="/kadin.webp" alt="kadin" />
                 </div>
             </div>
             <br/>

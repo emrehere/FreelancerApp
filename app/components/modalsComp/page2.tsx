@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import { goToNextPage, goToPrevPage } from '@/app/pages/jobNoticeForm/modalReducer';
 
-function page2() {
+function Page2() {
 
 
     const displayIndex = useSelector((state: RootState) => state.modalReducer.modalDisplayIndex)
@@ -47,4 +47,4 @@ function page2() {
     )
 }
 
-export default page2
+export default Page2

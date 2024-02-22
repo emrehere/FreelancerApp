@@ -7,8 +7,8 @@ import Footer from "./components/footer";
 import Navbar from "./components/NavbarComp/navbar";
 
 
-const desktopBackgroundImage = '/ada1.jpg';
-const mobileBackgroundImage = '/cropada1.jpg';
+const desktopBackgroundImage = '/ada1.webp';
+const mobileBackgroundImage = '/cropada1.webp';
 
 
 

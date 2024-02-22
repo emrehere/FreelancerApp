@@ -2,7 +2,7 @@ import React from 'react'
 import NextButton from "@/app/components/modalsComp/NextButton";
 import { FaRunning } from "react-icons/fa";
 
-function page5() {
+function Page5() {
   return (
     <div>
        <div className="text-white w-[70vw] text-4xl tracking-wider font-extrabold flex  items-center space-x-2 mb-2">
@@ -25,4 +25,4 @@ function page5() {
   )
 }
 
-export default page5
+export default Page5

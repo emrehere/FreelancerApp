@@ -39,7 +39,7 @@ export default function SingIn() {
             <div className="flex flex-col items-center justify-center
             sm:h-[115vh] h-[90vh] w-[90vw] sm:mt-[10vh] mt-[5vh] bg-white mx-auto  " >
                 <h1 className='text-3xl font-bold text-gray-800 mb-2 '>Log In</h1>
-                <p className='font-thin text-gray-500 text-md mb-8'>Don't have an account?
+                <p className='font-thin text-gray-500 text-md mb-8'>Don&apos;t have an account?
                  <span className='text-orange-500 text-lg font-semibold '> Sign Up</span></p>
                     <div>
                         <div className='text-white hover:text-gray-800 font-semibold transition ease-in-out flex 

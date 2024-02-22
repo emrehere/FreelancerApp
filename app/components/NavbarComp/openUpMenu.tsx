@@ -10,7 +10,7 @@ const OpenUpMenu: React.FC<OpenUpMenuProps> = ({ styleParent }) => (
   <div>
     <div style={styleParent} className='bg-blue-50 rounded-md font-bold p-2'>
       {OpenUpMenuItems.map((item: { title: string; subTitle: string, href: string }) => (
-        <Link href={item.href} >
+        <Link key={item.title} href={item.href} >
           <div className='mb-4 flex flex-col items-center justify-center hover:text-orange-500' key={item.title}>
 
             <span style={{ fontSize: '16px' }}>{item.title}</span>

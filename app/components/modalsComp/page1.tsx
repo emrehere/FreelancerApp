@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { IoSearch } from "react-icons/io5";
 import NextButton from "@/app/components/modalsComp/NextButton";
@@ -13,11 +14,11 @@ import { RootState } from '@/app/store/RootReducer';
 interface filteredDatas {
     unvan: string
     soru: string
-    secenekler: string
+    secenekler: string[]
     modalPageIndex: string
 }
 
-function page1() {
+function Page1() {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredDatas, setFilteredDatas] = useState<filteredDatas[]>([]);
@@ -27,14 +28,15 @@ function page1() {
 
     const slicedDatas = modalDatas.slice(0, 6)
 
-    function filterBySearchTerm  () {
-        const filtered = modalDatas.filter((data) =>
-            data.unvan.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setFilteredDatas(filtered);
-    }
-
+    
     useEffect(() => {
+        function filterBySearchTerm() {
+            const filtered: filteredDatas[] = modalDatas
+                .filter((data) =>
+                    data.unvan.toLowerCase().includes(searchTerm.toLowerCase())
+                )                
+            setFilteredDatas(filtered);
+        }
         filterBySearchTerm();
     }, [searchTerm])
 
@@ -107,4 +109,4 @@ function page1() {
   )
 }
 
-export default page1
+export default Page1

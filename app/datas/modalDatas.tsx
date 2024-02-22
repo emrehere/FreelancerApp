@@ -5,7 +5,7 @@ type ModalData = {
   modalPageIndex: string;
 };
 
-export const modalDatas: ModalData[] = [ 
+export const ModalDatas: ModalData[] = [ 
       {
         "modalPageIndex": "0",
         "unvan":"Ev Temizliği",
@@ -179,5 +179,5 @@ export const modalDatas: ModalData[] = [
       },
     ]
   
-  export default modalDatas
+  export default ModalDatas
   

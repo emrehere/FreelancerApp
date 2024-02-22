@@ -5,14 +5,18 @@ import ScrollAreaByCity from '../radixUI/scrollAreaByCity';
 import ScrollAreaByCounty from '../radixUI/scrollAreaByCounty';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
+import { CityType } from '../../types';
 
-function page4() {
+
+
+
+function Page4() {
 
 
 
   const citiesOpen = useSelector((state: RootState) => state.modalReducer.citiesOpen)
   const countyOpen = useSelector((state: RootState) => state.modalReducer.countyOpen)
-  const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity)
+  const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity as unknown as CityType)
   const citySearchTerm = useSelector((state: RootState) => state.modalReducer.citySearchTerm)
 
 
@@ -34,7 +38,7 @@ function page4() {
           <ScrollAreaByCity />
         </div>
         {
-          chosenCity && citySearchTerm === chosenCity.name && (
+          chosenCity  && citySearchTerm === chosenCity?.name  && (
             <div className='mt-4'>
               <ScrollAreaByCounty />
             </div>
@@ -50,4 +54,4 @@ function page4() {
   )
 }
 
-export default page4
+export default Page4

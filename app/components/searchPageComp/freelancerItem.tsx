@@ -1,10 +1,12 @@
+import Image from "next/image"
+
 export default function FreelancerItem({ item }: any) {
     return (
         <div>
             <div className="overflow-x-hidden bg-orange-50 bg-opacity-50 hover:bg-orange-100 hover:bg-opacity-60 shadow-sm shadow-orange-300
              flex flex-col m-4 sm:w-[80vw] w-[95vw] h-[44vh] min-h-[200px] py-4 sm:px-8 space-y-4 rounded-xl">
                 <div className="flex flex-row">
-                    <img className="rounded-full h-24 w-24" src="/kadin.jpg" />
+                <Image width={300} height={300} className="rounded-full h-24 w-24" src="/kadin.webp" alt="kadin" />
                     <div className="ml-8 space-y-1 ">
                         <div className="flex flex-row items-center space-x-4 w-[64vw]">
                             <p className="font-bold text-[18px]">{item.freelancer.name}</p>

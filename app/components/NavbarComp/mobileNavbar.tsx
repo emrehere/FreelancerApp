@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import HamburgerMenu from './hamburgerMenu';
 import { useRouter } from "next/navigation"; 
 
-function mobileNavbar() {
+function MobileNavbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -30,4 +30,4 @@ function mobileNavbar() {
   )
 }
 
-export default mobileNavbar
+export default MobileNavbar

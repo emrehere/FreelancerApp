@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FaArrowLeft } from "react-icons/fa6";
 import FreelancerDatas from '../../datas/freelancerDatas'
 import Reviews from './reviews';
+import Image from 'next/image'
 
 
 export default function ShowFreelancer() {
@@ -23,7 +24,7 @@ export default function ShowFreelancer() {
                         <button className='text-orange-500  ' onClick={() => dispatch(showFreelancerSetter(false))}><FaArrowLeft size={35} /></button>
                         <div className='border-[1px] border-gray-400 border-opacity-50
                              min-h-[150px] rounded-t-2xl flex flex-row p-4  '>
-                            <img className="rounded-full h-24 w-24" src="/kadin.jpg" />
+                            <Image width={300} height={300} className="rounded-full h-24 w-24" src="/kadin.webp" alt="kadin" />
                             <div className='pl-4 space-y-2'>
                                 <p className='text-3xl font-semibold' >{FreelancerDatas[freelancerIndex].freelancer.name}</p>
                                 <p className='text-gray-600  text-[15px]'>{FreelancerDatas[freelancerIndex].freelancer.location}</p>

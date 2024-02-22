@@ -17,8 +17,8 @@ export default function HamburgerMenu({ toggleMobileMenu }: any) {
             {
               NavDatas.map((item: any) => {
                 return (
-                  <div onClick={toggleMobileMenu}>
-                    <MobileNavItems icon={item.icon} key={item.title} title={item.title} href={item.href} />
+                  <div key={item.title} onClick={toggleMobileMenu}>
+                    <MobileNavItems icon={item.icon}  title={item.title} href={item.href} />
                   </div>
                 )
               })

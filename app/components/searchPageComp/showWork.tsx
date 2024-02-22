@@ -50,7 +50,7 @@ export default function ShowWork() {
                         <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
                             {
                                 JobsData[workIndex].skillsAndExpertise.skills.map((item: string) =>
-                                 <button className="bg-gray-700 bg-opacity-5 rounded-2xl px-4 py-2 col-span-1 ">{item}</button>)
+                                 <button key={item} className="bg-gray-700 bg-opacity-5 rounded-2xl px-4 py-2 col-span-1 ">{item}</button>)
                             }
                         </div>
                     </div>
