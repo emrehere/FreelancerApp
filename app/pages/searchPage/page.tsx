@@ -4,10 +4,23 @@ import { searchParamSetter } from "../../components/LandingComp/searchReducer"
 import { RootState } from '../../store/RootReducer';
 import SearchBar from '../../components/LandingComp/searchBar';
 import { jobOrTalentSetter } from './searchPageReducer';
-import PageForJobs from '../../components/searchPageComp/pageForJobs';
-import PageForFreelancers from '../../components/searchPageComp/pageForFreelancers';
-import ShowFreelancer from '../../components/searchPageComp/showFreelancer';
-import ShowWork from '../../components/searchPageComp/showWork';
+import dynamic from 'next/dynamic'
+
+
+const PageForJobs = dynamic(() => import('../../components/searchPageComp/pageForJobs'), {
+    ssr: false
+})
+
+const  PageForFreelancers = dynamic(() => import('../../components/searchPageComp/pageForFreelancers'), {
+    ssr: false
+})
+const showFreelancer= dynamic(() => import('../../components/searchPageComp/showFreelancer'), {
+    ssr: false
+})
+
+const showWork = dynamic(() => import('../../components/searchPageComp/showWork'), {
+    ssr: false
+})
 
 
 export default function SearchPage() {

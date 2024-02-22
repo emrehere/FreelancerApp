@@ -1,10 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./components/LandingComp/searchBar";
-import Page2 from "./components/LandingComp/page2";
-import Page3 from "./components/LandingComp/page3";
-import Footer from "./components/footer";
 import Navbar from "./components/NavbarComp/navbar";
+import dynamic from "next/dynamic";
+
+const Page2 = dynamic(() => import('./components/LandingComp/page2'), {
+  ssr: false
+});
+
+const Page3 = dynamic(() => import('./components/LandingComp/page3'), {
+  ssr: false
+});
+
+const Footer = dynamic(() => import('./components/footer'), {
+  ssr: false
+});
+
 
 
 const desktopBackgroundImage = '/ada1.webp';

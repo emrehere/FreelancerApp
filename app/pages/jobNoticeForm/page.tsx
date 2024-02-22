@@ -1,12 +1,31 @@
 "use client"
-import Page1 from "@/app/components/modalsComp/page1"
 import { useSelector } from 'react-redux'
 import { RootState } from '@/app/store/RootReducer';
-import Page2 from "@/app/components/modalsComp/page2";
-import Page3 from "@/app/components/modalsComp/page3";
-import Page4 from "@/app/components/modalsComp/page4";
-import Page5 from "@/app/components/modalsComp/page5";
-import Page6 from "@/app/components/modalsComp/page6";
+import dynamic from "next/dynamic";
+
+const Page1 = dynamic(() => import('@/app/components/modalsComp/page1'), {
+    ssr: false
+})
+
+const Page2 = dynamic(() => import('@/app/components/modalsComp/page2'), {
+    ssr: false
+})
+
+const Page3 = dynamic(() => import('@/app/components/modalsComp/page3'), {
+    ssr: false
+})
+
+const Page4 = dynamic(() => import('@/app/components/modalsComp/page4'), {
+    ssr: false
+})
+
+const Page5 = dynamic(() => import('@/app/components/modalsComp/page5'), {
+    ssr: false
+})
+
+const Page6 = dynamic(() => import('@/app/components/modalsComp/page6'), {
+    ssr: false
+})
 
 
 
