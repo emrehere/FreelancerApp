@@ -40,7 +40,7 @@ function NextButton() {
                     }
                     <div className='flex-grow'></div>
                     {
-                        modalPageIndex !== 5 && (
+                        modalPageIndex !== 7 && (
                             <div onClick={() => dispatch(goToNextPage())} className='flex flex-row items-center space-x-4 '>
                                 <button className="text-lg font-medium tracking-widest" > ILERI</button>
                                 <m.div

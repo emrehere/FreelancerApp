@@ -1,11 +1,11 @@
 import React,{useState, useEffect} from 'react'
 import NextButton from "@/app/components/modalsComp/NextButton";
-import { FaRunning } from "react-icons/fa";
 import ScrollAreaByCity from '../radixUI/scrollAreaByCity';
 import ScrollAreaByCounty from '../radixUI/scrollAreaByCounty';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import { CityType } from '../../types';
+import ModalTopElement from './ModalTopElement';
 
 
 
@@ -24,12 +24,7 @@ function Page4() {
 
   return (
     <div>
-      <div className="text-white p-4 w-[70vw] text-4xl tracking-wider font-extrabold flex  items-center space-x-2 mb-2">
-        <div className='mx-auto flex  items-center '>
-          <FaRunning size={80} />
-          <h1>Ustam Kosuyor</h1>
-        </div>
-      </div>
+      <ModalTopElement />
       <div style={{ height: countyOpen || citiesOpen ? "28rem" : "18rem" }} className="bg-white overflow-hidden w-[70vw]  rounded-2xl flex flex-col items-center  ">
 
         

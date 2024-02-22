@@ -2,7 +2,7 @@
 import React from 'react'
 import { IoSearch } from "react-icons/io5";
 import NextButton from "@/app/components/modalsComp/NextButton";
-import { FaRunning } from "react-icons/fa";
+import ModalTopElement from './ModalTopElement';
 import modalDatas from "@/app/datas/modalDatas";
 import { useEffect, useState } from "react";
 import { displayIndexFunc, goToNextPage } from '@/app/pages/jobNoticeForm/modalReducer';
@@ -51,14 +51,9 @@ function Page1() {
 
   return (
     <div>
-      <div className="text-white w-[70vw]  text-4xl tracking-wider font-extrabold flex flex-row items-center space-x-2 mb-2">
-               <div className='mx-auto flex items-center '>
-                <FaRunning size={80} />
-                <h1>Ustam Kosuyor</h1>
-                </div>
-            </div>
+        <ModalTopElement />
             <div className="bg-white overflow-hidden w-[70vw] h-[75vh] min-h-[25rem] rounded-2xl flex flex-col items-center  ">
-                <h2 className="text-2xl font-medium text-gray-700 pt-2" >Hangi hizmete ihtiyacın var?</h2>
+                <h2 className="text-2xl font-medium text-[#1a1c28] pt-2" >Hangi hizmete ihtiyacın var?</h2>
                 <div className="flex flex-col w-full  ">
                     <div className="flex flex-row w-full m-2 items-center p-2 pr-4">
                         <IoSearch className="absolute text-gray-400 ml-4" size={20} />

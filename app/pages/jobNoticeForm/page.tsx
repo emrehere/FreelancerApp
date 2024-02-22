@@ -27,6 +27,14 @@ const Page6 = dynamic(() => import('@/app/components/modalsComp/page6'), {
     ssr: false
 })
 
+const Page7 = dynamic(() => import('@/app/components/modalsComp/page7'), {
+    ssr: false
+})
+
+const Page8 = dynamic(() => import('@/app/components/modalsComp/page8'), {
+    ssr: false
+})
+
 
 
 
@@ -62,6 +70,12 @@ export default function ModalPage() {
             }
             {
                 modalPageIndex === 5 && <Page6 />
+            }
+            {
+                modalPageIndex === 6 && <Page7 />
+            }
+            {
+                modalPageIndex === 7 && <Page8 />
             }
         </div>
 
