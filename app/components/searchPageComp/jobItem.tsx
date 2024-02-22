@@ -24,7 +24,7 @@ export default function jobItem({ item }: any) {
                 <div>
                     <div className="flex flex-wrap items-center justify-center   flex-row  mt-2 font-medium" > {slicedSkills.map((item: string) =>
                         <p key={item} className=" sm:py-2 bg-gray-600 text-sm sm:w-36 w-48 h-12 sm:h-16 flex items-center
-                     justify-center bg-opacity-10 rounded-2xl px-2  m-2"><p>{item}</p></p>)}</div>
+                     justify-center bg-opacity-10 rounded-2xl px-2  m-2">{item}</p>)}</div>
                 </div>
             </div>
         </div>
