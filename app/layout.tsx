@@ -4,13 +4,15 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import store from "./store/store";
 import { Provider } from 'react-redux';
-
-
 import Head from "next/head";
 import React from "react";
-import MobileNavbar from "./components/NavbarComp/mobileNavbar";
+import dynamic from 'next/dynamic'
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
+
+const MobileNavbar = dynamic(() => import('./components/NavbarComp/mobileNavbar'), {
+  ssr: false
+})
 
 
 const inter = Inter({ subsets: ["latin"] });
