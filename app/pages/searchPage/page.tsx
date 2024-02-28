@@ -11,10 +11,10 @@ const PageForJobs = dynamic(() => import('../../components/searchPageComp/pageFo
     ssr: false
 })
 
-const  PageForFreelancers = dynamic(() => import('../../components/searchPageComp/pageForFreelancers'), {
+const PageForFreelancers = dynamic(() => import('../../components/searchPageComp/pageForFreelancers'), {
     ssr: false
 })
-const ShowFreelancer= dynamic(() => import('../../components/searchPageComp/showFreelancer'), {
+const ShowFreelancer = dynamic(() => import('../../components/searchPageComp/showFreelancer'), {
     ssr: false
 })
 
@@ -30,9 +30,9 @@ export default function SearchPage() {
     const searchParam = useSelector((state: RootState) => state.searchParamReducer.searchParam)
     const jobOrTalent = useSelector((state: RootState) => state.searchPageReducer.jobOrTalent)
     const showFreelancer = useSelector((state: RootState) => state.searchPageReducer.showFreelancer)
-    const showWork = useSelector((state: RootState) => state.searchPageReducer.showWork) 
+    const showWork = useSelector((state: RootState) => state.searchPageReducer.showWork)
 
-  
+
 
     const handleTalent = () => {
         dispatch(jobOrTalentSetter("talent"))
@@ -62,7 +62,7 @@ export default function SearchPage() {
                 <div className='-mt-10 ml-4 flex justify-center'>
                     <SearchBar hrefFromParent="/pages/searchPage" color="orange" />
                 </div>
-                <div className='space-x-12 flex flex-row ml-[8vw] mt-[10vh] tracking-wider font-bold text-3xl '>
+                <div className='sm:space-x-12 space-x-4 flex flex-row ml-[8vw] mt-[10vh] tracking-wider font-bold sm:text-3xl text-2xl '>
                     <div className='hover:text-[#ffa500]'>
                         <p className={jobOrTalent === "talent" ? "text-[#ffa500]" : "text-gray-600"} onClick={handleTalent}>YETENEK</p>
 
@@ -70,13 +70,13 @@ export default function SearchPage() {
                     <p className={jobOrTalent === "work" ? "text-[#ffa500]" : "text-gray-600"} onClick={handleWork}>ISLER</p>
                 </div>
 
-                <div className='h-0.5 ml-[8vw] w-[83vw] my-4 bg-gray-700 opacity-30 '></div>
-                <div className=' ml-[8vw] space-x-8 -mt-5 z-10 flex flex-row ' >
+                <div className='h-0.5 ml-[8vw] sm:w-[83vw] w-[13rem] my-4 bg-gray-700 opacity-30 '></div>
+                <div className=' ml-[8vw] sm:space-x-8 -mt-5 z-10 flex flex-row sm:w-[83vw] w-[13rem]' >
                     {
-                        jobOrTalent === "talent" ? <p className='h-2 w-36   bg-[#ffa500] rounded-xl ' ></p> : <p className='h-2 w-36   bg-[#ffa500] rounded-xl opacity-0 ' ></p>
+                        jobOrTalent === "talent" ? <p className='h-2 sm:w-36 w-[7rem] bg-[#ffa500] rounded-xl ' ></p> : <p className='h-2 w-36   bg-[#ffa500] rounded-xl opacity-0 ' ></p>
                     }
                     {
-                        jobOrTalent === "work" ? <p className='h-2 w-28   bg-[#ffa500] rounded-xl ' ></p> : ""
+                        jobOrTalent === "work" ? <p className='h-2 sm:w-28 w-[6rem]  bg-[#ffa500] rounded-xl ' ></p> : ""
                     }
                 </div>
                 <div className='h-[20vh]'></div>

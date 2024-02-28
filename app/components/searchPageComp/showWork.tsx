@@ -19,7 +19,7 @@ export default function ShowWork() {
 
     return (
         <div>
-            <div className='flex flex-row min-h-[100vh] h-screen fixed z-50
+            <div className='flex flex-row min-h-[100vh] h-full fixed z-50
          bg-gray-700 bg-opacity-70 overflow-y-auto space-y-8'>
                 <div className='sm:w-[30vw] '> </div>
                 <div className=' sm:w-[70vw] w-[100vw] bg-blue-50 overflow-y-auto h-screen 
@@ -34,12 +34,12 @@ export default function ShowWork() {
                         {JobsData[workIndex].jobDescription}
                     </div>
                     <div className="flex mt-8 sm:w-[50vw] flex-col">
-                       <div className="flex flex-row justify-between mb-2">
+                       <div className="flex sm:flex-row flex-col justify-between mb-2">
                        <p className="flex flex-col"> <b>Hourly Rate</b> {JobsData[workIndex].projectDetails.hourlyRate}</p>
                        <p className="flex flex-col mr-8"> <b>Duration</b> {JobsData[workIndex].projectDetails.duration}</p>
                        <p className="flex flex-col"> <b>Experience Level</b> {JobsData[workIndex].projectDetails.experienceLevel}</p>
                        </div>
-                        <div className="flex flex-row justify-between mt-4 sm:w-[32vw] w-[66vw] ">
+                        <div className="flex sm:flex-row flex-col justify-between sm:mt-4 -mt-2 sm:w-[32vw] w-[66vw] ">
                         <p className="flex flex-col"> <b>Job Type</b> {JobsData[workIndex].projectDetails.remoteJob ? "Remote" : "On-site"}</p>
                         <p className="flex flex-col mr-4"> <b>Project Type</b> {JobsData[workIndex].projectDetails.projectType}</p>
                        
@@ -47,7 +47,7 @@ export default function ShowWork() {
                     </div>
                     <div>
                         <h2 className="text-2xl font-semibold text-gray-700 mt-8 mb-4">Skills and Expertise</h2>
-                        <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-4 grid-cols-1 gap-4">
                             {
                                 JobsData[workIndex].skillsAndExpertise.skills.map((item: string) =>
                                  <button key={item} className="bg-gray-700 bg-opacity-5 rounded-2xl px-4 py-2 col-span-1 ">{item}</button>)

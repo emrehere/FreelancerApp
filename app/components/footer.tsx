@@ -6,7 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 function footer() {
   return (
-    <div className='bg-[#18202b] sm:h-[25vh] h-[10rem] mt-[10rem] pt-[1rem] w-full text-white  px-[10vw] '>
+    <div className='bg-[#18202b] sm:h-[25vh] h-[10rem]  pt-[1rem] w-full text-white  px-[10vw] '>
       <div>
         <div className='flex flex-row space-x-[10%] '>
 

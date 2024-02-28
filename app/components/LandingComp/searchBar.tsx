@@ -58,7 +58,7 @@ const SearchBar = ({ color, hrefFromParent }: { color: string, hrefFromParent: s
     <div>
       <div className="flex items-center sm:ml-0 -ml-[7vw]">
         <div onClick={handleShowMenu} style={{ backgroundColor: color }} className=" h-20 
-        w-[25vw] sm:w-[10vw] sm:translate-x-[2vw] translate-x-[6vw]
+        w-[6rem] sm:w-[10vw] sm:translate-x-[2vw] translate-x-[6vw]
          text-blue-50 rounded-l-3xl flex items-center justify-center font-semibold sm:text-xl
          text-lg sm:space-x-4 space-x-1 ">
           <div className="flex items-center flex-col " >
@@ -72,14 +72,14 @@ const SearchBar = ({ color, hrefFromParent }: { color: string, hrefFromParent: s
           value={searchParam}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
-          className="sm:w-[50vw] w-[70vw] h-20 px-12 bg-blue-50 rounded-3xl border-none outline-none
+          className="sm:w-[50vw] w-[65vw] h-20 px-6 sm:px-12 bg-blue-50 rounded-3xl border-none outline-none
          text-slate-950 shadow-2xl shadow-slate-600 font-medium tracking-wider text-md "
           placeholder='Dene "Grafik designer" '
         />
 
         <Link href={hrefFromParent}>
           <div style={{ backgroundColor: color }} className="h-20 sm:w-[5vw] w-[10vw]
-       translate-x-[-3vw] rounded-r-3xl flex items-center justify-center text-blue-50 ">
+       translate-x-[-5vw] rounded-r-3xl flex items-center justify-center text-blue-50 ">
             <IoMdSearch size={32} />
           </div>
         </Link>

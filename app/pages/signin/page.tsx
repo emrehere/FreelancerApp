@@ -37,7 +37,7 @@ export default function SingIn() {
     return (       
         <div className='bg-blue-50 sm:pb-[20vh] pb-[5vh] pt-[5vh] '>
             <div className="flex flex-col items-center justify-center
-            sm:h-[115vh] h-[90vh] w-[90vw] sm:mt-[10vh] mt-[5vh] bg-white mx-auto  " >
+            sm:h-[115vh] h-[60rem] w-[90vw] sm:mt-[10vh] mt-[5vh] bg-white mx-auto  " >
                 <h1 className='text-3xl font-bold text-gray-800 mb-2 '>Log In</h1>
                 <p className='font-thin text-gray-500 text-md mb-8'>Don&apos;t have an account?
                  <span className='text-orange-500 text-lg font-semibold '> Sign Up</span></p>
@@ -64,11 +64,13 @@ export default function SingIn() {
                         <p className='text-gray-500 font-bold mt-4'>PASSWORD</p>
                         <div className='flex items-center'>
                         <input className='sm:w-[35vw] w-[70vw] bg-blue-200 bg-opacity-50 h-12 rounded-xl outline-orange-500' type={passwordType} value={password} onChange={(e) => setPassword(e.target.value)} /> 
-                        <span onClick={changePasswordType} className=' sm:-ml-[2vw] -ml-[6vw] text-gray-500 '><FaDotCircle /></span>
+                        <span onClick={changePasswordType} className=' sm:-ml-[2vw] -ml-[22px] text-gray-500 '><FaDotCircle /></span>
                         </div>
-                        <div className='text-gray-500  font-semibold mt-4 mx-2 items-center flex flex-row justify-between'>
+                        <div className='text-gray-500 w-[70vw] font-semibold mt-4 sm:mx-2  items-center flex flex-row justify-between sm:justify-start'>
+                        <div className='w-[25vw]'>
                         <CheckboxComp NamedByParent="Remember me" />
-                        <p onClick={ () => router.push('/pages/forgotPassword') } className='font-medium text-[13px] '>Forgot Password?</p>
+                        </div>
+                        <p onClick={ () => router.push('/pages/forgotPassword') } className='font-medium text-[13px] w-[25vw] '>Forgot Password?</p>
                         
                         </div>
                   

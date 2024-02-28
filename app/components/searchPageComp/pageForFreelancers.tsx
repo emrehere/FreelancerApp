@@ -45,7 +45,7 @@ export default function PageForFreelancers() {
             <div  className='sm:ml-[5vw] -mt-[7vh] flex flex-col text-gray-800'>
                 <div>
 
-                    <div className='flex justify-center text-2xl font-semibold -ml-[10vw] '>
+                    <div className='flex justify-center text-2xl font-semibold mx-2 sm:-ml-[10vw]  '>
                         <p>FREELANCERS TO HIRE FOR {searchParam.toUpperCase()}
                         </p>
                     </div>
