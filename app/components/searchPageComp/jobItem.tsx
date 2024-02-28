@@ -5,7 +5,7 @@ export default function jobItem({ item }: any) {
     return (
         <div>
             <div className="bg-orange-50 bg-opacity-50 hover:bg-orange-100 hover:bg-opacity-60 shadow-sm shadow-orange-300
-             flex flex-col m-4 sm:w-[80vw] w-[95vw] sm:h-[45vh] h-[50vh] min-h-[230px] p-8 sm:p-4 rounded-xl">
+             flex flex-col m-4 sm:w-[80vw] w-[95vw] sm:h-[45vh] h-[60vh] min-h-[230px] p-8 sm:p-4 rounded-xl">
                 <div className="-mt-2">
                     <p className="text-[14px] te">  posted bla bla ago </p>
                     <p className="text-xl font-bold my-1">  {item.projectDetails.title}</p>
@@ -21,10 +21,14 @@ export default function jobItem({ item }: any) {
                         ? `${item.jobDescription.slice(0, 250)}...`
                         : item.jobDescription}
                 </p>
+                <p className="flex flex-grow"></p>
                 <div>
-                    <div className="flex flex-wrap items-center justify-center   flex-row  mt-2 font-medium" > {slicedSkills.map((item: string) =>
+                    <div className="hidden sm:flex flex-wrap items-center justify-center   flex-row  mt-2 font-medium" > {slicedSkills.map((item: string) =>
                         <p key={item} className=" sm:py-2 bg-gray-600 text-sm sm:w-36 w-48 h-12 sm:h-16 flex items-center
                      justify-center bg-opacity-10 rounded-2xl px-2  m-2">{item}</p>)}</div>
+                     <div className=" grid grid-cols-2 sm:hidden mt-2 font-medium" > {slicedSkills.map((item: string) =>
+                        <p key={item} className=" col-span-1  bg-gray-600 text-sm   h-20
+                      bg-opacity-10 rounded-2xl p-8 flex items-center justify-center m-2">{item}</p>)}</div>
                 </div>
             </div>
         </div>
