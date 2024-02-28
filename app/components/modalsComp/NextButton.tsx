@@ -23,12 +23,12 @@ function NextButton() {
 
 
     return (
-        <div className="w-full flex justify-center bg-[#1a1c28]  text-white ">
-            <div className="w-[70vw]  flex justify-end ">
-                <div className=' px-4 py-4  flex flex-row justify-between w-[70vw]' >
+        <div className="w-full flex sm:justify-center bg-[#1a1c28]  text-white ">
+            <div className="sm:w-[70vw]  flex justify-end ">
+                <div className=' px-2 py-4  flex flex-row justify-between sm:w-[70vw] w-[94vw]' >
                     {
                         modalPageIndex !== 0 && (
-                            <div onClick={() => dispatch(goToPrevPage())} className='flex flex-row items-center space-x-4 '>
+                            <div onClick={() => dispatch(goToPrevPage())} className='flex flex-row items-center space-x-2 '>
                                 <m.div
                                     className="pl-4"
                                     whileHover={{ x: [0, -8, 0, -8, 0], transition: { duration: 1 } }}
@@ -45,8 +45,8 @@ function NextButton() {
                         modalPageIndex === 7 ? (
                             (   
                                 <Link href="/pages/searchPage">
-                                <div className='flex flex-row items-center space-x-4 '>                     
-                                        <button className="text-lg font-medium tracking-widest" > TAMAMLA </button>
+                                <div className='flex flex-row items-center space-x-2 '>                     
+                                        <button className="text-lg font-medium tracking-widest" > TAMAM </button>
                                         <m.div
                                             className="pr-4"
                                             whileHover={{ y: [0, -4, 0, -4, 0], transition: { duration: 1 } }}

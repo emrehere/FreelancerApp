@@ -47,13 +47,11 @@ function Page1() {
               
     }
 
-    
-
   return (
     <div>
         <ModalTopElement />
-            <div className="bg-white sm:mt-0 mt-8 overflow-hidden sm:w-[70vw] sm:h-[75vh] h-[50vh] min-h-[25rem] rounded-2xl flex flex-col items-center  ">
-                <h2 className="text-2xl font-medium text-[#1a1c28] pt-2" >Hangi hizmete ihtiyacın var?</h2>
+            <div className="bg-white sm:mt-0 mt-4 overflow-hidden sm:w-[70vw] w-[90vw] mx-auto sm:h-[75vh] h-[30rem] min-h-[25rem] rounded-2xl flex flex-col items-center  ">
+                <h2 className="text-2xl font-medium text-[#1a1c28] pt-2 ml-4 " >Hangi hizmete ihtiyacın var?</h2>
                 <div className="flex flex-col w-full  ">
                     <div className="flex flex-row w-full m-2 items-center p-2 pr-4">
                         <IoSearch className="absolute text-gray-400 ml-4" size={20} />

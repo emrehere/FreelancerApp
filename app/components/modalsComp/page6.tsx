@@ -6,7 +6,7 @@ function Page6() {
   return (
     <div>
         <ModalTopElement />
-            <div className="bg-white overflow-hidden sm:w-[70vw] w-[90vw] h-[45vh] min-h-[11rem] 
+            <div className="bg-white overflow-hidden sm:w-[70vw] w-[90vw] h-[25rem] 
             rounded-2xl flex flex-col items-center justify-center sm:mt-0 mt-8">
             
                <div className='flex justify-center  h-full flex-col items-center sm:w-[60vw] w-[80vw]'>

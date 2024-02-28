@@ -27,7 +27,7 @@ function Page7() {
   return (
     <div>
       <ModalTopElement />
-      <div className="bg-white overflow-hidden sm:w-[70vw] sm:h-[55vh] h-[45vh] w-[90vw] min-h-[12rem] rounded-2xl flex 
+      <div className="bg-white overflow-hidden sm:w-[70vw] sm:h-[55vh] h-[25rem] w-[90vw] min-h-[12rem] rounded-2xl flex 
       flex-col items-center justify-center sm:mt-0 mt-8">
         <div className='flex justify-center  h-full flex-col items-center sm:w-[60vw] w-[80vw]'>
         <h1 className=' font-semibold text-[#1a1c28] sm:text-2xl text-3xl -mt-8'>Cep telefonun?</h1>

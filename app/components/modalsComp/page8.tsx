@@ -6,13 +6,13 @@ function Page8() {
     return (
         <div>
             <ModalTopElement />
-            <div className="bg-white overflow-hidden sm:w-[70vw] sm:h-[70vh] h-[60vh] min-h-[22rem] 
-            rounded-2xl flex flex-col items-center sm:justify-center w-[90vw] sm:mt-0 mt-8">
+            <div className="bg-white overflow-hidden sm:w-[70vw] sm:h-[70vh] h-[30rem]  
+            rounded-2xl flex flex-col items-center sm:justify-center w-[90vw] sm:mt-0 mt-4">
 
                 <div className='flex justify-center  h-full flex-col items-center sm:w-[60vw] w-[80vw]'>
-                    <h1 className='font-semibold -mt-8 mb-4 text-[#1a1c28] text-2xl'>Numaranizi dogrulayin</h1>
+                    <h1 className='font-semibold -mt-8 sm:mb-4 text-[#1a1c28] text-2xl '>Numaranizi dogrulayin</h1>
 
-                    <p className='text-gray-500 text-md sm:w-[60vw] mb-12 mt-2 pl-2 sm:pl-0'>Onay kodunuzu girmek için telefon numaranıza gönderilen doğrulama kodunu kullanın. Talebinizi oluşturun ve anında ücretsiz teklifler alın.</p>
+                    <p className='text-gray-500 text-md sm:w-[60vw] sm:mb-12 mt-2 pl-2 sm:pl-0'>Onay kodunuzu girin. Talebinizi oluşturup ücretsiz teklifler alın.</p>
 
                     <div className='flex pl-2 sm:pl-0 sm:flex-row flex-col sm:items-center'>
                         <label className='w-40 sm:text-md text-lg sm:mb-0 mb-2'>Numaraniz:</label>

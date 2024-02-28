@@ -17,7 +17,7 @@ function Page2() {
         <div>
             <ModalTopElement />
             <div className="bg-white overflow-hidden sm:w-[70vw] w-[90vw] sm:h-[60vh]
-             h-[45vh] min-h-[20rem] rounded-2xl flex flex-col items-center mt-8 sm:mt-0 ">
+             h-[27rem] min-h-[20rem] rounded-2xl flex flex-col items-center mt-8 sm:mt-0 ">
 
 
 

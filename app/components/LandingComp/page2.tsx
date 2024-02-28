@@ -4,9 +4,9 @@ import Image from 'next/image'
 function page2() {
     return (
         <div>
-             <br/>
-            <div className='bg-[#0A0F26] sm:h-[110vh] h-[95vh] w-[96vw] mx-auto text-blue-50
-             flex sm:flex-row flex-col rounded-xl'>
+           
+            <div className='bg-[#0A0F26] sm:h-[110vh] h-[55rem] w-[96vw] mx-auto text-blue-50
+             flex sm:flex-row flex-col rounded-xl mt-[1rem] sm:mt-0'>
                  <div className='block sm:hidden sm:w-[48vw] sm:h-[110vh] rounded-r-xl'>
                     <Image width={300} height={300} className='sm:w-[48vw] w-full sm:h-[110vh] rounded-r-xl' src="/kadin.webp" alt="kadin" />
                 </div>
