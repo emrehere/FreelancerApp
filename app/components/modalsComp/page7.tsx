@@ -27,12 +27,14 @@ function Page7() {
   return (
     <div>
       <ModalTopElement />
-      <div className="bg-white overflow-hidden w-[70vw] h-[55vh] min-h-[12rem] rounded-2xl flex flex-col items-center justify-center">
-        <div className='flex justify-center  h-full flex-col items-center w-[60vw]'>
-        <h1 className=' font-semibold text-[#1a1c28] text-2xl -mt-8'>Cep telefonun?</h1>
-        <p className='text-gray-500 text-md  mt-2'>Hizmet verenimiz seninle bu numaradan iletişime geçecek</p>
+      <div className="bg-white overflow-hidden sm:w-[70vw] sm:h-[55vh] h-[45vh] w-[90vw] min-h-[12rem] rounded-2xl flex 
+      flex-col items-center justify-center sm:mt-0 mt-8">
+        <div className='flex justify-center  h-full flex-col items-center sm:w-[60vw] w-[80vw]'>
+        <h1 className=' font-semibold text-[#1a1c28] sm:text-2xl text-3xl -mt-8'>Cep telefonun?</h1>
+        <p className='text-gray-500 sm:text-md text-lg pt-4 sm:mt-2'>Hizmet verenimiz seninle bu numaradan iletişime geçecek</p>
         <input
-          className='mt-8 w-[50vw] border-[#1a1c28] border-2 border-opacity-20 outline-none p-2'
+          className='sm:mt-8 mt-12 sm:w-[50vw] w-[80vw] border-[#1a1c28] border-2 sm:border-opacity-20
+          outline-none p-2 border-opacity-40 h-14 sm:h-12'
           type="tel"
           id="phoneNumber"
           name="phoneNumber"

@@ -6,23 +6,24 @@ function Page8() {
     return (
         <div>
             <ModalTopElement />
-            <div className="bg-white overflow-hidden w-[70vw] h-[70vh] min-h-[22rem] 
-            rounded-2xl flex flex-col items-center justify-center">
+            <div className="bg-white overflow-hidden sm:w-[70vw] sm:h-[70vh] h-[60vh] min-h-[22rem] 
+            rounded-2xl flex flex-col items-center sm:justify-center w-[90vw] sm:mt-0 mt-8">
 
-                <div className='flex justify-center  h-full flex-col items-center w-[60vw]'>
+                <div className='flex justify-center  h-full flex-col items-center sm:w-[60vw] w-[80vw]'>
                     <h1 className='font-semibold -mt-8 mb-4 text-[#1a1c28] text-2xl'>Numaranizi dogrulayin</h1>
 
-                    <p className='text-gray-500 text-md w-[60vw] mb-12 mt-2'>Onay kodunuzu girmek için telefon numaranıza gönderilen doğrulama kodunu kullanın. Talebinizi oluşturun ve anında ücretsiz teklifler alın.</p>
+                    <p className='text-gray-500 text-md sm:w-[60vw] mb-12 mt-2 pl-2 sm:pl-0'>Onay kodunuzu girmek için telefon numaranıza gönderilen doğrulama kodunu kullanın. Talebinizi oluşturun ve anında ücretsiz teklifler alın.</p>
 
-                    <div className='flex flex-row items-center'>
-                        <label className='w-40'>Numaraniz:</label>
-                        <input className=' w-[40vw] border-[#1a1c28] border-2 h-10 border-opacity-20 outline-none p-2' type="text" placeholder='555-555-55-55' disabled />
+                    <div className='flex pl-2 sm:pl-0 sm:flex-row flex-col sm:items-center'>
+                        <label className='w-40 sm:text-md text-lg sm:mb-0 mb-2'>Numaraniz:</label>
+                        <input className=' sm:w-[40vw] w-[80vw] border-[#1a1c28] border-2 h-14 sm:h-12 border-opacity-20 outline-none p-2' type="text" placeholder='555-555-55-55' disabled />
                     </div>
-                    <div className='flex flex-row mt-4 items-center'>
-                        <label className='w-40'>Onay kodunuz:</label>
-                        <input className=' w-[40vw] border-[#1a1c28] border-2 h-10 border-opacity-20 outline-none p-2' type="text" placeholder='123' />
+                    <div className='flex sm:flex-row flex-col mt-4  sm:pl-0 pl-2 sm:items-center'>
+                        <label className='w-40 sm:text-md text-lg sm:mb-0 mb-2'>Onay kodunuz:</label>
+                        <input className=' sm:w-[40vw] w-[80vw] border-[#1a1c28] border-2 h-14 sm:h-12 border-opacity-20 outline-none p-2' type="text" placeholder='123' />
                         <div className='flex justify-end items-center '>
-                            <button className='bg-orange-500 absolute text-white w-28 h-10   font-bold text-lg'>Yeni kod</button>
+                            <button className='bg-orange-500 absolute text-white w-28 sm:h-12
+                            h-14 font-bold text-lg -mt-14 sm:mt-0 '>Yeni kod</button>
                         </div>
 
                     </div>
