@@ -25,11 +25,10 @@ function Page4() {
   return (
     <div>
       <ModalTopElement />
-      <div style={{ height: countyOpen || citiesOpen ? "28rem" : "18rem" }} className="bg-white overflow-hidden w-[70vw]  rounded-2xl flex flex-col items-center  ">
+      <div style={{ height: countyOpen || citiesOpen ? "28rem" : "18rem" }} className="bg-white
+       overflow-hidden sm:w-[70vw] w-[90vw] rounded-2xl flex flex-col items-center mt-8 sm:mt-0 ">     
 
-        
-
-        <div className='mt-8'>
+        <div className='sm:mt-8 mt-12'>
           <ScrollAreaByCity />
         </div>
         {
