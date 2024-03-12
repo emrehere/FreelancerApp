@@ -5,7 +5,7 @@ import NextButton from "@/app/components/modalsComp/NextButton";
 import ModalTopElement from './ModalTopElement';
 import modalDatas from "@/app/datas/modalDatas";
 import { useEffect, useState } from "react";
-import { displayIndexFunc, goToNextPage } from '@/app/pages/jobNoticeForm/modalReducer';
+import { displayIndexFunc, goToNextPage, hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 
@@ -24,58 +24,65 @@ function Page1() {
     const [filteredDatas, setFilteredDatas] = useState<filteredDatas[]>([]);
     const dispatch = useDispatch();
     const modalPageIndex = useSelector((state: RootState) => state.modalReducer.modalPageIndex)
-    
+    const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
+
 
     const slicedDatas = modalDatas.slice(0, 6)
 
-    
+
     useEffect(() => {
         function filterBySearchTerm() {
             const filtered: filteredDatas[] = modalDatas
                 .filter((data) =>
                     data.unvan.toLowerCase().includes(searchTerm.toLowerCase())
-                )                
+                )
             setFilteredDatas(filtered);
         }
         filterBySearchTerm();
     }, [searchTerm])
 
+   
+    console.log("hireInfo",hireInfo)
 
-    const handleIndexClick = (displayId: string) => {
-      dispatch(goToNextPage())
-      dispatch(displayIndexFunc(displayId))
-              
+
+
+    const handleIndexClick = ( item :any) => {
+        dispatch(hireInfosetter({ unvan: item.unvan }))
+        console.log(item.modalPageIndex)
+        dispatch(goToNextPage())
+        dispatch(displayIndexFunc( item.modalPageIndex ))
+
     }
 
-  return (
-    <div>
-        <ModalTopElement />
+    return (
+        <div>
+            <ModalTopElement />
             <div className="bg-white sm:mt-0 mt-4 overflow-hidden sm:w-[70vw] w-[90vw] mx-auto sm:h-[75vh] h-[30rem] min-h-[25rem] rounded-2xl flex flex-col items-center  ">
                 <h2 className="text-2xl font-medium text-[#1a1c28] pt-2 ml-4 " >Hangi hizmete ihtiyacın var?</h2>
                 <div className="flex flex-col w-full  ">
                     <div className="flex flex-row w-full m-2 items-center p-2 pr-4">
                         <IoSearch className="absolute text-gray-400 ml-4" size={20} />
-                        <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} 
-                        className="outline-none sm:text-sm text-md w-full sm:h-10 h-12 px-8
+                        <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+                            className="outline-none sm:text-sm text-md w-full sm:h-10 h-12 px-8
                          font-medium m-2 text-gray-600 border-2 border-opacity-50
                           border-gray-400 " placeholder="Hizmete ihtiyacınız varsa buraya yazın" />
                     </div>
                     {
                         searchTerm.length > 0 && filteredDatas.length > 0 && (
                             <div className="max-h-[200px] overflow-y-auto">
-                            <ul>
-                                {filteredDatas.map((item, index) => (
-                                    <li
-                                        onClick={ () => handleIndexClick(item.modalPageIndex) }
-                                        key={item.modalPageIndex}
-                                        className="hover:bg-gray-100 w-full p-2 sm:text-sm text-md
+                                <ul>
+                                    {filteredDatas.map((item, index) => (
+                                        <li
+                                            onClick={() => handleIndexClick(item)}
+                                            key={item.modalPageIndex}
+                                            className="hover:bg-gray-100 w-full p-2 sm:text-sm text-md
                                          flex justify-center tracking-wide text-gray-600"
-                                    >
-                                        {item.unvan}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                                        >
+                                            {item.unvan}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         )
                     }
                 </div>
@@ -91,8 +98,8 @@ function Page1() {
                                 slicedDatas.map((item: any) => {
                                     return (
                                         <p key={item.modalPageIndex}
-                                         onClick={ () => handleIndexClick(item.modalPageIndex)} 
-                                         className="hover:bg-gray-100 w-full p-1 text-md sm:text-sm flex 
+                                            onClick={() => handleIndexClick(item)}
+                                            className="hover:bg-gray-100 w-full p-1 text-md sm:text-sm flex 
                                          justify-center tracking-wide text-gray-600">{item.unvan}</p>
 
                                     )
@@ -105,8 +112,8 @@ function Page1() {
                 <div className="flex flex-grow"></div>
                 <NextButton />
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Page1

@@ -1,8 +1,20 @@
 import React from 'react'
 import NextButton from "@/app/components/modalsComp/NextButton";
 import ModalTopElement from './ModalTopElement';
+import { hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/app/store/RootReducer';
 
 function Page3() {
+
+  const dispatch = useDispatch()
+
+  const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
+
+  console.log("hireInfo",hireInfo)
+
+
+
   return (
     <div>
       <ModalTopElement />
@@ -15,9 +27,9 @@ function Page3() {
             <p className='text-gray-500 sm:text-md text-lg  sm:pt-0 pt-2'>Aklına gelen başka önemli bir detay var mı?</p>
           </div>
           <div className='sm:w-[60vw] w-[80vw] mx-auto'>
-            <input className='w-[100%] border-purple-200 border-2 outline-none p-2 sm:mb-2 mb-4 sm:h-12 h-14'
+            <input value={hireInfo.title} onChange={(e) => dispatch(hireInfosetter({ title: e.target.value }))} className='w-[100%] border-purple-200 border-2 outline-none p-2 sm:mb-2 mb-4 sm:h-12 h-14'
              type="text" placeholder='Tam olarak ne aradiginizi basliga yaziniz' />
-            <textarea className='h-[10rem]  w-[100%] border-purple-200 border-2 outline-none p-2'
+            <textarea value={hireInfo.description} onChange={(e) => dispatch(hireInfosetter({ description: e.target.value }))} className='h-[10rem]  w-[100%] border-purple-200 border-2 outline-none p-2'
               placeholder=' detaylari belirtiniz lutfen'></textarea>
           </div>
 

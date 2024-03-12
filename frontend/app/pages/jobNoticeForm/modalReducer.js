@@ -1,4 +1,4 @@
-// NavActions.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const modalSlice = createSlice({
@@ -10,6 +10,12 @@ const modalSlice = createSlice({
     countyOpen: false,
     chosenCity: "",
     citySearchTerm: "",
+    hireInfo: {
+      unvan: "",
+      soru: "",
+      title: "",
+      description: "",
+    }
   },
   reducers: {
 
@@ -36,11 +42,23 @@ const modalSlice = createSlice({
     },
     getCitySearchTerm: (state, action) => {
         state.citySearchTerm = action.payload
+    },
+    hireInfosetter: (state, action) => {
+        const { unvan , soru, title, description } = action.payload;
+        if (unvan) {
+            state.hireInfo.unvan = unvan
+        } if (soru) {
+            state.hireInfo.soru = soru
+        } if (title) {
+            state.hireInfo.title = title
+        } if (description) {
+            state.hireInfo.description = description
+        }
     }
   },
 });
 
 export const { goToNextPage, goToPrevPage, displayIndexFunc, showCities, showCounty,
-  getChosenCity, getCitySearchTerm } = modalSlice.actions;
+  getChosenCity, getCitySearchTerm, hireInfosetter } = modalSlice.actions;
 
 export default modalSlice.reducer;

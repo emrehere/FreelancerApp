@@ -5,13 +5,23 @@ import ModalDatas from '@/app/datas/modalDatas';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import { goToNextPage, goToPrevPage } from '@/app/pages/jobNoticeForm/modalReducer';
+import { hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
 
 function Page2() {
 
 
     const displayIndex = useSelector((state: RootState) => state.modalReducer.modalDisplayIndex)
-
+    const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
+    
     const dispatch = useDispatch()
+
+    const handleQuestionClick = ( data: string) => {
+        console.log("data secenek",data)    
+        dispatch(hireInfosetter({ soru: data }))
+    }
+
+    console.log("hireInfo",hireInfo)
+
 
     return (
         <div>
@@ -30,7 +40,7 @@ function Page2() {
                             ModalDatas[displayIndex].secenekler.map((data, index) =>
                                 <ul className='border-2 sm:border-opacity-30 border-opacity-60 hover:bg-purple-100 hover:bg-opacity-50
                                  m-2 col-span-1 border-gray-300 p-2 cursor-pointer' key={index}>
-                                    <li onClick={ () => dispatch(goToNextPage()) }>{data}</li>
+                                    <li onClick={ () => handleQuestionClick(data)}>{data}</li>
                                     </ul>)
                         }
                     </div>

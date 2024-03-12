@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/datas/modalDatas.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/datas/modalDatas.js", "app/pages/jobNoticeForm/modalReducer.js"],
   "exclude": ["node_modules"]
 }

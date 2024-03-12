@@ -1,8 +1,15 @@
 import React from 'react'
 import NextButton from "@/app/components/modalsComp/NextButton";
 import ModalTopElement from './ModalTopElement';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/app/store/RootReducer';
 
 function Page5() {
+
+  const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
+
+ 
+
   return (
     <div>
       <ModalTopElement />
