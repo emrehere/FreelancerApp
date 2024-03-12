@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+pnp-replace/
+
+# Compiled binary addons (https://github.com/nodejs/node-gyp#output)
+build/
+
+# dotenv environment variable file
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# VS Code directories
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

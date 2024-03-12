@@ -13,19 +13,13 @@ export default function SingIn() {
     const [password, setPassword] = useState("")
     const [passwordType, setPasswordType] = useState("password")
     const [warning, setWarning] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [userData, setUserData] = useState({})
+    const [loginError, setLoginError] = useState("")
 
     const router = useRouter()
 
-    const signIn = () => {
-        if(email.includes("@") && password.length >= 6) {
-            console.log(email, password)
-        } else {
-            setWarning(true)
-            setTimeout(() => {
-                setWarning(false)
-            }, 1500)
-        }
-    }
+  
 
     const changePasswordType = () => {
         setPasswordType((prevType) => (prevType === "password" ? "text" : "password"));
@@ -33,6 +27,50 @@ export default function SingIn() {
           setPasswordType("password");
         }, 750);
       };
+
+
+      const loginUser = async () => {
+
+        setLoading(true)
+
+        try {
+            const res = await fetch('http://localhost:8008/api/login', {
+
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                setUserData(data);
+                console.log(data)
+
+                // Store the token securely in localStorage
+                localStorage.setItem('token', JSON.stringify(data.token));
+
+
+                console.log('User logged in');
+            } else {
+                console.log('User not logged in. Status:', res.status);
+                const errorData = await res.json(); // If the server returns error details in the response body
+                setLoginError(errorData.error);
+
+            }
+        } catch (error) {
+            console.log('Error during login:', error);
+
+        }
+        finally {
+            setLoading(false); // Set loading state to false in the finally block
+        }
+
+    };
 
     return (       
         <div className='bg-blue-50 sm:pb-[20vh] pb-[5vh] pt-[5vh] '>
@@ -74,7 +112,7 @@ export default function SingIn() {
                         
                         </div>
                   
-                    <button onClick={signIn} className='text-white bg-orange-500 sm:w-[35vw] w-[70vw] rounded-xl
+                    <button onClick={loginUser} className='text-white bg-orange-500 sm:w-[35vw] w-[70vw] rounded-xl
                     h-12 mt-4 font-bold tracking-widest text-xl hover:scale-105 transition ease-in-out' >LOG IN</button>
                     {
                         warning ? <p className='text-red-500 flex justify-center mt-2'>Please check your email and password</p> : null

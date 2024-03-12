@@ -7,7 +7,10 @@ export default function SignUp() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
+    const [surname , setSurname] = useState("")
+    const [signupError, setSignupError] = useState("");
+    const [loading, setLoading] = useState(false)
+    
 
     const hireOn = () => {
         setClicked("hire");
@@ -17,27 +20,43 @@ export default function SignUp() {
         setClicked("freelancer");
     }
 
-    const registerUser = async () => {
-      try {
-          const res = await fetch("http://mangoapi.can.re/create-user", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              mode: "no-cors",
-              body: JSON.stringify({ username, email, password })
-          });
-          console.log("res", res);
-  
+    const saveTheUser = async () => {
+        setLoading(true)
+        try {
+          const res = await fetch('http://localhost:8008/api/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name,
+              surname,
+              email,
+              password
+            })
+          })
+          console.log(res)
           if (res.ok) {
-              console.log("User created successfully", res);
+    
+            const data = await res.json();
+    
+    
+            localStorage.setItem('token', JSON.stringify(data.token));
+    
+            console.log('user saved')
+    
           } else {
-              console.log("Failed to create user", res);
+            const errorData = await res.json();
+            setSignupError(errorData.error)
           }
-      } catch (error) {
-          console.error("Failed to create user:", error);
+    
+        } catch (error) {
+          console.log(error)
+        }
+        finally {
+          setLoading(false)
+        }
       }
-  };
   
   return (
     <div style={{backgroundImage: `url("./signupHero.jpg")`,}}
@@ -62,13 +81,13 @@ export default function SignUp() {
             I WANT TO <span>WORK AS A FREELANCER</span></button>
         </div>
         <div className="flex flex-row justify-between pt-[5vh]">
-        <input value={username} onChange={(e) => setUsername(e.target.value)} className="sm:w-[19vw] w-[38vw] h-11 p-2" type="text" placeholder="First Name" />
-        <input className="sm:w-[19vw] w-[38vw] h-11 p-2"  type="text" placeholder="Last Name" />
+        <input value={name} onChange={(e) => setName(e.target.value)} className="sm:w-[19vw] w-[38vw] h-11 p-2" type="text" placeholder="First Name" />
+        <input value={surname} onChange={(e) => setSurname(e.target.value)} className="sm:w-[19vw] w-[38vw] h-11 p-2"  type="text" placeholder="Last Name" />
         </div>
         <input value={email} onChange={(e) => setEmail(e.target.value)} className="sm:w-[40vw] w-[80vw] h-11 p-2"  type="text" placeholder="Email" />
         <input value={password} onChange={(e) => setPassword(e.target.value)} className="sm:w-[40vw] w-[80vw] h-11 p-2" type="text" placeholder="Password" />
         <div className="sm:pt-[5vh] pt-[3vh]">
-        <button onClick={registerUser} className="bg-orange-600 py-4 font-bold text-white tracking-widest rounded-xl
+        <button onClick={saveTheUser} className="bg-orange-600 py-4 font-bold text-white tracking-widest rounded-xl
         hover:scale-105  sm:w-[40vw]  w-[80vw] ">SIGN UP</button>
         <p className="text-sm pt-4 text-gray-400">Already have an account?</p>
         </div>
