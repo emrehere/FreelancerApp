@@ -4,6 +4,10 @@ import React, { useState } from "react";
 export default function SignUp() {
 
     const [clicked, setClicked] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
 
     const hireOn = () => {
         setClicked("hire");
@@ -13,6 +17,28 @@ export default function SignUp() {
         setClicked("freelancer");
     }
 
+    const registerUser = async () => {
+      try {
+          const res = await fetch("http://mangoapi.can.re/create-user", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              mode: "no-cors",
+              body: JSON.stringify({ username, email, password })
+          });
+          console.log("res", res);
+  
+          if (res.ok) {
+              console.log("User created successfully", res);
+          } else {
+              console.log("Failed to create user", res);
+          }
+      } catch (error) {
+          console.error("Failed to create user:", error);
+      }
+  };
+  
   return (
     <div style={{backgroundImage: `url("./signupHero.jpg")`,}}
     className="bg-cover h-full w-full " >
@@ -36,13 +62,13 @@ export default function SignUp() {
             I WANT TO <span>WORK AS A FREELANCER</span></button>
         </div>
         <div className="flex flex-row justify-between pt-[5vh]">
-        <input className="sm:w-[19vw] w-[38vw] h-11 p-2" type="text" placeholder="First Name" />
+        <input value={username} onChange={(e) => setUsername(e.target.value)} className="sm:w-[19vw] w-[38vw] h-11 p-2" type="text" placeholder="First Name" />
         <input className="sm:w-[19vw] w-[38vw] h-11 p-2"  type="text" placeholder="Last Name" />
         </div>
-        <input className="sm:w-[40vw] w-[80vw] h-11 p-2"  type="text" placeholder="Email" />
-        <input className="sm:w-[40vw] w-[80vw] h-11 p-2" type="text" placeholder="Password" />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} className="sm:w-[40vw] w-[80vw] h-11 p-2"  type="text" placeholder="Email" />
+        <input value={password} onChange={(e) => setPassword(e.target.value)} className="sm:w-[40vw] w-[80vw] h-11 p-2" type="text" placeholder="Password" />
         <div className="sm:pt-[5vh] pt-[3vh]">
-        <button className="bg-orange-600 py-4 font-bold text-white tracking-widest rounded-xl
+        <button onClick={registerUser} className="bg-orange-600 py-4 font-bold text-white tracking-widest rounded-xl
         hover:scale-105  sm:w-[40vw]  w-[80vw] ">SIGN UP</button>
         <p className="text-sm pt-4 text-gray-400">Already have an account?</p>
         </div>
