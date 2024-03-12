@@ -28,9 +28,9 @@ function* loginUserSaga(action) {
             localStorage.setItem('token', JSON.stringify(data.token));
             console.log('User logged in');
         } else {
-            console.log('User not logged in. Status:', res.status);
-            const errorData = yield res.json(); // If the server returns error details in the response body
-            // Handle the error or dispatch an action if needed
+            
+            const errorData = yield res.json(); 
+            console.log("error data", errorData)
         }
     } catch (error) {
         console.log('Error during login:', error);
