@@ -28,9 +28,6 @@ export default function SingIn() {
     const router = useRouter()
 
 
-
-  
-
     const changePasswordType = () => {
         setPasswordType((prevType) => (prevType === "password" ? "text" : "password"));
         setTimeout(() => {

@@ -39,5 +39,5 @@ function* loginUserSaga(action) {
 }
 
 export function* watchLoginUser() {
-    yield takeLatest('login/loginSetter', loginUserSaga);
+    yield takeEvery('login/loginSetter', loginUserSaga);
 }

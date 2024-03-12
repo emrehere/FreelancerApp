@@ -22,7 +22,7 @@ export default function SignUp() {
     }
 
     const saveTheUser = () => {
-      console.log(email, password, name, surname)
+       dispatch(signupSetter({ name: name, surname: surname, email: email, password: password }));
     }
 
    
