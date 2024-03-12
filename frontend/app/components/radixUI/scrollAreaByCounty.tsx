@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import CitiesData from '../../datas/cities'
 import { useDispatch, useSelector } from 'react-redux'; 
 import { RootState } from '@/app/store/RootReducer';
-import { showCounty } from '@/app/pages/jobNoticeForm/modalReducer';
+import { showCounty, hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
 import { CityType } from '../../types';
 
 export default function ScrollAreaByCounty() {
@@ -17,7 +17,7 @@ export default function ScrollAreaByCounty() {
 
     const countyOpen = useSelector((state: RootState) => state.modalReducer.countyOpen)
     const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity as unknown as CityType)
-
+    const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
  
     const dispatch = useDispatch();
     
@@ -47,10 +47,14 @@ export default function ScrollAreaByCounty() {
 
     
     const handleChosenCounty = (event: React.MouseEvent<HTMLDivElement>) => {
+        event.preventDefault();
+        dispatch(hireInfosetter({ chosenCountyToDB: event.currentTarget.textContent as string}));
         setChosenCounty(event.currentTarget.textContent as string);
         dispatch(showCounty(false))
         setCountySearch(event.currentTarget.textContent as string)
     }
+
+    console.log("info", hireInfo)
     
 
     return (

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import CitiesData from '../../datas/cities'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
-import { showCities, getChosenCity, getCitySearchTerm } from '@/app/pages/jobNoticeForm/modalReducer';
+import { showCities, getChosenCity, getCitySearchTerm, hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
 import { CityType } from '../../types';
 
 type City = {
@@ -23,6 +23,7 @@ export default function ScrollAreaByCity() {
     const citiesOpen = useSelector((state: RootState) => state.modalReducer.citiesOpen)
     const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity as unknown as CityType)
     const citySearchTerm = useSelector((state: RootState) => state.modalReducer.citySearchTerm)
+    const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
   
 
     const dispatch = useDispatch();
@@ -82,6 +83,15 @@ export default function ScrollAreaByCity() {
         dispatch(showCities(!citiesOpen))
       }
 
+      const handleScrollCityClick = (city: City) => {
+        dispatch(getChosenCity(city))
+        dispatch(hireInfosetter({ chosenCityToDB: city.name }))
+      }
+
+      console.log("hireInfo",hireInfo)
+
+      
+
     return (
         <ScrollArea.Root ref={scrollAreaRef} className=" rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-white mx-6">
             <ScrollArea.Viewport className=" h-full rounded">
@@ -94,7 +104,7 @@ export default function ScrollAreaByCity() {
                             <div className='h-[180px]'>
                                 {filteredDatas.map((city: City) => (
                                     <div
-                                        onClick={() => dispatch(getChosenCity(city))}
+                                        onClick={() => handleScrollCityClick(city)}
                                         className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
                  cursor-pointer leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6 flex justify-center items-center"
                                         key={city.plate}

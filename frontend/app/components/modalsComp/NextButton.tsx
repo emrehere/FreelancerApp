@@ -26,8 +26,10 @@ function NextButton() {
     const handleBackwards = () => {
         if(modalPageIndex === 1){
             dispatch(hireInfosetter({ soru: "deleted" }))
-        } else if(modalPageIndex === 2){
-            dispatch(hireInfosetter({ title: "deleted", description: "deleted" }))
+        } if (modalPageIndex === 3) {
+            dispatch(hireInfosetter({ chosenCountyToDB: "deleted" }))
+        } if (modalPageIndex === 4) {
+            dispatch(hireInfosetter({ chosenCountyToDB: "deleted" }))
         }
         dispatch(goToPrevPage())
     }

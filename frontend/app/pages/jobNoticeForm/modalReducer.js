@@ -15,6 +15,8 @@ const modalSlice = createSlice({
       soru: "",
       title: "",
       description: "",
+      chosenCityToDB: "",
+      chosenCountyToDB: "",
     }
   },
   reducers: {
@@ -44,7 +46,7 @@ const modalSlice = createSlice({
         state.citySearchTerm = action.payload
     },
     hireInfosetter: (state, action) => {
-        const { unvan , soru, title, description } = action.payload;
+        const { unvan , soru, title, description, chosenCityToDB, chosenCountyToDB } = action.payload;
         if (unvan) {
             state.hireInfo.unvan = unvan
         } if (soru) {
@@ -53,6 +55,10 @@ const modalSlice = createSlice({
             state.hireInfo.title = title
         } if (description) {
             state.hireInfo.description = description
+        } if (chosenCityToDB) {
+            state.hireInfo.chosenCityToDB = chosenCityToDB
+        } if (chosenCountyToDB) {
+            state.hireInfo.chosenCountyToDB = chosenCountyToDB
         }
     }
   },
