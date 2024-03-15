@@ -27,16 +27,14 @@ const searchPageSlice = createSlice({
       
     },
     showWorkSetter: (state, action) => {
-        state.showWork= action.payload; // Corrected action.payload assignment
-       
-      
+        state.showWork= action.payload; // Corrected action.payload assignment          
     }
 
   },
 });
 
 // Corrected the exported action name
-export const { jobOrTalentSetter, freelancerIndexSetter, 
-  showFreelancerSetter, workIndexSetter, showWorkSetter } = searchPageSlice.actions;
+export const { jobOrTalentSetter, freelancerIndexSetter, showFreelancerSetter, workIndexSetter,
+   showWorkSetter } = searchPageSlice.actions;
 
 export default searchPageSlice.reducer;

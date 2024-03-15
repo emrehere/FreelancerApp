@@ -1,10 +1,12 @@
 "use client"
 import { useDispatch, useSelector } from 'react-redux';
-import { searchParamSetter } from "../../components/LandingComp/searchReducer"
 import { RootState } from '../../store/RootReducer';
 import SearchBar from '../../components/LandingComp/searchBar';
 import { jobOrTalentSetter } from './searchPageReducer';
 import dynamic from 'next/dynamic'
+import { useEffect } from 'react';
+import { getAllHireInfo } from '../../store/actions';
+
 
 
 const PageForJobs = dynamic(() => import('../../components/searchPageComp/pageForJobs'), {
@@ -31,6 +33,12 @@ export default function SearchPage() {
     const jobOrTalent = useSelector((state: RootState) => state.searchPageReducer.jobOrTalent)
     const showFreelancer = useSelector((state: RootState) => state.searchPageReducer.showFreelancer)
     const showWork = useSelector((state: RootState) => state.searchPageReducer.showWork)
+
+    useEffect(() => {
+        dispatch(getAllHireInfo())
+    }, [])
+
+
 
 
 
