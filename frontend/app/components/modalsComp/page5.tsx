@@ -12,7 +12,7 @@ function Page5() {
     const phone = useSelector((state: RootState) => state.modalReducer.hireInfo.phone);
     const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo);
 
-    console.log( "hireInfo", hireInfo)
+   
 
 
     return (

@@ -88,7 +88,7 @@ export default function ScrollAreaByCity() {
         dispatch(hireInfosetter({ chosenCityToDB: city.name }))
       }
 
-      console.log("hireInfo",hireInfo)
+
 
       
 

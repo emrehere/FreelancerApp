@@ -42,7 +42,7 @@ function Page1() {
     }, [searchTerm])
 
    
-    console.log("hireInfo",hireInfo)
+
 
 
 

@@ -1,6 +1,19 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialInfoState =  {
+    unvan: "",
+    soru: "",
+    title: "",
+    description: "",
+    chosenCityToDB: "",
+    chosenCountyToDB: "",
+    name: "",
+    surname: "",
+    phone: "",
+  }
+
+
 const modalSlice = createSlice({
   name: 'modal',
   initialState: {
@@ -10,17 +23,8 @@ const modalSlice = createSlice({
     countyOpen: false,
     chosenCity: "",
     citySearchTerm: "",
-    hireInfo: {
-      unvan: "",
-      soru: "",
-      title: "",
-      description: "",
-      chosenCityToDB: "",
-      chosenCountyToDB: "",
-      name: "",
-      surname: "",
-      phone: "",
-    }
+    hireInfo: initialInfoState,
+    sendData: initialInfoState 
   },
   reducers: {
 
@@ -48,7 +52,8 @@ const modalSlice = createSlice({
     getCitySearchTerm: (state, action) => {
       state.citySearchTerm = action.payload
     }, sendHireInfo: (state, action) => {
-      state.hireInfo = action.payload
+      console.log("action in redux", action.payload)
+      state.sendData = action.payload
     },
     hireInfosetter: (state, action) => {
       const { unvan, soru, title, description, chosenCityToDB, chosenCountyToDB, 

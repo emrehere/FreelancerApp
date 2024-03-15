@@ -20,7 +20,7 @@ function Page2() {
         dispatch(hireInfosetter({ soru: data }))
     }
 
-    console.log("hireInfo",hireInfo)
+  
 
 
     return (

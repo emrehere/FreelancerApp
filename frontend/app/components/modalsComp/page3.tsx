@@ -11,7 +11,6 @@ function Page3() {
 
   const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
 
-  console.log("hireInfo",hireInfo)
 
 
 
