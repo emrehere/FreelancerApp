@@ -2,12 +2,13 @@ import { takeEvery,  call } from 'redux-saga/effects';
 
 function* hireInfoSaga(action) {
     console.log("triggered hireinfosaga")
-  
-    const { name, surname, phone, title, description, chosenCityToDB, chosenCountyToDB, unvan, soru } = action.payload;
+    console.log("payload",action.payload)
 
-    console.log("payload",name, surname, phone, title, description, chosenCityToDB, chosenCountyToDB, unvan, soru)
-   
+    const { hireInfo } = action.payload
+
+    console.log("hireinfo in saga",hireInfo)
   
+   
 
     // try {
     //     const res = yield call(fetch, 'http://localhost:8008/api/hire', {

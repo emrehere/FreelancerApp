@@ -37,7 +37,7 @@ function NextButton() {
 
     const postHireInfo = () => {
         console.log("postHireInfo", hireInfo)
-        dispatch(sendHireInfo({name : "name", surname : "surname", phone : "phone", title : "title", description : "description", chosenCityToDB : "chosenCityToDB", chosenCountyToDB : "chosenCountyToDB", unvan : "unvan", soru : "soru"}))
+        dispatch(sendHireInfo({hireInfo : hireInfo}))
     }
 
 
