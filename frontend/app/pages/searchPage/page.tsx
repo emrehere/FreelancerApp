@@ -5,7 +5,8 @@ import SearchBar from '../../components/LandingComp/searchBar';
 import { jobOrTalentSetter } from './searchPageReducer';
 import dynamic from 'next/dynamic'
 import { useEffect } from 'react';
-import { getAllHireInfo } from '../../store/actions';
+
+
 
 
 
@@ -33,12 +34,7 @@ export default function SearchPage() {
     const jobOrTalent = useSelector((state: RootState) => state.searchPageReducer.jobOrTalent)
     const showFreelancer = useSelector((state: RootState) => state.searchPageReducer.showFreelancer)
     const showWork = useSelector((state: RootState) => state.searchPageReducer.showWork)
-
-    useEffect(() => {
-        dispatch(getAllHireInfo())
-    }, [])
-
-
+    
 
 
 

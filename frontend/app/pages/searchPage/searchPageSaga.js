@@ -1,4 +1,5 @@
-import { takeEvery, call } from 'redux-saga/effects';
+import { takeEvery, call, put } from 'redux-saga/effects';
+import { setAllHireInfo } from './searchPageReducer';
 
 function* getAllHireInfoSaga() {
     console.log("Triggered getAllHireInfoSaga");
@@ -15,8 +16,9 @@ function* getAllHireInfoSaga() {
 
         if (res.ok) {
             const data = yield res.json();
-            console.log("Data:", data);
-   
+            const jobNoticeData = data.jobNotices
+            console.log("Data: in saga", data);
+            yield put(setAllHireInfo(jobNoticeData));
         } else {
             const errorData = yield res.json(); 
             console.log("Error data:", errorData);

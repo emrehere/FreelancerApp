@@ -3,11 +3,13 @@ import JobsData from "../../datas/jobsData"
 import { useSelector, useDispatch } from 'react-redux'
 import { FaArrowLeft } from "react-icons/fa6";
 import { showWorkSetter } from '../../pages/searchPage/searchPageReducer'
-import jobsData from "../../datas/jobsData";
+
+
 
 export default function ShowWork() {
 
     const workIndex = useSelector((state: any) => state.searchPageReducer.workIndex)
+   
 
     const dispatch = useDispatch()
    
@@ -15,6 +17,8 @@ export default function ShowWork() {
       
         dispatch(showWorkSetter(false))
     }
+
+    
 
 
     return (

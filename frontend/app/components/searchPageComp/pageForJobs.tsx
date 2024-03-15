@@ -4,7 +4,7 @@ import { RootState } from '../../store/RootReducer';
 import { showWorkSetter, workIndexSetter } from '../../pages/searchPage/searchPageReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-
+import { getAllHireInfo } from '@/app/store/actions';
 
 
 export default function PageForJobs() {
@@ -12,6 +12,7 @@ export default function PageForJobs() {
     const workIndex = useSelector((state: any) => state.searchPageReducer.workIndex)
     const showWork = useSelector((state: any) => state.searchPageReducer.showWork)
     const searchParam = useSelector((state: RootState) => state.searchPageReducer.jobOrTalent)
+    const hireDatas = useSelector((state: RootState) => state.searchPageReducer.hireDatas)
 
     const dispatch = useDispatch()
 
@@ -38,6 +39,15 @@ export default function PageForJobs() {
       }, [ showWork ]);
 
 
+      useEffect(() => {
+       
+        dispatch(getAllHireInfo())
+    }, [])
+
+    console.log("Hire data: ", hireDatas)
+
+    
+
     return (
         <div>
             <div className='flex flex-col text-gray-800 sm:ml-[5vw] -mt-[7vh]  '>
@@ -47,10 +57,10 @@ export default function PageForJobs() {
                 </div>
                 <div className='mt-[10vh]'>
                 {
-                    jobsData.map((item, index) => {
+                    hireDatas.map((item, index) => {
                         return (
                             <div onClick={() => handleShowWork(index) } key={index}>
-                                <JobItem  item={item} />
+                                <JobItem  item={item.hireInfo} />
                             </div>
                         )
                     })
