@@ -1,28 +1,34 @@
 import mongoose from "mongoose";
-import MyUserInfo from "../models/hireModel.js";
+import MyHireInfo from "../models/hireModel.js";
 
 async function createHire(req, res) {
+       
 
-        // console.log("req.user", req.user)
-        // const userId = req.user._id;
-        // console.log("my userid in controller", userId);
+        console.log("req.user", req.user)
+        const userId = req.user._id;
+        console.log("my userid in controller", userId);
        
-        // try {
+        try {
        
-      
-        // //   const { whats inside the lookingFor } = req.body;
+                console.log("i m here")
+          const { unvan,soru, title, description, chosenCityToDB, chosenCountryToDB,
+        name, surname, phone } = req.body;
          
-        // //   const user = { whats inside the lookingFor };
+          const hireInfo = { unvan,soru, title, description, chosenCityToDB, chosenCountryToDB,
+        name, surname, phone };
        
-        // //   console.log("Saving data to MongoDB...", lookingFor);
-        // //   const myUserInfoInstance = new MyUserInfo({ lookingFor, userId });
-        // //   await myUserInfoInstance.save();
+          
+          const myHireInfoInstance = new MyHireInfo({  hireInfo, userId });
+          console.log("myHireInfoInstance", myHireInfoInstance)
+          await myHireInfoInstance.save();
           
       
-        //   res.status(201).json({ message: "lookingFor Data saved successfully" });
-        // } catch (error) {
-        //   console.error("Error saving data:", error);
-        //   res.status(500).json({ error: "Internal Server Error" });
-        // }
+          res.status(201).json({ message: "lookingFor Data saved successfully" });
+        } catch (error) {
+          console.error("Error saving data:", error);
+          res.status(500).json({ error: "Internal Server Error" });
+        }
       
 }
+
+export  { createHire };

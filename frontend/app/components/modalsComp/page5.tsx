@@ -1,34 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NextButton from "@/app/components/modalsComp/NextButton";
 import ModalTopElement from './ModalTopElement';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
+import { hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
 
 function Page5() {
 
-  const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
+    const dispatch = useDispatch();
 
- 
+    const phone = useSelector((state: RootState) => state.modalReducer.hireInfo.phone);
+    const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo);
 
-  return (
-    <div>
-      <ModalTopElement />
-            <div className="bg-white overflow-hidden sm:w-[70vw] w-[90vw] sm:h-[55vh] h-[25rem]
-             min-h-[11rem] rounded-2xl flex flex-col items-center mt-8 sm:mt-0">
-                   
-                    <div className='flex justify-center  h-full flex-col items-center sm:w-[60vw]
-                    w-[80vw] '>
-                    <h1 className=' font-semibold text-[#1a1c28] text-2xl'>Email adresini gir</h1>
-                    <p className='text-gray-500 sm:text-sm text-md mt-2'>Talebini oluşturmak için email adresine ihtiyacımız var. Email adresin yoksa boş bırakabilirsin.</p>
-                    <input className='mt-8 sm:w-[60vw] w-[80vw] border-[#1a1c28] border-2 border-opacity-20
-                    sm:h-12 h-16 outline-none p-2' type="text" placeholder='ornek@example.com' />
+    console.log( "hireInfo", hireInfo)
+
+
+    return (
+        <div>
+            <ModalTopElement />
+            <div className="bg-white overflow-hidden sm:w-[70vw] sm:h-[70vh] h-[30rem]  
+            rounded-2xl flex flex-col items-center sm:justify-center w-[90vw] sm:mt-0 mt-4">
+
+
+                <div className='flex justify-center  h-full flex-col items-center sm:w-[60vw] w-[80vw]'>
+                    <h1 className='font-semibold -mt-8 sm:mb-4 text-[#1a1c28] text-2xl '>Numaranizi dogrulayin</h1>
+
+                    <p className='text-gray-500 text-md sm:w-[60vw] sm:mb-12 mt-2 pl-2 sm:pl-0'>Onay kodunuzu girin. Talebinizi oluşturup ücretsiz teklifler alın.</p>
+
+                    <div className='flex pl-2 sm:pl-0 sm:flex-row flex-col sm:items-center'>
+                        <label className='w-40 sm:text-md text-lg sm:mb-0 mb-2'>Numaraniz:</label>
+                        <input value={phone} 
+                        onChange={(e) => dispatch(hireInfosetter({ phone: e.target.value }))}
+                         className=' sm:w-[40vw] w-[80vw] border-[#1a1c28] border-2 h-14 sm:h-12 border-opacity-20
+                          outline-none p-2' type="text" placeholder='0555 555 55 55'  />
                     </div>
+                    <div className='flex sm:flex-row flex-col mt-4  sm:pl-0 pl-2 sm:items-center'>
+                        <label className='w-40 sm:text-md text-lg sm:mb-0 mb-2'>Onay kodunuz:</label>
+                        <input className=' sm:w-[40vw] w-[80vw] border-[#1a1c28] border-2 h-14 sm:h-12 border-opacity-20 outline-none p-2' type="text" placeholder='123' />
+                        <div className='flex justify-end items-center '>
+                            <button className='bg-orange-500 absolute text-white w-28 sm:h-12
+                            h-14 font-bold text-lg -mt-14 sm:mt-0 '>Yeni kod</button>
+                        </div>
 
+                    </div>
+                </div>
                 <div className="flex flex-grow"></div>
                 <NextButton />
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Page5

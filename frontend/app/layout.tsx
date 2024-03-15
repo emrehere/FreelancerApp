@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     
-    <html lang="tr" suppressHydrationWarning={true} >
+    <html lang="tr"  >
       <Provider store={store}> 
       <Head>
         <title>Title</title>

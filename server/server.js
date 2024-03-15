@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv'; 
 import cors from 'cors';
 import loginRoutes from './routes/loginRoutes.js';
+import hireRoutes from './routes/hireRoutes.js';
 
 
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ limit: '150mb', extended: true }));
 app.use(cors());
 
 app.use('/api', loginRoutes);
+app.use('/api', hireRoutes);
 
 
 

@@ -12,7 +12,8 @@ export const store = configureStore({
   reducer: rootReducer,
    middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({
-        thunk: false
+        thunk: false,
+        serializableCheck: false
     }),
     sagaMiddleware
 ]

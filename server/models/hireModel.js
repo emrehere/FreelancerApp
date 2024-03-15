@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const myUserSchema = new mongoose.Schema({
-  lookingFor : {
+const myHireSchema = new mongoose.Schema({
+  hireInfo: {
     type: Object,
     required: true
   },
@@ -12,7 +12,6 @@ const myUserSchema = new mongoose.Schema({
 });
 
 
+const MyHireInfo = mongoose.model('MyHireInfo', myHireSchema);
 
-const MyUserInfo = mongoose.model('MyUserInfo', myUserSchema);
-
-export default MyUserInfo;
+export default MyHireInfo

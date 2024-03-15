@@ -3,7 +3,7 @@ import React from 'react'
 import { m } from "framer-motion";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { goToNextPage, goToPrevPage, hireInfosetter } from '../../pages/jobNoticeForm/modalReducer'
+import { goToNextPage, goToPrevPage, hireInfosetter, sendHireInfo } from '../../pages/jobNoticeForm/modalReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/app/store/RootReducer';
 import { FaRegThumbsUp } from "react-icons/fa6";
@@ -18,22 +18,26 @@ function NextButton() {
     const modalPageIndex = useSelector((state: RootState) => state.modalReducer.modalPageIndex)
     const modalDisplayIndex = useSelector((state: RootState) => state.modalReducer.modalDisplayIndex)
 
-
+    const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
   
 
 
 
     const handleBackwards = () => {
+        const empty = " " // you will trim it later so does not matter
         if(modalPageIndex === 1){
-            dispatch(hireInfosetter({ soru: "deleted" }))
+            dispatch(hireInfosetter({ soru: empty }))
         } if (modalPageIndex === 3) {
-            dispatch(hireInfosetter({ chosenCountyToDB: "deleted" }))
+            dispatch(hireInfosetter({ chosenCountyToDB: empty }))
         } if (modalPageIndex === 4) {
-            dispatch(hireInfosetter({ chosenCountyToDB: "deleted" }))
-        }
+            dispatch(hireInfosetter({ chosenCountyToDB: empty }))          
+        } 
         dispatch(goToPrevPage())
     }
 
+    const postHireInfo = () => {
+        dispatch(sendHireInfo({hireInfo}))
+    }
 
 
 
@@ -57,14 +61,16 @@ function NextButton() {
                     }
                     <div className='flex-grow'></div>
                     {
-                        modalPageIndex === 7 ? (
+                        modalPageIndex === 4 ? (
                             (   
                                 <Link href="/pages/searchPage">
                                 <div className='flex flex-row items-center space-x-2 '>                     
-                                        <button className="text-lg font-medium tracking-widest" > TAMAM </button>
+                                        <button onClick={postHireInfo} className="text-lg font-medium tracking-widest" >
+                                             TAMAM </button>
                                         <m.div
                                             className="pr-4"
-                                            whileHover={{ y: [0, -4, 0, -4, 0], transition: { duration: 1 } }}
+                                            whileHover={{ y: [0, -4, 0, -4, 0], 
+                                                transition: { duration: 1 } }}
                                         >
                                             <FaRegThumbsUp size={20} />
                                         </m.div>                                

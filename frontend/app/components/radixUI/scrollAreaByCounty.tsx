@@ -59,7 +59,7 @@ export default function ScrollAreaByCounty() {
 
     return (
         <ScrollArea.Root ref={scrollAreaRef}  className="rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4
-         bg-white mx-6">
+         bg-white ">
             <ScrollArea.Viewport className="h-full rounded">
                 <div className="py-[15px] px-5">
                     <div onClick={handleCountyOpen} className="text-violet11 text-[15px] h-[40px] leading-[18px] font-medium flex items-center justify-center">
