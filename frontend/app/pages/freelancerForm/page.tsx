@@ -7,9 +7,9 @@ const Page1 = dynamic(() => import('@/app/components/modalsComp/page1'), {
     ssr: false
 })
 
-const Page2 = dynamic(() => import('@/app/components/modalsComp/page2'), {
-    ssr: false
-})
+// const Page2 = dynamic(() => import('@/app/components/freelancerModals/page2'), {
+//     ssr: false
+// })
 
 const Page3 = dynamic(() => import('@/app/components/modalsComp/page3'), {
     ssr: false
@@ -39,20 +39,27 @@ export default function ModalPage() {
 
         <div className="min-h-[100vh] bg-[#4d4e6c] overflow-hidden  flex justify-center items-center flex-col">
             {
-                modalPageIndex === 0 && <Page1 forFreelancer={false} />
+                modalPageIndex === 0 && <Page1 forFreelancer={true} />
             }
             {
+                modalPageIndex === 1 && <Page3 forFreelancer={true} />
+            }
+            {
+                modalPageIndex === 2 && <Page4 />
+            }
+            {
+                modalPageIndex === 3 && <Page5 />
+            }
+            {/* {
                 modalPageIndex === 1 && <Page2 />
             }
-            {
-                modalPageIndex === 2 && <Page3 forFreelancer={false} />
-            }
+         
             {
                 modalPageIndex === 3 && <Page4 />
             }
             {
                 modalPageIndex === 4 && <Page5 />
-            }
+            } */}
         </div>
 
     );
