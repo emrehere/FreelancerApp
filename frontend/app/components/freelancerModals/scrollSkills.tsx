@@ -1,7 +1,7 @@
 import React from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import { useState, useEffect, useRef } from 'react';
-import CitiesData from '../../datas/cities'
+import modalDatas from '../../datas/modalDatas'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import { showCities, getChosenCity, getCitySearchTerm, hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
@@ -47,17 +47,23 @@ export default function ScrollAreaByCity() {
 
 
 
-    
+    console.log("filteredDatas", filteredDatas)
+    console.log("datas" , modalDatas)
+
+    const need = modalDatas[0].secenekler
+    console.log("need",need)
 
     useEffect(() => {
         function filterByCitySearchTerm() {
-            const filteredCities = CitiesData.filter((data) =>
-                data.name.toLowerCase().includes(citySearchTerm.toLowerCase())
+            const filteredCities = modalDatas[0].secenekler.filter((data) =>
+                data.includes(citySearchTerm.toLowerCase())
             ).map(city => city);
             setFilteredDatas(filteredCities);
         }
         filterByCitySearchTerm();
     }, [ citySearchTerm]);
+
+    console.log("filteredDatas", filteredDatas)
 
 
     
@@ -107,12 +113,12 @@ export default function ScrollAreaByCity() {
                             <div className='h-[180px]'>
                                 {filteredDatas.map((city: City) => (
                                     <div
-                                        onClick={() => dispatch(addSkill(city.name))}
+                                        onClick={() => dispatch(addSkill(city))}
                                         className=" text-mauve12 text-sm font-medium hover:bg-[#1a1c28] hover:text-white rounded-lg
                  cursor-pointer leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6 flex justify-center items-center"
                                         key={city.plate}
                                     >
-                                        <p className='pb-2'>{city.name.charAt(0).toUpperCase() + city.name.slice(1)}</p>
+                                        <p className='pb-2'>{city.charAt(0).toUpperCase() + city.slice(1)}</p>
                                     </div>
                                 ))}
                             </div>
