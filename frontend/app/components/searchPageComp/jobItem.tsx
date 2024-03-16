@@ -18,7 +18,7 @@ export default function jobItem({ item }: any) {
                     <p className="text-xl font-bold my-1">  {item.unvan}</p>
                 </div>
                 <div className="flex flex-row text-[15px]">
-                    {item.chosenCityToDB} / {item.chosenCountryToDB}
+                    {item.chosenCityToDB} / {item.chosenCountyToDB}
                     {/* <p> {item.projectDetails.hourlyRate}  - &nbsp;  </p>
                     <p> {item.projectDetails.experienceLevel} - &nbsp;  Est. Time: &nbsp;  </p>
                     <p> {item.projectDetails.duration}</p> */}

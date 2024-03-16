@@ -64,23 +64,23 @@ export default function SearchPage() {
                     </div>
                 </div>
                 <div className='-mt-10 ml-4 flex justify-center'>
-                    <SearchBar hrefFromParent="/pages/searchPage" color="orange" />
+                    <SearchBar hrefFromParent="/pages/searchPage" color="#f97316" />
                 </div>
                 <div className='sm:space-x-12 space-x-4 flex flex-row ml-[8vw] mt-[10vh] tracking-wider font-bold sm:text-3xl text-2xl '>
-                    <div className='hover:text-[#ffa500]'>
-                        <p className={jobOrTalent === "talent" ? "text-[#ffa500]" : "text-gray-600"} onClick={handleTalent}>YETENEK</p>
+                    <div className='hover:text-[#f97316]'>
+                        <p className={jobOrTalent === "talent" ? "text-[#f97316]" : "text-gray-600"} onClick={handleTalent}>YETENEK</p>
 
                     </div>
-                    <p className={jobOrTalent === "work" ? "text-[#ffa500]" : "text-gray-600"} onClick={handleWork}>ISLER</p>
+                    <p className={jobOrTalent === "work" ? "text-[#f97316]" : "text-gray-600"} onClick={handleWork}>ISLER</p>
                 </div>
 
                 <div className='h-0.5 ml-[8vw] sm:w-[83vw] w-[13rem] my-4 bg-gray-700 opacity-30 '></div>
                 <div className=' ml-[8vw] sm:space-x-8 -mt-5 z-10 flex flex-row sm:w-[83vw] w-[13rem]' >
                     {
-                        jobOrTalent === "talent" ? <p className='h-2 sm:w-36 w-[7rem] bg-[#ffa500] rounded-xl ' ></p> : <p className='h-2 w-36   bg-[#ffa500] rounded-xl opacity-0 ' ></p>
+                        jobOrTalent === "talent" ? <p className='h-2 sm:w-36 w-[7rem] bg-[#f97316] rounded-xl ' ></p> : <p className='h-2 w-36   bg-[#ffa500] rounded-xl opacity-0 ' ></p>
                     }
                     {
-                        jobOrTalent === "work" ? <p className='h-2 sm:w-28 w-[6rem]  bg-[#ffa500] rounded-xl ' ></p> : ""
+                        jobOrTalent === "work" ? <p className='h-2 sm:w-28 w-[6rem]  bg-[#f97316] rounded-xl ' ></p> : ""
                     }
                 </div>
                 <div className='h-[20vh]'></div>
