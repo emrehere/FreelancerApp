@@ -60,7 +60,7 @@ function Page1({forFreelancer} : {forFreelancer : boolean}) {
             <ModalTopElement />
             <DirectToFreelancer forFreelancer={forFreelancer} />
             <div className={`bg-white  overflow-hidden sm:w-[70vw] w-[90vw] mx-auto
-             sm:h-[75vh] h-[30rem] min-h-[25rem] ${forFreelancer ? 'rounded-2xl' : 'rounded-b-2xl'} flex flex-col items-center`}>
+             sm:h-[75vh] h-[30rem] min-h-[25rem] rounded-b-2xl flex flex-col items-center`}>
                 <h2 className="text-2xl font-medium text-[#1a1c28] pt-2 ml-4 " >
                     {
                         forFreelancer ? ' Vereceginiz Hizmet' : 'Hangi hizmete ihtiyacın var?'

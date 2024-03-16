@@ -8,11 +8,21 @@ import { RootState } from "../../store/RootReducer"
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 
-const SearchBar = ({ color, hrefFromParent }: { color: string, hrefFromParent: string }) => {
+interface ButtonProps {
+  color: string,
+  hrefFromParent: string,
+  mytoken: boolean
+}
+
+const SearchBar = ({ color, hrefFromParent, mytoken }: ButtonProps) => {
 
   const [showMenu, setShowMenu] = useState(false)
   const [category1, setCategory1] = useState("Eleman")
   const [category2, setCategory2] = useState("Is Ara")
+  // about eleman is ara in case there is a token that means user is logged in, so
+  // we can show eleman and is ara otherwise he will write something and he will be directed  
+  // to the registration page for those looking for freelancer
+
 
   const dispatch = useDispatch();
 
@@ -28,9 +38,11 @@ const SearchBar = ({ color, hrefFromParent }: { color: string, hrefFromParent: s
     if (category1 === "Eleman") {
       setCategory1("Is Ara")
       setCategory2("Eleman")
+      setShowMenu(!showMenu)
     } else {
       setCategory1("Eleman")
       setCategory2("Is Ara")
+      setShowMenu(!showMenu)
     }
   }
 
@@ -57,16 +69,20 @@ const SearchBar = ({ color, hrefFromParent }: { color: string, hrefFromParent: s
   return (
     <div>
       <div className="flex items-center sm:ml-0 -ml-[7vw]">
-        <div onClick={handleShowMenu} style={{ backgroundColor: color }} className=" h-20 
-        w-[6rem] sm:w-[10vw] sm:translate-x-[2vw] translate-x-[6vw]
-         text-blue-50 rounded-l-3xl flex items-center justify-center font-semibold sm:text-xl
-         text-lg sm:space-x-4 space-x-1 ">
-          <div className="flex items-center flex-col " >
-            <p>{category1}</p>
+        {
+          mytoken && (
+            <div onClick={handleShowMenu} style={{ backgroundColor: color }} className=" h-20 
+          w-[6rem] sm:w-[10vw] sm:translate-x-[2vw] translate-x-[6vw]
+           text-blue-50 rounded-l-3xl flex items-center justify-center font-semibold sm:text-xl
+           text-lg sm:space-x-4 space-x-1 ">
+              <div className="flex items-center flex-col " >
+                <p>{category1}</p>
 
-          </div>
-          <FaChevronDown size={22} />
-        </div>
+              </div>
+              <FaChevronDown size={22} />
+            </div>
+          )
+        }
 
         <input
           value={searchParam}

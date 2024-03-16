@@ -1,5 +1,7 @@
 import React from 'react'
-import { FaArrowTurnUp } from "react-icons/fa6";
+
+import { GoArrowUpLeft } from "react-icons/go";
+import { GoArrowUpRight } from "react-icons/go";
 import Link from 'next/link';
 
 function DirectToFreelancer({ forFreelancer }: { forFreelancer: boolean }) {
@@ -9,20 +11,38 @@ function DirectToFreelancer({ forFreelancer }: { forFreelancer: boolean }) {
              text-white ">
                 <div className="sm:w-[70vw]  flex   ">
                     <div className='    flex flex-row sm:w-[70vw] 
-                    w-[94vw]  justify-end' >
+                    w-[94vw]  justify-between' >
 
-                        {
-                            forFreelancer ? "" : (
-                                <div className=' bg-orange-500  pt-5 rounded-tr-2xl text-white py-2
-                        px-4 font-bold cursor-pointer'>
-                                    <Link href={'/pages/freelancerForm'}>
-                                        <div className='flex hover:scale-105 '>
-                                            <p className='mr-1 '> Eger freelancer olmak istiyorsaniz buraya tıklayin</p>
-                                            <FaArrowTurnUp size={30} className='-mt-3 ' />
-                                        </div>
-                                    </Link>
-                                </div>)
-                        }
+                        <div className=' bg-orange-500  h-full rounded-tl-2xl text-white 
+                        w-[17rem] font-bold cursor-pointer flex items-center text-[15px]'>
+                            <Link href={'/pages/signin'}>
+                                <div className='flex hover:scale-105 items-center ml-4'>                                   
+                                    <GoArrowUpLeft size={30} className=' ' />
+                                    <div className='flex flex-col items-center'>
+                                        <p className='ml-1 '> Zaten hesabin varsa</p>
+                                        <p className='ml-1'>buraya tıklayin</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className=''>
+
+                            {
+                                forFreelancer ? "" : (
+                                    <div className=' bg-orange-500 text-[15px] rounded-tr-2xl text-white h-full
+                        w-[17rem] font-bold cursor-pointer flex items-center justify-end'>
+                                        <Link href={'/pages/freelancerForm'}>
+                                            <div className='flex hover:scale-105 items-center mr-4'>
+                                                <div className='flex flex-col items-center'>
+                                                    <p className='mr-1 '> Eger freelancer olmak </p>
+                                                    <p className='mr-1'>istiyorsaniz buraya tıklayin</p>
+                                                </div>
+                                                <GoArrowUpRight size={30} className=' ' />
+                                            </div>
+                                        </Link>
+                                    </div>)
+                            }
+                        </div>
                     </div>
 
 

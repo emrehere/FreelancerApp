@@ -4,6 +4,7 @@ import SearchBar from "./components/LandingComp/searchBar";
 import Navbar from "./components/NavbarComp/navbar";
 import dynamic from "next/dynamic";
 
+
 const Page2 = dynamic(() => import('./components/LandingComp/page2'), {
   ssr: false
 });
@@ -27,6 +28,7 @@ const Page: React.FC = () => {
 
   const [color, setColor] = useState('red');
   const [backgroundImage, setBackgroundImage] = useState(desktopBackgroundImage);
+ 
 
   function changeFontColor() {
     setInterval(() => {
@@ -74,7 +76,7 @@ const Page: React.FC = () => {
         <h2 className="text-2xl text-gray-700 p-4 font-semibold ">1 milyon işletme tarafından güvenilen freelancer web sitesinde küresel yeteneklere erişim sağlayın.</h2>
       </div>
       <div className="ml-[3vw] mt-[4vh]" >
-      <SearchBar hrefFromParent={'/pages/jobNoticeForm'}  color={color} />
+      <SearchBar hrefFromParent={'/pages/jobNoticeForm'}  color={color} mytoken={false}  />
       </div>
       </div>
       </div>

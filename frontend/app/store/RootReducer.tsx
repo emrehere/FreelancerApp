@@ -7,6 +7,7 @@ import searchPageReducer from '../pages/searchPage/searchPageReducer'
 import modalReducer from '../pages/jobNoticeForm/modalReducer'
 import loginSlice from '../pages/signin/signinReducer'
 import signupReducer from '../pages/signup/signupReducer';
+import freelancerModalsReducer from '../components/freelancerModals/freelancerModalsReducer';
 
 
 const rootReducer = combineReducers({
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
     searchPageReducer: searchPageReducer,
     modalReducer: modalReducer,
     loginReducer: loginSlice,
-    signupReducer: signupReducer
+    signupReducer: signupReducer,
+    freelancerModalsReducer:freelancerModalsReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
