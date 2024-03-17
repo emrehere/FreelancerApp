@@ -61,7 +61,7 @@ export default function PageForFreelancers() {
 
                     <div className='mt-[10vh] '>
                         {
-                            FreelancerDatas.map((item, index) => {
+                            allFrelancers.map((item, index) => {
                                 return (
                                     <div onClick={ () => handleFreelancerClick(index) } key={index} >
                                         <FreelancerItem item={item} />

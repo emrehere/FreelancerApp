@@ -35,6 +35,7 @@ export default function RootLayout({
           
       </Head>
         <body style={{ fontFamily: 'Jockey One, sans-serif' }} className={inter.className}> 
+        <div className="overflow-x-hidden">
         <Theme>
      
         <div className="fixed top-0 left-0 w-[100vw] z-10 sm:hidden  " >
@@ -47,6 +48,7 @@ export default function RootLayout({
 
        
         </Theme>
+        </div>
         </body>
       </Provider>
     </html>

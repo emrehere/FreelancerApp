@@ -46,10 +46,7 @@ export default function SearchPage() {
         dispatch(jobOrTalentSetter("work"))
     }
 
-    useEffect(() => {
 
-        dispatch(jobOrTalentSetter("talent"))
-    }, [])
 
     console.log("Job or talent: ", jobOrTalent)
 
