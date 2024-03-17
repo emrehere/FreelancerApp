@@ -4,6 +4,7 @@ import { watchRegisterUser } from '../pages/signup/signupSaga';
 import { watchHireInfo } from '../pages/jobNoticeForm/modalSaga';
 import { watchGetAllHireInfo } from '../pages/searchPage/searchPageSaga';
 import { watchFreelancerInfo } from '../pages/freelancerForm/freelancerModalSaga';
+import { watchGetAllFreelancers } from '../pages/searchPage/searchPageSaga';
 
 export function* globalSaga() {
 
@@ -13,7 +14,8 @@ export function* globalSaga() {
         watchRegisterUser(),
         watchHireInfo(),
         watchGetAllHireInfo(),
-        watchFreelancerInfo()
+        watchFreelancerInfo(),
+        watchGetAllFreelancers()
     ]);
     
 }

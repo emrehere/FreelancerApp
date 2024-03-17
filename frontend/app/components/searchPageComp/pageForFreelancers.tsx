@@ -3,15 +3,24 @@ import FreelancerItem from '../searchPageComp/freelancerItem'
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { showFreelancerSetter, freelancerIndexSetter } from '../../pages/searchPage/searchPageReducer'
+import { getAllFreelancers } from '@/app/store/actions';
 
 export default function PageForFreelancers() {
 
     const searchParam = useSelector((state: any) => state.searchParamReducer.searchParam)
     const ShowFreelancer = useSelector((state: any) => state.searchPageReducer.showFreelancer)
-
+    const allFrelancers = useSelector((state: any) => state.searchPageReducer.allFrelancers)
     
+    console.log("almost done All Frelancers: ", allFrelancers)
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+
+        dispatch(getAllFreelancers())
+    }, [])
+
+    
     
     
     const handleFreelancerClick = ( index: any ) => {

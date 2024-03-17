@@ -46,6 +46,13 @@ export default function SearchPage() {
         dispatch(jobOrTalentSetter("work"))
     }
 
+    useEffect(() => {
+
+        dispatch(jobOrTalentSetter("talent"))
+    }, [])
+
+    console.log("Job or talent: ", jobOrTalent)
+
 
     return (
         <div className="min-h-[100vh] w-full bg-blue-100 bg-opacity-80  text-gray-900 ">
@@ -56,6 +63,7 @@ export default function SearchPage() {
             {
                 showWork && <ShowWork />
             }
+     
             <div className="pt-[15vh] flex flex-col ">
                 <div className=' bg-[#18202b] h-[35vh] min-h-[200px] flex items-center w-full tracking-wide '>
                     <div className='flex -mt-[5vh] flex-col'>

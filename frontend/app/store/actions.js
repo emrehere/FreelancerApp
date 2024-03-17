@@ -1,6 +1,10 @@
-import { GET_ALL_HIRE_INFO } from './actionTypes';
+import { GET_ALL_HIRE_INFO, GET_ALL_FREELANCERS } from './actionTypes';
 
 export const getAllHireInfo = () => ({
   type: GET_ALL_HIRE_INFO,
 });
+
+export const getAllFreelancers = () => ({
+  type: GET_ALL_FREELANCERS,
+})
 

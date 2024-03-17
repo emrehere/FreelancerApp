@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/freelancer', requireAuth, createFreelancer);
 
-router.get('/getAllJobs', requireAuth, getAllFreelancers);
+router.get('/getAllFreelancers', requireAuth, getAllFreelancers);
 
 
 export default router

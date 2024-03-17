@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { getAllHireInfo } from '@/app/store/actions';
 
 
+
 export default function PageForJobs() {
    
     const workIndex = useSelector((state: any) => state.searchPageReducer.workIndex)
