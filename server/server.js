@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import loginRoutes from './routes/loginRoutes.js';
 import hireRoutes from './routes/hireRoutes.js';
+import freelancerRoutes from './routes/freelancerRoutes.js'
 
 
 
@@ -19,6 +20,7 @@ app.use(cors());
 
 app.use('/api', loginRoutes);
 app.use('/api', hireRoutes);
+app.use('/api', freelancerRoutes);
 
 
 

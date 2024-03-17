@@ -4,6 +4,7 @@ import { m } from "framer-motion";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { goToNextPage, goToPrevPage, hireInfosetter, sendHireInfo } from '../../pages/jobNoticeForm/modalReducer'
+import { sendFreelancerInfo } from '@/app/pages/freelancerForm/freelancerModalsReducer';
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/app/store/RootReducer';
 import { FaRegThumbsUp } from "react-icons/fa6";
@@ -20,35 +21,42 @@ function NextButton() {
 
     const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
     const skills = useSelector((state: RootState) => state.freelancerModalsReducer.skills)
-  
+
 
 
 
     const handleBackwards = () => {
-        const empty = " " // you will trim it later so does not matter
-        if(modalPageIndex === 1){
-            dispatch(hireInfosetter({ soru: empty }))
-        } if (modalPageIndex === 3) {
-            dispatch(hireInfosetter({ chosenCountyToDB: empty }))
-        } if (modalPageIndex === 4) {
-            dispatch(hireInfosetter({ chosenCountyToDB: empty }))          
-        } 
+        // const empty = " " // you will trim it later so does not matter
+        // if (modalPageIndex === 1 ) {
+        //     dispatch(hireInfosetter({ soru: empty }))
+        // } if (modalPageIndex === 3) {
+        //     dispatch(hireInfosetter({ chosenCountyToDB: empty }))
+        // } if (modalPageIndex === 4) {
+        //     dispatch(hireInfosetter({ chosenCountyToDB: empty }))
+        // }
         dispatch(goToPrevPage())
     }
 
     const postHireInfo = () => {
         console.log("postHireInfo", hireInfo)
-        dispatch(sendHireInfo({hireInfo : hireInfo}))
+        dispatch(sendHireInfo({ hireInfo: hireInfo }))
     }
 
 
     const postFreelancerInfo = () => {
         const freelancerInfo = {
-            hireInfo,
+            freelancerUnvan: hireInfo.unvan,
+            title: hireInfo.title,
+            description: hireInfo.description,
+            chosenCityToDB: hireInfo.chosenCityToDB,
+            chosenCountyToDB: hireInfo.chosenCountyToDB,
+            name: hireInfo.name,
+            surname: hireInfo.surname,
+            phone: hireInfo.phone,
             skills
         }
         console.log("postFreelancerInfo", freelancerInfo)
-        dispatch(sendHireInfo({ hireInfo: freelancerInfo }))
+        dispatch(sendFreelancerInfo({ freelancerInfo: freelancerInfo }))
     }
 
 
@@ -73,19 +81,21 @@ function NextButton() {
                     <div className='flex-grow'></div>
                     {
                         modalPageIndex === 4 ? (
-                            (   
+                            (
                                 <Link href="/pages/searchPage">
-                                <div className='flex flex-row items-center space-x-2 '>                     
+                                    <div className='flex flex-row items-center space-x-2 '>
                                         <button onClick={postFreelancerInfo} className="text-lg font-medium tracking-widest" >
-                                             TAMAM </button>
+                                            TAMAM </button>
                                         <m.div
                                             className="pr-4"
-                                            whileHover={{ y: [0, -4, 0, -4, 0], 
-                                                transition: { duration: 1 } }}
+                                            whileHover={{
+                                                y: [0, -4, 0, -4, 0],
+                                                transition: { duration: 1 }
+                                            }}
                                         >
                                             <FaRegThumbsUp size={20} />
-                                        </m.div>                                
-                                </div>
+                                        </m.div>
+                                    </div>
                                 </Link>
                             )
                         ) : (

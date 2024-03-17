@@ -2,13 +2,13 @@ import { takeEvery,  call } from 'redux-saga/effects';
 
 
 
-function* hireInfoSaga(action) {
-    console.log("hala hire infodayim")
-    console.log("payload",action.payload)
+function* freelancerInfoSaga(action) {
+    console.log("HAYDAAAAAA")
+ 
 
-    const { hireInfo } = action.payload
+    const { freelancerInfo } = action.payload
 
-    console.log("hireinfo in saga",hireInfo)
+    console.log("freelancerinfo in saga",freelancerInfo)
     const token = JSON.parse(localStorage.getItem('token'))
    
 
@@ -20,7 +20,7 @@ function* hireInfoSaga(action) {
                 'Authorization': `Bearer ${token}` 
             },
             body: JSON.stringify({
-                hireInfo     
+                freelancerInfo     
             }),
         });
 
@@ -40,6 +40,6 @@ function* hireInfoSaga(action) {
     }
 }
 
-export function* watchHireInfo() {
-    yield takeEvery('modal/sendHireInfo', hireInfoSaga);
+export function* watchFreelancerInfo() {
+    yield takeEvery('freelancerSlice/sendFreelancerInfo', freelancerInfoSaga);
 }

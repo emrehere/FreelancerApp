@@ -3,6 +3,7 @@ import { watchLoginUser } from '../pages/signin/signinSaga';
 import { watchRegisterUser } from '../pages/signup/signupSaga';
 import { watchHireInfo } from '../pages/jobNoticeForm/modalSaga';
 import { watchGetAllHireInfo } from '../pages/searchPage/searchPageSaga';
+import { watchFreelancerInfo } from '../pages/freelancerForm/freelancerModalSaga';
 
 export function* globalSaga() {
 
@@ -11,7 +12,8 @@ export function* globalSaga() {
         watchLoginUser() ,
         watchRegisterUser(),
         watchHireInfo(),
-        watchGetAllHireInfo()
+        watchGetAllHireInfo(),
+        watchFreelancerInfo()
     ]);
     
 }
