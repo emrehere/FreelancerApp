@@ -6,12 +6,17 @@ import { hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import ScrollSkills from './scrollSkills'; 
-import { addSkill, removeSkill } from './freelancerModalsReducer';
+import { addSkill, removeSkill } from '../../pages/freelancerForm/freelancerModalsReducer';
+
 
 function SkillsPage() {
+  // what ican do i can get the same state from hireInfo, before i post i can convert it
+  // to freelancerInfo fields by changing name individually, before i send i can still 
+  // gather them in one object
   const dispatch = useDispatch();
 
   const skills = useSelector((state: RootState) => state.freelancerModalsReducer.skills);
+  
 
   return (
     <div>

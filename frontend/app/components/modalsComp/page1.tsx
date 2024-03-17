@@ -42,9 +42,6 @@ function Page1({forFreelancer} : {forFreelancer : boolean}) {
         filterBySearchTerm();
     }, [searchTerm])
 
-   
-
-
 
 
     const handleIndexClick = ( item :any) => {

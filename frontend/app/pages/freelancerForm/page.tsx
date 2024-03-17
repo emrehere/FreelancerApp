@@ -53,16 +53,7 @@ export default function ModalPage() {
             {
                 modalPageIndex === 4 && <Page5 />
             }
-            {/* {
-                modalPageIndex === 1 && <Page2 />
-            }
-         
-            {
-                modalPageIndex === 3 && <Page4 />
-            }
-            {
-                modalPageIndex === 4 && <Page5 />
-            } */}
+       
         </div>
 
     );

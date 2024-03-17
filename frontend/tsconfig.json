@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/datas/modalDatas.js", "app/pages/jobNoticeForm/modalReducer.js", "app/components/freelancerModals/freelancerModalsReducer.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/datas/modalDatas.js", "app/pages/jobNoticeForm/modalReducer.js", "app/pages/freelancerForm/freelancerModalsReducer.js"],
   "exclude": ["node_modules"]
 }

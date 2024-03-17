@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import { showCities, getChosenCity, getCitySearchTerm, hireInfosetter } from '@/app/pages/jobNoticeForm/modalReducer';
 import { CityType } from '../../types';
-import { addSkill, removeSkill } from './freelancerModalsReducer';
+import { addSkill, removeSkill } from '../../pages/freelancerForm/freelancerModalsReducer';
 
 type City = {
     name: string;

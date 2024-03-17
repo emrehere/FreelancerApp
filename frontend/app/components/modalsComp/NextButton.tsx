@@ -19,6 +19,7 @@ function NextButton() {
     const modalDisplayIndex = useSelector((state: RootState) => state.modalReducer.modalDisplayIndex)
 
     const hireInfo = useSelector((state: RootState) => state.modalReducer.hireInfo)
+    const skills = useSelector((state: RootState) => state.freelancerModalsReducer.skills)
   
 
 
@@ -40,6 +41,15 @@ function NextButton() {
         dispatch(sendHireInfo({hireInfo : hireInfo}))
     }
 
+
+    const postFreelancerInfo = () => {
+        const freelancerInfo = {
+            hireInfo,
+            skills
+        }
+        console.log("postFreelancerInfo", freelancerInfo)
+        dispatch(sendHireInfo({ hireInfo: freelancerInfo }))
+    }
 
 
     return (
@@ -66,7 +76,7 @@ function NextButton() {
                             (   
                                 <Link href="/pages/searchPage">
                                 <div className='flex flex-row items-center space-x-2 '>                     
-                                        <button onClick={postHireInfo} className="text-lg font-medium tracking-widest" >
+                                        <button onClick={postFreelancerInfo} className="text-lg font-medium tracking-widest" >
                                              TAMAM </button>
                                         <m.div
                                             className="pr-4"
