@@ -52,6 +52,8 @@ function Page1({forFreelancer} : {forFreelancer : boolean}) {
 
     }
 
+    console.log("searchTerm",searchTerm)
+
     return (
         <div>
             <ModalTopElement />

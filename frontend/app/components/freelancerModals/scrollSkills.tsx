@@ -27,6 +27,7 @@ export default function ScrollAreaByCity() {
     const chosenCity = useSelector((state: RootState) => state.modalReducer.chosenCity as unknown as CityType)
     const citySearchTerm = useSelector((state: RootState) => state.modalReducer.citySearchTerm)
     const skills = useSelector((state: RootState) => state.freelancerModalsReducer.skills)
+    const displayIndex = useSelector((state: RootState) => state.modalReducer.modalDisplayIndex)
   
 
     const dispatch = useDispatch();
@@ -47,15 +48,9 @@ export default function ScrollAreaByCity() {
 
 
 
-    console.log("filteredDatas", filteredDatas)
-    console.log("datas" , modalDatas)
-
-    const need = modalDatas[0].secenekler
-    console.log("need",need)
-
     useEffect(() => {
         function filterByCitySearchTerm() {
-            const filteredCities = modalDatas[0].secenekler.filter((data) =>
+            const filteredCities = modalDatas[displayIndex].secenekler.filter((data) =>
                 data.includes(citySearchTerm.toLowerCase())
             ).map(city => city);
             setFilteredDatas(filteredCities);

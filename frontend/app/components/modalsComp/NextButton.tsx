@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/app/store/RootReducer';
 import { FaRegThumbsUp } from "react-icons/fa6";
 import Link from 'next/link';
+import { skillsRefresher } from '@/app/pages/freelancerForm/freelancerModalsReducer';
 
 
 function NextButton() {
@@ -26,14 +27,15 @@ function NextButton() {
 
 
     const handleBackwards = () => {
-        // const empty = " " // you will trim it later so does not matter
-        // if (modalPageIndex === 1 ) {
-        //     dispatch(hireInfosetter({ soru: empty }))
-        // } if (modalPageIndex === 3) {
-        //     dispatch(hireInfosetter({ chosenCountyToDB: empty }))
-        // } if (modalPageIndex === 4) {
-        //     dispatch(hireInfosetter({ chosenCountyToDB: empty }))
-        // }
+        const empty = " " // you will trim it later so does not matter
+        if (modalPageIndex === 1 ) {
+            dispatch(hireInfosetter({ soru: empty }))
+            dispatch(skillsRefresher( [] ))
+        } if (modalPageIndex === 3) {
+            dispatch(hireInfosetter({ chosenCountyToDB: empty }))
+        } if (modalPageIndex === 4) {
+            dispatch(hireInfosetter({ chosenCountyToDB: empty }))
+        }
         dispatch(goToPrevPage())
     }
 

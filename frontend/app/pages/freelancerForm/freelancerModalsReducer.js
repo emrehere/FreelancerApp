@@ -19,10 +19,12 @@ const freelancerSlice = createSlice({
     }, sendFreelancerInfo: (state, action) => {
       console.log("action in redux", action.payload)
       state.sendData = action.payload
-    },
+    }, skillsRefresher: (state, action) => {
+      state.skills = action.payload
+    }
   },
 });
 
-export const { addSkill, removeSkill, sendFreelancerInfo } = freelancerSlice.actions;
+export const { addSkill, removeSkill, sendFreelancerInfo, skillsRefresher } = freelancerSlice.actions;
 
 export default freelancerSlice.reducer;
