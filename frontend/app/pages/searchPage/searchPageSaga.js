@@ -10,7 +10,7 @@ function* getAllHireInfoSaga() {
         const res = yield call(fetch, 'http://localhost:8008/api/getAllJobs', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${token}` 
+                'Authorization': `Bearer ${token}`
             }
         });
 

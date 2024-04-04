@@ -1,3 +1,4 @@
+"use client"
 import CheckboxComp from "@/app/components/radixUI/checkboxComp"
 export default function Page() {
 

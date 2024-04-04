@@ -37,7 +37,8 @@ export default function ModalPage() {
 
     return (
 
-        <div className="min-h-[100vh] bg-[#4d4e6c] overflow-hidden  flex justify-center items-center flex-col">
+        <div className="min-h-[100vh] bg-[#4d4e6c] overflow-hidden  flex justify-center items-center 
+        flex-col">
             {
                 modalPageIndex === 0 && <Page1 forFreelancer={true} />
             }

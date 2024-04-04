@@ -58,25 +58,18 @@ const modalSlice = createSlice({
     hireInfosetter: (state, action) => {
       const { unvan, soru, title, description, chosenCityToDB, chosenCountyToDB, 
         name, surname, phone } = action.payload;
-      if (unvan) {
-        state.hireInfo.unvan = unvan
-      } if (soru) {
-        state.hireInfo.soru = soru
-      } if (title) {
-        state.hireInfo.title = title
-      } if (description) {
-        state.hireInfo.description = description
-      } if (chosenCityToDB) {
-        state.hireInfo.chosenCityToDB = chosenCityToDB
-      } if (chosenCountyToDB) {
-        state.hireInfo.chosenCountyToDB = chosenCountyToDB
-      }  if (name) {
-        state.hireInfo.name = name
-      } if (surname) {
-        state.hireInfo.surname = surname 
-      } if (phone) {
-        state.hireInfo.phone = phone
-      }
+        state.hireInfo = {
+          ...state.hireInfo,
+          unvan: unvan !== undefined ? unvan : state.hireInfo.unvan,
+          soru: soru !== undefined ? soru : state.hireInfo.soru,
+          title: title !== undefined ? title : state.hireInfo.title,
+          description: description !== undefined ? description : state.hireInfo.description,
+          chosenCityToDB: chosenCityToDB !== undefined ? chosenCityToDB : state.hireInfo.chosenCityToDB,
+          chosenCountyToDB: chosenCountyToDB !== undefined ? chosenCountyToDB : state.hireInfo.chosenCountyToDB,
+          name: name !== undefined ? name : state.hireInfo.name,
+          surname: surname !== undefined ? surname : state.hireInfo.surname,
+          phone: phone !== undefined ? phone : state.hireInfo.phone,
+        };
     }
   },
 });

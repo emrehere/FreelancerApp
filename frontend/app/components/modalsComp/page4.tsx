@@ -39,7 +39,7 @@ function Page4() {
        overflow-hidden sm:w-[80vw] w-[90vw] rounded-2xl flex flex-col items-center justify-between mt-8 sm:mt-0 
        font-medium text-[#1a1c28] ">
 
-<div className=' flex flex-row  space-x-10 justify-between w-[60vw] mt-8 text-[15px] font-medium text-[#1a1c28]'>
+        <div className=' flex flex-row  space-x-10 justify-between w-[60vw] mt-8 text-[15px] font-medium text-[#1a1c28]'>
           <div className='flex flex-row space-x-2 items-center '>
             <p className='mr-6'>Adınız</p>
             <input value={hireInfo.name} onChange={(e) => dispatch(hireInfosetter({ name: e.target.value }))}
@@ -57,7 +57,7 @@ function Page4() {
 
         </div>
 
-        <div className='flex flex-row w-[60vw] justify-between'>
+        <div className='flex flex-row w-[60vw] justify-between space-x-14'>
           <div className='mt-4 flex items-center flex-start '>
             <p className='mr-4'>Şehir</p>
             <ScrollAreaByCity />
@@ -65,7 +65,7 @@ function Page4() {
           {
             chosenCity && citySearchTerm === chosenCity?.name && (
               <div className='mt-4 flex items-center '>
-                <p className='mr-6'>Ilçe</p>
+                <p className='xl:mr-12 lg:mr-6'>Ilçe</p>
                 <ScrollAreaByCounty />
               </div>
             )
@@ -76,7 +76,7 @@ function Page4() {
 
 
 
-     
+
 
 
 

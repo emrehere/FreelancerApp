@@ -67,7 +67,8 @@ const Page: React.FC = () => {
 
     <div className="sm:h-[380vh]">
       
-    <div  style={{ backgroundImage: `url(${backgroundImage})`, height: '100vh', width: '100vw', backgroundSize: 'cover' }} >
+    <div  style={{ backgroundImage: `url(${backgroundImage})`, height: '100vh', width: '100vw',
+     backgroundSize: 'cover' }} >
       <div className="flex items-center sm:h-[110vh] h-[55rem] sm:mt-[12vh] pt-[1rem]">
         <div className="flex flex-col">
       <div className="flex flex-col sm:w-[40vw] w-[90vw] sm:ml-[3vw] tracking-wide leading-relaxed

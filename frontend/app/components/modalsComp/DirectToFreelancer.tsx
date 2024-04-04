@@ -34,7 +34,7 @@ function DirectToFreelancer({ forFreelancer }: { forFreelancer: boolean }) {
                                         <Link href={'/pages/freelancerForm'}>
                                             <div className='flex hover:scale-105 items-center mr-4'>
                                                 <div className='flex flex-col items-center'>
-                                                    <p className='mr-1 '> Eger freelancer olmak </p>
+                                                    <p className='mr-1 '> Freelancer olmak </p>
                                                     <p className='mr-1'>istiyorsaniz buraya tıklayin</p>
                                                 </div>
                                                 <GoArrowUpRight size={30} className=' ' />

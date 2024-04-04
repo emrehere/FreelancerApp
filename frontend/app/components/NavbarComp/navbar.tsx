@@ -16,7 +16,7 @@ function Navbar() {
     <div className='flex flex-row px-[1%] py-[1%] font-bold  bg-blue-50 h-[5rem] '>
       <div className='w-[60vw]'>
         
-        <p className='text-2xl pl-[5%]' onClick={ () => router.push("/") } >LOGO</p>
+        <p className='text-2xl pl-[5%]' onClick={ () => router.push("/") } ></p>
       </div>
      <SearchComp buttonName={buttonName} />
       

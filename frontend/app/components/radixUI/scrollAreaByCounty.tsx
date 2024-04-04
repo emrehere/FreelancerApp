@@ -63,7 +63,7 @@ export default function ScrollAreaByCounty() {
             <ScrollArea.Viewport className="h-full rounded">
                 <div className="py-[15px] px-5">
                     <div onClick={handleCountyOpen} className="text-violet11 text-[15px] h-[40px] leading-[18px] font-medium flex items-center justify-center">
-                        <input value={countySearch} onChange={ (e) => setCountySearch(e.target.value) }  className='h-[30px] w-full px-4' type="text" placeholder='Search' />
+                        <input value={countySearch} onChange={ (e) => setCountySearch(e.target.value) }  className='h-[30px] sm:w-[13.5rem] px-4' type="text" placeholder='Search' />
                     </div>
                     {
                         countyOpen && (

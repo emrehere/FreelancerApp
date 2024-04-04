@@ -81,7 +81,8 @@ function Page1({forFreelancer} : {forFreelancer : boolean}) {
                                         <li
                                             onClick={() => handleIndexClick(item)}
                                             key={item.modalPageIndex}
-                                            className="hover:bg-gray-100 w-full p-2 sm:text-sm text-md
+                                            className="hover:bg-gray-100 w-full p-2 sm:text-sm 
+                                            text-md cursor-pointer
                                          flex justify-center tracking-wide text-gray-600"
                                         >
                                             {item.unvan}
@@ -105,7 +106,7 @@ function Page1({forFreelancer} : {forFreelancer : boolean}) {
                                     return (
                                         <p key={item.modalPageIndex}
                                             onClick={() => handleIndexClick(item)}
-                                            className="hover:bg-gray-100 w-full p-1 text-md sm:text-sm flex 
+                                            className="hover:bg-gray-100 w-full cursor-pointer p-1 text-md sm:text-sm flex 
                                          justify-center tracking-wide text-gray-600">{item.unvan}</p>
 
                                     )
