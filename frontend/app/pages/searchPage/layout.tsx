@@ -2,6 +2,7 @@
 import Navbar from "../../components/NavbarComp/navbar"
 import Footer from "../../components/footer"
 import { useEffect, useState } from "react"
+import UserNavbar from "@/app/components/LoggedInNavbar/UserNavbar"
 
 
 export default function SignUpLayout({
@@ -22,7 +23,7 @@ export default function SignUpLayout({
       
         <div className="fixed top-0 left-0 w-full z-10 sm:block hidden ">
         {
-            token ? null : <Navbar />
+            token ? <UserNavbar /> : <Navbar />
         }
         </div>
         {children}

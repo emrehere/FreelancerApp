@@ -4,7 +4,7 @@ const Sidebar = () => {
   return (
     <div className="bg-[#18202b] text-white  h-full w-64 fixed top-0 left-0 
     overflow-y-auto font-semibold">
-      <div className="sidebar">
+      <div className="mt-[6rem]">
         <ul className="mt-6">
           <li className="px-6 py-4 hover:bg-blue-50 hover:text-[#18202b]">
             <Link href="/siparislerim">

@@ -12,7 +12,7 @@ function PhotoPart() {
                         <Image width={150} height={150} className='object-cover ' src="/No_Avatar.webp" alt="kadin" />
                     </div>
 
-                    <IoMdAdd className=' -ml-12 z-10 text-4xl font-bold text-white p-2 bg-red-500 rounded-full' />
+                    <IoMdAdd className=' -ml-5  text-4xl font-bold text-white p-2 bg-red-500 rounded-full ' />
                 </div>
                 <div className='ml-12 text-gray-800'>
                     <p className=' text-4xl mb-2'> Merhaba <span className='font-extrabold'>Emrah 👋</span> </p>
