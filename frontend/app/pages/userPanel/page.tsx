@@ -7,7 +7,7 @@ function Page() {
     return (
         <div>
 
-            <div className='ml-64 space-y-20 '>
+            <div className='ml-64 space-y-20 mt-12 '>
                 <PhotoPart />
                 <div>
                     <LikedFreelancers />
