@@ -103,7 +103,7 @@ function Categories() {
                         onMouseEnter={ () => openSubHover(category)}
                         onMouseLeave={() => closeSubHover(category)}
                         key={category}                  
-                        className='w-full z-100 bg-orange-50 flex text-sm   flex-wrap items-center pl-20 '
+                        className='w-full z-100 bg-orange-50 flex text-[13px] flex-wrap items-center pl-20 '
                     >
                         {
 
@@ -111,7 +111,7 @@ function Categories() {
                                 <div 
 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -121,7 +121,7 @@ function Categories() {
                             category === 'open2' &&  CategoryDatas.writing.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -131,7 +131,7 @@ function Categories() {
                             category === 'open3' &&  CategoryDatas.design.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -141,7 +141,7 @@ function Categories() {
                             category === 'open4' &&  CategoryDatas.marketing.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -151,7 +151,7 @@ function Categories() {
                             category === 'open5' &&  CategoryDatas.editing.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -161,7 +161,7 @@ function Categories() {
                             category === 'open6' &&  CategoryDatas.business.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -171,7 +171,7 @@ function Categories() {
                             category === 'open7' &&  CategoryDatas.audio.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -181,7 +181,7 @@ function Categories() {
                             category === 'open8' &&  CategoryDatas.sales.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>
@@ -191,7 +191,7 @@ function Categories() {
                             category === 'open9' &&  CategoryDatas.media.map(data => (
                                 <div 
                                     key={data}
-                                    className=' h-full w-48 m-4'
+                                    className=' h-full w-48 m-2'
                                 >
                                     {data}
                                 </div>

@@ -2,8 +2,13 @@ import React from 'react'
 import Image from 'next/image'
 import { FaStar } from "react-icons/fa";
 
+interface Props  {
+  fullname: String;
+  field: String;
+}
 
-function FreelancerCard() {
+
+function FreelancerCard({ fullname, field }: Props)  {
   return (
     <div>
        <div className='flex flex-col bg-blue-50 p-4 shadow-md shadow-[#18202b]
@@ -13,8 +18,8 @@ function FreelancerCard() {
             <div className='relative'>
                 <Image width={100} height={100} className='object-cover rounded-full' src="/freelancer12.webp" alt="kadin" />
             </div>
-            <p className='pt-2 font-medium'>Mert Ceylan</p>
-            <p className='text-[14px]'>Yazılım</p>
+            <p className='pt-2 font-medium'>{fullname}</p>
+            <p className='text-[14px]'>{field}</p>
             <div className='flex items-center space-x-1 text-orange-500'>
                 <FaStar />
             <p>5.0(2444)</p>

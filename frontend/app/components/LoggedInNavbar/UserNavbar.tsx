@@ -5,6 +5,8 @@ import SearchComp from '../NavbarComp/searchComp';
 import { MdOutlinePostAdd } from "react-icons/md";
 import Image from 'next/image';
 import Categories from './Categories';
+import Link from 'next/link';
+import { link } from 'fs';
 
 function UserNavbar() {
     return (
@@ -24,8 +26,10 @@ function UserNavbar() {
                     <MdOutlineNotificationsActive size={35} />
                 </div>
                 <div className='relative'>
+                    <Link href="/pages/userPanel">
                     <Image src="/blank_profile_pic.webp" width={50} height={50} className='rounded-full ml-4'
                         alt="blank" />
+                    </Link>
                 </div>
             </div>
             <div>
