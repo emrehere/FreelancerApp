@@ -2,6 +2,7 @@ import React from 'react'
 import ServicesCard from './ServicesCard'
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import ModalDatas from '@/app/datas/modalDatas';
 
 function PopularServices() {
     return (
@@ -13,10 +14,10 @@ function PopularServices() {
                     <MdOutlineArrowBackIosNew size={50} className='p-2 text-3xl bg-orange-500
          text-blue-50 rounded-full '/>
                 </div>
-                <ServicesCard />
-                <ServicesCard />
-                <ServicesCard />
-                <ServicesCard />
+                {
+                    ModalDatas.map((data) =>
+                         <ServicesCard key={data.modalPageIndex} serviceName={data.unvan} />)
+                }
                 <div className='absolute right-12'>
                     <MdOutlineArrowForwardIos size={48} className='p-2  text-3xl  bg-orange-500
          text-blue-50 rounded-full'/>
