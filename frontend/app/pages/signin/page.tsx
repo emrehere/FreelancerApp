@@ -20,9 +20,11 @@ export default function SingIn() {
     const [loading, setLoading] = useState(false)
     const [userData, setUserData] = useState({})
     const [loginError, setLoginError] = useState("")
+    const [error, setError] = useState("")
 
-    const { email, password } = useSelector((state: RootState) => state.loginReducer);
+    const { email, password, login } = useSelector((state: RootState) => state.loginReducer);
     const { warningModal } = useSelector((state: RootState) => state.navbar);
+
     const dispatch = useDispatch();
 
     const router = useRouter()
@@ -38,6 +40,13 @@ export default function SingIn() {
     const handleLoginClick = () => {
 
         dispatch(loginSetter({ email: email, password: password }));
+
+        if (login === true) {
+            console.log("login noldu", login)
+            router.push('/pages/userPanel')
+        } else {
+            setError ("Wrong email or password")
+        }
     };
 
 
@@ -70,11 +79,13 @@ export default function SingIn() {
                     <div className='flex items-center justify-center flex-col space-y-4 mt-[5vh]'>
                         <div className=' flex flex-col sm:w-[35vw] w-[70vw] mx-auto tracking-wider leading-8'>
                             <p className='text-gray-500 font-bold'>EMAIL</p>
-                            <input className='sm:w-[35vw] w-[70vw] bg-blue-200 bg-opacity-50 h-12 rounded-xl outline-orange-500'
+                            <input className='sm:w-[35vw] w-[70vw] bg-blue-200
+                             bg-opacity-50 h-12 rounded-xl outline-orange-500 px-2'
                                 type="text" value={email} onChange={(e) => dispatch(setCredentials({ email: e.target.value, password: password }))} />
                             <p className='text-gray-500 font-bold mt-4'>PASSWORD</p>
                             <div className='flex items-center'>
-                                <input className='sm:w-[35vw] w-[70vw] bg-blue-200 bg-opacity-50 h-12 rounded-xl outline-orange-500'
+                                <input className='sm:w-[35vw] w-[70vw] bg-blue-200 
+                                px-2 bg-opacity-50 h-12 rounded-xl outline-orange-500'
                                     type={passwordType} value={password} onChange={(e) => dispatch(setCredentials({ password: e.target.value, email: email }))} />
                                 <span onClick={changePasswordType} className=' sm:-ml-[2vw] -ml-[22px] text-gray-500 '><FaDotCircle /></span>
                             </div>
@@ -89,7 +100,7 @@ export default function SingIn() {
                             <button onClick={handleLoginClick} className='text-white bg-orange-500 sm:w-[35vw] w-[70vw] rounded-xl
                     h-12 mt-4 font-bold tracking-widest text-xl hover:scale-105 transition ease-in-out' >LOG IN</button>
                             {
-                                warning ? <p className='text-red-500 flex justify-center mt-2'>Please check your email and password</p> : null
+                                error && <p className='text-red-500 font-semibold mt-4'>{error}</p>
                             }
                         </div>
                     </div>

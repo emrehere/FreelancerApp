@@ -1,18 +1,21 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signupSetter, setCredentials } from "../../pages/signup/signupReducer";
 import Backdrop from "@/app/components/warnings/BackDrop";
+import { useRouter } from 'next/navigation';
+import { RootState } from "@/app/store/RootReducer";
 
 export default function SignUp() {
 
   const [clicked, setClicked] = useState("");
-  const [signupError, setSignupError] = useState("");
   const [loading, setLoading] = useState(false)
-
-  const { name, surname, email, password } = useSelector((state: any) => state.signupReducer);
-  const { warningModal } = useSelector((state: any) => state.navbar);
+  
+  const { name, surname, email, password,  signupError, registerComplete } = useSelector((state: RootState) => state.signupReducer);
+  const { warningModal } = useSelector((state: RootState) => state.navbar);
   const dispatch = useDispatch();
+
+  const router = useRouter()
 
   const hireOn = () => {
     setClicked("hire");
@@ -22,9 +25,23 @@ export default function SignUp() {
     setClicked("freelancer");
   }
 
+  console.log("NERDESIN AQ", signupError)
+
   const saveTheUser = () => {
+    console.log("save the user", "name", name, "surname", surname, "email", email, "password", password)
     dispatch(signupSetter({ name: name, surname: surname, email: email, password: password }));
+    
   }
+
+  useEffect(() => {
+    if (registerComplete === true) {
+      router.push('/pages/userPanel')
+    } else {
+      console.log("failed", signupError)
+    }
+  }, [registerComplete])
+
+
 
 
 
@@ -35,7 +52,7 @@ export default function SignUp() {
         warningModal ? <Backdrop /> : null
       }
       <div className="pt-[15vh]  tracking-wide leading-relaxed">
-        <div className="sm:w-[50vw] w-[90vw] sm:h-[43rem] h-[53rem] bg-blue-50 sm:mt-[10vh] flex  mx-auto shadow-xl shadow-gray-800 ">
+        <div className="sm:w-[50vw] w-[90vw] sm:h-[45rem] h-[53rem] bg-blue-50 sm:mt-[10vh] flex  mx-auto shadow-xl shadow-gray-800 ">
           <div className="sm:w-[40vw] w-[80vw] space-y-4 flex-col flex mx-auto">
             <h1 className="text-4xl font-semibold sm:pt-[10vh] pt-[5vh] text-gray-900">Start living your work dream</h1>
 
@@ -70,8 +87,13 @@ export default function SignUp() {
         hover:scale-105  sm:w-[40vw]  w-[80vw] ">SIGN UP</button>
               <p className="text-sm pt-4 text-gray-400">Already have an account?</p>
             </div>
+            {
+          signupError && <div className="text-red-500 text-base font-semibold">{signupError}</div>
+        }
           </div>
+          
         </div>
+        
       </div>
       <div className="sm:h-[15vh] h-[8vh]"></div>
     </div>

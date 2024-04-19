@@ -5,8 +5,11 @@ const loginSlice = createSlice({
   initialState: {
     email: '',
     password: '',
+    login: false,
   },
   reducers: {
+    // Add reducers for additional action types here
+
     loginSetter: (state, action) => {
       state.login = action.payload;
     },
