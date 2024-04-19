@@ -9,8 +9,8 @@ const navSlice = createSlice({
     savedLink: "",
   },
   reducers: {
-    navSearchToggle: (state) => {
-      state.searchToggle = !state.searchToggle;      
+    navSearchToggle: (state, action) => {
+      state.searchToggle = action.payload;      
     },
     warningModalOpen: (state, action) => {
       state.warningModal = action.payload;
