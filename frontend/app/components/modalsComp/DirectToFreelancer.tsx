@@ -1,10 +1,22 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
 import { GoArrowUpLeft } from "react-icons/go";
 import { GoArrowUpRight } from "react-icons/go";
 import Link from 'next/link';
 
 function DirectToFreelancer({ forFreelancer }: { forFreelancer: boolean }) {
+
+    const [tokenExists, setTokenExists] = useState(false)
+
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) {
+            setTokenExists(true)
+        }
+    }, [])
+
+    console.log(tokenExists, "tokenExists")
+
     return (
         <div>
             <div className="w-full rounded-t-2xl flex sm:justify-center bg-[#1a1c28] 
@@ -13,18 +25,21 @@ function DirectToFreelancer({ forFreelancer }: { forFreelancer: boolean }) {
                     <div className='    flex flex-row sm:w-[70vw] 
                     w-[94vw]  justify-between' >
 
-                        <div className=' bg-orange-500  h-full rounded-tl-2xl text-white 
-                        w-[17rem] font-bold cursor-pointer flex items-center text-[15px]'>
-                            <Link href={'/pages/signin'}>
-                                <div className='flex hover:scale-105 items-center ml-4'>                                   
-                                    <GoArrowUpLeft size={30} className=' ' />
-                                    <div className='flex flex-col items-center'>
-                                        <p className='ml-1 '> Zaten hesabin varsa</p>
-                                        <p className='ml-1'>buraya tıklayin</p>
+                        {
+                            !tokenExists && <div className=' bg-orange-500  h-full rounded-tl-2xl text-white 
+                            w-[17rem] font-bold cursor-pointer flex items-center text-[15px]'>
+                                <Link href={'/pages/signin'}>
+                                    <div className='flex hover:scale-105 items-center ml-4'>
+                                        <GoArrowUpLeft size={30} className=' ' />
+                                        <div className='flex flex-col items-center'>
+                                            <p className='ml-1 '> Zaten hesabin varsa</p>
+                                            <p className='ml-1'>buraya tıklayin</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        </div>
+                                </Link>
+                            </div>
+                        }
+                        <div className='flex-grow'></div>
                         <div className=''>
 
                             {

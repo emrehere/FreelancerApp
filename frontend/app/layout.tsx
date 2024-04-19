@@ -9,6 +9,7 @@ import React from "react";
 import dynamic from 'next/dynamic'
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
+import Backdrop from "./components/warnings/BackDrop";
 
 const MobileNavbar = dynamic(() => import('./components/NavbarComp/mobileNavbar'), {
   ssr: false
@@ -37,6 +38,8 @@ export default function RootLayout({
         <body style={{ fontFamily: 'Jockey One, sans-serif' }} className={inter.className}> 
         <div className="overflow-x-hidden">
         <Theme>
+
+   
      
         <div className="fixed top-0 left-0 w-[100vw] z-10 sm:hidden  " >
           <MobileNavbar/>

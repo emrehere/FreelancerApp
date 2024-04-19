@@ -5,15 +5,22 @@ const navSlice = createSlice({
   name: 'navbar',
   initialState: {
     searchToggle: false,
+    warningModal: false,
+    savedLink: "",
   },
   reducers: {
     navSearchToggle: (state) => {
-      state.searchToggle = !state.searchToggle;
-      
+      state.searchToggle = !state.searchToggle;      
     },
+    warningModalOpen: (state, action) => {
+      state.warningModal = action.payload;
+    },
+    saveTheLink: (state, action) => {
+      state.savedLink = action.payload;
+    }
   },
 });
 
-export const { navSearchToggle } = navSlice.actions;
+export const { navSearchToggle, warningModalOpen, saveTheLink } = navSlice.actions;
 
 export default navSlice.reducer;
