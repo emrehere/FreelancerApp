@@ -1,6 +1,6 @@
 "use client"
-import { takeEvery,  call } from 'redux-saga/effects';
-import { loginSetter } from '../../pages/signin/signinReducer'; // Adjust the path
+import { takeEvery,  call, put } from 'redux-saga/effects';
+import { loginCompleteSetter, signinErrorSetter } from '../../pages/signin/signinReducer'; // Adjust the path
 
 
 function* loginUserSaga(action) {
@@ -28,11 +28,12 @@ function* loginUserSaga(action) {
             console.log("data", data)
             localStorage.setItem('token', JSON.stringify(data.token));
             console.log('User logged in');
-            yield put(loginSetter({ login: true }));
+            yield put(loginCompleteSetter(true)); 
         } else {
             
             const errorData = yield res.json(); 
             console.log("error data", errorData)
+            yield put( signinErrorSetter( errorData.error ) );
         }
     } catch (error) {
         console.log('Error during login:', error);

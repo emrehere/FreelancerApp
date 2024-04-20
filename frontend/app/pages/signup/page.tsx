@@ -36,9 +36,7 @@ export default function SignUp() {
   useEffect(() => {
     if (registerComplete === true) {
       router.push('/pages/userPanel')
-    } else {
-      console.log("failed", signupError)
-    }
+    } 
   }, [registerComplete])
 
 

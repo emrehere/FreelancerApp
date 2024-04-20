@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
@@ -20,10 +20,11 @@ export default function SingIn() {
     const [loading, setLoading] = useState(false)
     const [userData, setUserData] = useState({})
     const [loginError, setLoginError] = useState("")
-    const [error, setError] = useState("")
 
-    const { email, password, login } = useSelector((state: RootState) => state.loginReducer);
+
+    const { email, password, loginComplete, signinError } = useSelector((state: RootState) => state.loginReducer);
     const { warningModal } = useSelector((state: RootState) => state.navbar);
+
 
     const dispatch = useDispatch();
 
@@ -37,18 +38,25 @@ export default function SingIn() {
         }, 750);
     };
 
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            handleLoginClick();
+        }
+    };
+
     const handleLoginClick = () => {
 
         dispatch(loginSetter({ email: email, password: password }));
 
-        if (login === true) {
-            console.log("login noldu", login)
-            router.push('/pages/userPanel')
-        } else {
-            setError ("Wrong email or password")
-        }
     };
 
+    useEffect(() => {
+
+        if (loginComplete === true) {
+            console.log("login noldu", loginComplete)
+            router.push('/pages/userPanel')
+        } 
+    }, [loginComplete])
 
     return (
         <div className='bg-blue-50 sm:pb-[20vh] pb-[5vh] pt-[8rem] '>
@@ -81,12 +89,16 @@ export default function SingIn() {
                             <p className='text-gray-500 font-bold'>EMAIL</p>
                             <input className='sm:w-[35vw] w-[70vw] bg-blue-200
                              bg-opacity-50 h-12 rounded-xl outline-orange-500 px-2'
-                                type="text" value={email} onChange={(e) => dispatch(setCredentials({ email: e.target.value, password: password }))} />
+                                type="text" value={email}
+                                onKeyDown={handleKeyPress}
+                                onChange={(e) => dispatch(setCredentials({ email: e.target.value, password: password }))} />
                             <p className='text-gray-500 font-bold mt-4'>PASSWORD</p>
                             <div className='flex items-center'>
                                 <input className='sm:w-[35vw] w-[70vw] bg-blue-200 
                                 px-2 bg-opacity-50 h-12 rounded-xl outline-orange-500'
-                                    type={passwordType} value={password} onChange={(e) => dispatch(setCredentials({ password: e.target.value, email: email }))} />
+                                    type={passwordType} value={password}
+                                    onKeyDown={handleKeyPress}
+                                    onChange={(e) => dispatch(setCredentials({ password: e.target.value, email: email }))} />
                                 <span onClick={changePasswordType} className=' sm:-ml-[2vw] -ml-[22px] text-gray-500 '><FaDotCircle /></span>
                             </div>
                             <div className='text-gray-500 w-[70vw] font-semibold mt-4 sm:mx-2  items-center flex flex-row justify-between sm:justify-start'>
@@ -100,7 +112,8 @@ export default function SingIn() {
                             <button onClick={handleLoginClick} className='text-white bg-orange-500 sm:w-[35vw] w-[70vw] rounded-xl
                     h-12 mt-4 font-bold tracking-widest text-xl hover:scale-105 transition ease-in-out' >LOG IN</button>
                             {
-                                error && <p className='text-red-500 font-semibold mt-4'>{error}</p>
+                                
+                                signinError && <p className='text-red-500 font-semibold mt-4'>{signinError}</p>
                             }
                         </div>
                     </div>

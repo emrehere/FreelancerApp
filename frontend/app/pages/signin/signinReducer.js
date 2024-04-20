@@ -6,12 +6,20 @@ const loginSlice = createSlice({
     email: '',
     password: '',
     login: false,
+    loginComplete: false,
+    signinError: '',
   },
   reducers: {
     // Add reducers for additional action types here
 
     loginSetter: (state, action) => {
       state.login = action.payload;
+    },
+    loginCompleteSetter: (state, action) => {
+      state.loginComplete = action.payload
+    },
+    signinErrorSetter: (state, action) => {
+      state.signinError = action.payload
     },
     setCredentials: (state, action) => {
       const { email, password } = action.payload;
@@ -21,6 +29,6 @@ const loginSlice = createSlice({
   },
 });
 
-export const { loginSetter, setCredentials } = loginSlice.actions;
+export const { loginSetter, setCredentials, loginCompleteSetter, signinErrorSetter } = loginSlice.actions;
 
 export default loginSlice.reducer;

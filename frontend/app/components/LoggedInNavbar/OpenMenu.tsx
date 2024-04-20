@@ -8,6 +8,8 @@ import { openMenuSetter } from './UserNavbarReducer'
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/RootReducer'
 import { useRouter } from 'next/navigation'
+import { loginCompleteSetter } from '../../pages/signin/signinReducer'
+import { registerCompleteSetter } from '@/app/pages/signup/signupReducer'
 
 function OpenMenu() {
 
@@ -15,11 +17,14 @@ function OpenMenu() {
   const router = useRouter();
 
   const openMenu = useSelector((state:RootState) => state.UserNavbarReducer.openMenu)
+ 
 
   const logout = ( buttonTitle : string ) => {
     if (buttonTitle === "Log out") {
       localStorage.removeItem('token');
       dispatch(openMenuSetter(false));
+      dispatch(loginCompleteSetter(false));
+      dispatch(registerCompleteSetter(false));
       router.push('/');
     } else {
       dispatch(openMenuSetter(false));

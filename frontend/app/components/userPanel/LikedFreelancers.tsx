@@ -46,7 +46,7 @@ function LikedFreelancers() {
         </div>
         {
           allFrelancers.map((item: any, index: number) => (
-            <div className={currentIndex === index || currentIndex === index -1 || currentIndex === index - 2 || currentIndex === index - 3 ? "block" : "hidden"}>
+            <div key={index} className={currentIndex === index || currentIndex === index -1 || currentIndex === index - 2 || currentIndex === index - 3 ? "block" : "hidden"}>
               <FreelancerCard key={index} fullname={item.freelancerInfo.name + " " + item.freelancerInfo.surname}
                 field={item.freelancerInfo.freelancerUnvan} />
             </div>
