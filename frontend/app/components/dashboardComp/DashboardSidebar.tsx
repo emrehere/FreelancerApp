@@ -6,10 +6,13 @@ import { BiCategoryAlt } from "react-icons/bi";
 import { GrUserWorker } from "react-icons/gr";
 import { PiNotificationFill } from "react-icons/pi";
 import { RiFileHistoryLine } from "react-icons/ri";
+import ReqDatas from '../../datas/FriendReqDatas';
+import FriendRequests from './FriendRequests';
+
 
 function DashboardSidebar() {
     return (
-        <div className='overflow-y-scroll h-[80vh] w-56 pb-24  bg-white pt-8 text-gray-600 font-medium 
+        <div className='overflow-y-scroll h-[80vh] w-72 pb-24  bg-white pt-8 text-gray-600 font-medium 
         tracking-wider'>
             <div className='flex flex-col  space-y-2 '>
                 <div className='ml-8 text-xl font-thin tracking-widest mb-2'>
@@ -48,6 +51,24 @@ function DashboardSidebar() {
                     <RiFileHistoryLine size={30} className='bg-purple-500 text-white rounded-full p-1' />
                     <p>Is Gecmisim</p>
                 </div>
+            </div>
+            <div>
+                <div className='mt-12 ml-8 mb-4 text-xl font-thin tracking-wider '>
+                    <p>Arkadaslik Istekleri</p>
+                </div>
+
+                {
+                    ReqDatas.map((data, index) => {
+                        return (
+                            <FriendRequests
+                                key={index}
+                                fullname={data.fullname}
+                                field={data.field}
+                                image={data.image}
+                            />
+                        )
+                    })
+                }
             </div>
         </div>
     )
