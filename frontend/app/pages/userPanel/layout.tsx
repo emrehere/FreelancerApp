@@ -3,6 +3,7 @@ import Navbar from "../../components/NavbarComp/navbar"
 import Footer from "../../components/footer"
 import Sidebar from '@/app/components/userPanel/sideBar'
 import { useEffect, useState } from "react"
+import { useRouter } from 'next/navigation'
 import UserNavbar from "@/app/components/LoggedInNavbar/UserNavbar"
 
 export default function SignUpLayout({
@@ -11,19 +12,21 @@ export default function SignUpLayout({
   children: React.ReactNode
 }) {
 
-  const [token, setToken] = useState("")
+    const router = useRouter()
 
     useEffect(() => {
-        const myToken = localStorage.getItem("token")
-        setToken(myToken as string)
+        const myToken = localStorage.getItem("token")   
+        if (!myToken) {
+          router.push("/pages/signin")
+        }       
     }, [])
 
   return (
     <>
       <div className="fixed top-0 left-0 w-full z-10 sm:block hidden  ">
-        {
-            token ? <UserNavbar /> : <Navbar />
-        }
+       
+           <UserNavbar /> 
+      
       </div>
       <div className="flex flex-col mt-[7rem]">
         <div>
@@ -35,7 +38,7 @@ export default function SignUpLayout({
         <div className="flex flex-grow">
 
         </div>
-        <div>
+        <div className=" ml-56">
         <Footer />
         </div>
       </div>

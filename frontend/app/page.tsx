@@ -95,7 +95,7 @@ const Page: React.FC = () => {
     <div  style={{ backgroundImage: `url(${backgroundImage})`, height: '100vh', width: '100vw',
      backgroundSize: 'cover' }} >
       
-      <div className="flex items-center sm:h-[110vh] h-[55rem] sm:mt-[12vh] pt-[1rem]">
+      <div className="flex items-center sm:h-[110vh] h-[55rem] sm:mt-[12vh] pt-[5rem]">
         <div className="flex flex-col">
       <div className="flex flex-col sm:w-[40vw] w-[90vw] sm:ml-[3vw] tracking-wide leading-relaxed
        bg-blue-50 items-center -mt-[15vh] pl-2  rounded-3xl ml-[5vw]" >

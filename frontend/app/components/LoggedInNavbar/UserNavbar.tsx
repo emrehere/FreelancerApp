@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { BiMessageDetail } from "react-icons/bi";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import SearchComp from '../NavbarComp/searchComp';
@@ -7,12 +7,24 @@ import Image from 'next/image';
 import Categories from './Categories';
 import Link from 'next/link';
 import OpenMenu from './OpenMenu';
+import { useSelector, useDispatch } from 'react-redux';
+import { openMenuSetter } from './UserNavbarReducer';
+import { RootState } from '../../store/RootReducer'
 
 
 function UserNavbar() {
-    const [openMenu, setOpenMenu] = useState(false);
 
- 
+    const dispatch = useDispatch();
+
+    const openMenu = useSelector((state:RootState) => state.UserNavbarReducer.openMenu)
+
+    useEffect(() => {
+        if (openMenu) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [openMenu]);
 
     return (
         <div>
@@ -33,7 +45,7 @@ function UserNavbar() {
                     <MdOutlineNotificationsActive size={35} />
                 </div>
                 <div className='relative'>             
-                        <Image onClick={() => setOpenMenu(!openMenu)} src="/blank_profile_pic.webp" width={50} height={50} className='rounded-full ml-4'
+                        <Image onClick={() => dispatch(openMenuSetter(true))} src="/blank_profile_pic.webp" width={50} height={50} className='rounded-full ml-4'
                         alt="blank" />
                 </div>
                 
@@ -44,10 +56,29 @@ function UserNavbar() {
                 
             </div>
             <div className='flex -mt-12'>
-                <div className='flex-grow'></div>
+                
                 {
                     openMenu && (
+                        <div
+                        className="backdrop"
+                        style={{
+                          position: 'fixed',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black
+                          zIndex: 150,
+                        }}
+                      >
+                       
+                    
+                        <div className='flex justify-end mt-16'>
                         <OpenMenu />
+                        </div>
+                       
+                        </div>
+
                     )
                 }
             </div>
