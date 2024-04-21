@@ -1,11 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
+import { FaChevronRight } from "react-icons/fa";
 
 interface FriendReq {
-    fullname: string;  // Full name of the friend
-    field: string;     // Field of work or interest
-    image: string;     // URL or path to an image
-  }
+    fullname: string;  
+    field: string;     
+    image: string;    
+}
 
 function FriendRequests({ fullname, field, image }: FriendReq) {
     return (
@@ -17,10 +18,15 @@ function FriendRequests({ fullname, field, image }: FriendReq) {
                         <Image src={image} height={60} width={60} alt="kadin"
                             className=' rounded-full ' />
                     </div>
-                    <div>
-                        <p className='text-[13.5px] object-cover'>{fullname}</p>
-                        <p className='text-[11px] text-gray-500'>{field}</p>
+                    <div className='flex items-center w-full'>
+                        <div className='pr-1'>
+                            <p className='text-[13.5px] object-cover'>{fullname}</p>
+                            <p className='text-[11px] text-gray-500'>{field}</p>
+                        </div>
+                        <div className=" flex flex-grow"></div> 
+                        <FaChevronRight size={25} className="text-gray-500 p-1 mr-1 bg-white rounded-full" />
                     </div>
+                    
                 </div>
 
             </div>

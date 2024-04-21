@@ -21,7 +21,7 @@ export default function DashboardLayout({
     }, [])
 
   return (
-    <div className="bg-blue-50 min-h-screen">
+    <div className="bg-blue-50 ">
       <div className="fixed top-0 left-0 w-full z-10 sm:block hidden  ">
        
            <UserNavbar /> 
@@ -31,12 +31,13 @@ export default function DashboardLayout({
         <div className=" fixed ">
           <DashboardSidebar />
         </div>
-        <div className=" ml-[2rem]">
+        <div className=" ml-[20rem] mt-8 ">
           {children}
         </div>
         <div className="flex flex-grow">
 
         </div>
+        <div className="flex-grow"></div>
         <div className=" ml-56">
         <Footer />
         </div>
