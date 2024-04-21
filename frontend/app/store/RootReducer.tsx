@@ -10,6 +10,7 @@ import signupReducer from '../pages/signup/signupReducer';
 import freelancerModalsReducer from '../pages/freelancerForm/freelancerModalsReducer';
 import categoryReducer from '../components/LoggedInNavbar/categoryReducer';
 import UserNavbarReducer from '../components/LoggedInNavbar/UserNavbarReducer'
+import DashboardReducer from '../pages/dashboard/DashboardReducer'
 
 
 const rootReducer = combineReducers({
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     signupReducer: signupReducer,
     freelancerModalsReducer:freelancerModalsReducer,
     categoryReducer:categoryReducer,
-    UserNavbarReducer:UserNavbarReducer
+    UserNavbarReducer:UserNavbarReducer,
+    DashboardReducer:DashboardReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
