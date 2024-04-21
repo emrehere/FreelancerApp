@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from 'next/navigation'
 import UserNavbar from "@/app/components/LoggedInNavbar/UserNavbar"
 import  DashboardSidebar  from '@/app/components/dashboardComp/DashboardSidebar'
+import RightBar from "@/app/components/dashboardComp/RightBar"
 
 export default function DashboardLayout({
   children,
@@ -33,6 +34,9 @@ export default function DashboardLayout({
         </div>
         <div className=" ml-[20rem] mt-8 ">
           {children}
+        </div>
+        <div>
+          <RightBar />
         </div>
         <div className="flex flex-grow">
 

@@ -15,7 +15,7 @@ function Page() {
 
   return (
     <div className=''>
-      <div className='min-h-screen '>
+      <div className='min-h-[200vh] '>
         <Post />
         {
           postOpen && <OpenPost />
