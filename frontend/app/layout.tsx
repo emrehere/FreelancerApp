@@ -9,7 +9,7 @@ import React from "react";
 import dynamic from 'next/dynamic'
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
-import Backdrop from "./components/warnings/BackDrop";
+import PopUpMessageClick from "./components/messageBottomSection/PopUpMessageClick";
 
 const MobileNavbar = dynamic(() => import('./components/NavbarComp/mobileNavbar'), {
   ssr: false
@@ -48,8 +48,8 @@ export default function RootLayout({
        
             {children}
           
+            <PopUpMessageClick/>
 
-       
         </Theme>
         </div>
         </body>

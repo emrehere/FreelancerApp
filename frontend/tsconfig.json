@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/datas/modalDatas.js", "app/pages/jobNoticeForm/modalReducer.js", "app/pages/freelancerForm/freelancerModalsReducer.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/datas/modalDatas.js", "app/pages/jobNoticeForm/modalReducer.js", "app/pages/freelancerForm/freelancerModalsReducer.js", "app/components/messageBottomSection/BottomMessageReducer.js"],
   "exclude": ["node_modules"]
 }

@@ -11,7 +11,7 @@ import freelancerModalsReducer from '../pages/freelancerForm/freelancerModalsRed
 import categoryReducer from '../components/LoggedInNavbar/categoryReducer';
 import UserNavbarReducer from '../components/LoggedInNavbar/UserNavbarReducer'
 import DashboardReducer from '../pages/dashboard/DashboardReducer'
-
+import BottomMessageReducer from '../components/messageBottomSection/BottomMessageReducer';
 
 const rootReducer = combineReducers({
     navbar: NavReducer,
@@ -23,7 +23,8 @@ const rootReducer = combineReducers({
     freelancerModalsReducer:freelancerModalsReducer,
     categoryReducer:categoryReducer,
     UserNavbarReducer:UserNavbarReducer,
-    DashboardReducer:DashboardReducer
+    DashboardReducer:DashboardReducer,
+    BottomMessageReducer:BottomMessageReducer 
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
