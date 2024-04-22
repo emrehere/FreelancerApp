@@ -5,6 +5,8 @@ import { FaSearch } from "react-icons/fa";
 import { openIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
+import { IoMdClose } from "react-icons/io";
+import { openChatBoxSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 
 function OpennedChatList() {
 
@@ -28,6 +30,8 @@ function OpennedChatList() {
         <div>
             <div className='bg-white w-52 h-[20rem] rounded-tl-xl overflow-y-scroll '>
                 <div className='fixed '>
+                <IoMdClose onClick={() => dispatch(openChatBoxSetter(false))} size={24} className='absolute top-0 left-0 -ml-3 -mt-3 bg-orange-500
+                text-white rounded-full p-1 cursor-pointer ' />    
                 <div className=' bg-white flex items-center space-x-2 
                  border-gray-300 rounded-tl-xl '>
                     <input onChange={(e) => setKeyLetters(e.target.value)} type="text"

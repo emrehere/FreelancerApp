@@ -24,6 +24,7 @@ function PopUpMessageClick() {
       {
         openIndividualChat && <IndividualChat />
       }
+     
       </div>
     </div>
     <div className='fixed bottom-0 right-0'>

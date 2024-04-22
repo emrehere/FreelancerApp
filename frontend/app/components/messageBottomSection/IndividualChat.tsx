@@ -7,10 +7,15 @@ import { LuFiles } from "react-icons/lu";
 import { IoIosImages } from "react-icons/io";
 import { FaRegSmileBeam } from "react-icons/fa";
 import { MdKeyboardVoice } from "react-icons/md";
+import { openIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 function IndividualChat() {
     const [content, setContent] = useState<string>("")
     const textareaRef= useRef<HTMLTextAreaElement>(null);
+
+    const dispatch = useDispatch();
 
     const adjustHeight = () => {
         if(textareaRef.current && textareaRef.current.scrollHeight < 48) {
@@ -42,10 +47,10 @@ function IndividualChat() {
 
     return (
         <div>
-            <div className='bg-gradient-to-tl from-orange-50 to-blue-50  w-60
-         shadow-lg shadow-gray-500 h-80 rounded-t-xl flex flex-col'>
+            <div className='bg-gradient-to-tl from-orange-50 to-blue-50  w-[18rem]
+         shadow-lg shadow-gray-500 h-80 rounded-t-xl flex flex-col ml-1'>
                 <div className='h-12  flex border-gray-500 border-opacity-10
-            rounded-t-xl border-2 w-60 '>
+            rounded-t-xl border-2 w-[18rem] '>
                     <div className='flex items-center space-x-2 '>
                         <div className='relative'>
                             <Image src={"/kadin.webp"} width={30} height={30} alt="kadin"
@@ -59,7 +64,8 @@ function IndividualChat() {
                     <div className='flex-grow'></div>
                     <div className='flex items-center '>
                         <VscChromeMinimize size={20} className='text-gray-500 pl-1  ' />
-                        <IoMdClose size={25} className='text-gray-500 px-1' />
+                        <IoMdClose onClick={ () => dispatch(openIndividualChatSetter(false))}
+                         size={25} className='text-gray-500 px-1 cursor-pointer' />
                     </div>
                 </div>
                 <div>
