@@ -7,15 +7,18 @@ import { LuFiles } from "react-icons/lu";
 import { IoIosImages } from "react-icons/io";
 import { FaRegSmileBeam } from "react-icons/fa";
 import { MdKeyboardVoice } from "react-icons/md";
-import { clickedIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
+import { clickedIndividualChatSetter, messageArraySetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/app/store/RootReducer';
 
 
-function IndividualChat() {
+function IndividualChat({item} : any) {
     const [content, setContent] = useState<string>("")
     const textareaRef= useRef<HTMLTextAreaElement>(null);
 
     const dispatch = useDispatch();
+
+    const messageArrayFromRedux = useSelector((state: RootState) => state.BottomMessageReducer.messageStates);
 
     const adjustHeight = () => {
         if(textareaRef.current && textareaRef.current.scrollHeight < 48) {
@@ -41,6 +44,16 @@ function IndividualChat() {
         adjustHeight()
     },[])
 
+    const closeTheChat = () => {
+        const updatedArray = messageArrayFromRedux.map((i) => {
+            if (item.dateStart === i.dateStart) {
+                return { ...i, chatStart: false, dateStart: "", chatName: "" };
+            }
+            return i;
+        })   
+        dispatch(messageArraySetter(updatedArray))
+    }
+
  
 
     return (
@@ -62,7 +75,7 @@ function IndividualChat() {
                     <div className='flex-grow'></div>
                     <div className='flex items-center '>
                         <VscChromeMinimize size={20} className='text-gray-500 pl-1  ' />
-                        <IoMdClose onClick={ () => dispatch(clickedIndividualChatSetter(false))}
+                        <IoMdClose onClick={ closeTheChat }
                          size={25} className='text-gray-500 px-1 cursor-pointer' />
                     </div>
                 </div>

@@ -8,7 +8,7 @@ import { RootState } from '@/app/store/RootReducer';
 import { IoMdClose } from "react-icons/io";
 import { openChatBoxSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 import  userNameDatas  from '@/app/datas/chatDatas';
-import ChatDatas from '@/app/datas/chatDatas';
+
 
 function OpennedChatList() {
 
@@ -18,7 +18,7 @@ function OpennedChatList() {
 
     const messageArrayFromRedux = useSelector((state: RootState) => state.BottomMessageReducer.messageStates);
 
-    console.log(messageArrayFromRedux,"hayda")
+    console.log(messageArrayFromRedux,"haydasdsadfs")
     
 
 
@@ -29,7 +29,7 @@ function OpennedChatList() {
     const clickedIndividualChat = ( item : any ) => {
         
         dispatch(clickedIndividualChatSetter(item));
-   
+        console.log("step1")
     }
 
     return (
@@ -47,7 +47,7 @@ function OpennedChatList() {
                 </div>
                 <div className='mt-12 mb-4'> 
                 {
-                    filteredUserNames.map((item, index) => {
+                    filteredUserNames?.map((item, index) => {
                         return (
                             <div onClick={() => clickedIndividualChat(item)} key={index} >
                                 <div  className='flex cursor-pointer items-center space-x-2 py-2 ml-2'>
@@ -58,7 +58,7 @@ function OpennedChatList() {
 
                                 </div>
                                 {
-                                    index < filteredUserNames.length - 1 && <hr className='border-gray-300
+                                    index < filteredUserNames?.length - 1 && <hr className='border-gray-300
                                 border-1 h-1 w-[90%] mx-2' />
                                 }
                             </div>

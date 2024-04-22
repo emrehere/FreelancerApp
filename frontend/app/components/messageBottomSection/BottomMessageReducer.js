@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import ChatDatas from '@/app/datas/chatDatas';
 
-const messageArray = Array(ChatDatas.length - 1)
+const messageArray = Array(ChatDatas.length )
         .fill(null) 
         .map(() => ({ chatStart: false,
             dateStart: "",
@@ -13,7 +13,7 @@ const BottomMessageSlice = createSlice({
   name: 'BottomMessage',
   initialState: {
     openChatBox: false,
-    clickedIndividualChat: null,
+    clickedIndividualChat: "",
     messageStates : messageArray
   },
   reducers: {
@@ -22,8 +22,10 @@ const BottomMessageSlice = createSlice({
       console.log("trig")
     },
     clickedIndividualChatSetter: (state, action) => {
+      console.log(action.payload,"kilit")
       state.clickedIndividualChat = action.payload;
       state.messageStates = state.messageStates.map((item, index) => {
+        console.log("step2")
         if (index === state.clickedIndividualChat.index) {
           return { ...item, chatStart: true, dateStart: new Date().getTime(),
              chatName: state.clickedIndividualChat.name };
