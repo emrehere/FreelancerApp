@@ -9,18 +9,16 @@ function Categories() {
     const [subHover, setSubHover] = useState(false);
     const dispatch = useDispatch();
 
-    console.log(state.open9);
 
-    console.log(subHover)
 
     const closeSubHover = (category : string) => {
-        console.log("closeSubHover", category)
+  
         setSubHover(false);
         dispatch(setOpenState({ category, isOpen: false }))
     }
 
     const openSubHover = (category : string) => {
-        console.log("openSubHover", category)
+  
         setSubHover(true);
         dispatch(setOpenState({ category, isOpen: true }))
     }

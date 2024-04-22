@@ -41,9 +41,7 @@ function IndividualChat() {
         adjustHeight()
     },[])
 
-    useEffect(() => {
-        console.log("textareaRef.current.scrollHeight", textareaRef.current?.scrollHeight)
-    },[content])
+ 
 
     return (
         <div>

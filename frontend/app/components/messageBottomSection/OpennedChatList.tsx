@@ -16,13 +16,15 @@ function OpennedChatList() {
 
     const [keyLetters, setKeyLetters] = useState<string>("")
 
+    const messageArrayFromRedux = useSelector((state: RootState) => state.BottomMessageReducer.messageStates);
+
+    console.log(messageArrayFromRedux,"hayda")
     
       const messageArray = Array(ChatDatas.length - 1)
         .fill(null) 
         .map(() => ({ chatStart: false,
             dateStart: "" })); 
 
-      console.log(messageArray);
 
     
 
@@ -33,7 +35,7 @@ function OpennedChatList() {
     const clickedIndividualChat = ( item : any ) => {
         
         dispatch(clickedIndividualChatSetter(item));
-        console.log(item)
+   
     }
 
     return (
@@ -49,6 +51,7 @@ function OpennedChatList() {
                     <FaSearch size={15} />
                 </div>
                 </div>
+                <div className='mt-12 mb-4'> 
                 {
                     filteredUserNames.map((item, index) => {
                         return (
@@ -68,6 +71,7 @@ function OpennedChatList() {
                         )
                     })
                 }
+                </div>
             </div>
         </div>
     )

@@ -5,7 +5,8 @@ import ChatDatas from '@/app/datas/chatDatas';
 const messageArray = Array(ChatDatas.length - 1)
         .fill(null) 
         .map(() => ({ chatStart: false,
-            dateStart: "" })); 
+            dateStart: "",
+             })); 
 
 
 const BottomMessageSlice = createSlice({
@@ -13,7 +14,6 @@ const BottomMessageSlice = createSlice({
   initialState: {
     openChatBox: false,
     clickedIndividualChat: null,
-    clickedIndex: null,
     messageStates : messageArray
   },
   reducers: {
@@ -23,11 +23,13 @@ const BottomMessageSlice = createSlice({
     },
     clickedIndividualChatSetter: (state, action) => {
       state.clickedIndividualChat = action.payload;
-      console.log("clickedIndividualChat", state.clickedIndividualChat)
+      state.messageStates = state.messageStates.map((item, index) => {
+        if (index === state.clickedIndividualChat.index) {
+          return { ...item, chatStart: true, dateStart: new Date().getTime() };
+        }
+        return item;
+      });
     },
-    clickedIndexSetter: (state, action) => {
-      state.clickedIndex = action.payload
-    }
   },
 });
 
