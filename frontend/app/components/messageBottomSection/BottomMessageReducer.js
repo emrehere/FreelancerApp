@@ -6,7 +6,7 @@ const messageArray = Array(ChatDatas.length - 1)
         .fill(null) 
         .map(() => ({ chatStart: false,
             dateStart: "",
-             })); 
+            chatName: "" })); 
 
 
 const BottomMessageSlice = createSlice({
@@ -25,14 +25,18 @@ const BottomMessageSlice = createSlice({
       state.clickedIndividualChat = action.payload;
       state.messageStates = state.messageStates.map((item, index) => {
         if (index === state.clickedIndividualChat.index) {
-          return { ...item, chatStart: true, dateStart: new Date().getTime() };
+          return { ...item, chatStart: true, dateStart: new Date().getTime(),
+             chatName: state.clickedIndividualChat.name };
         }
         return item;
       });
     },
+    messageArraySetter: (state, action) => {
+      state.messageStates = action.payload
+    }
   },
 });
 
-export const {  openChatBoxSetter, clickedIndividualChatSetter  } = BottomMessageSlice.actions;
+export const {  openChatBoxSetter, clickedIndividualChatSetter, messageArraySetter  } = BottomMessageSlice.actions;
 
 export default BottomMessageSlice.reducer;

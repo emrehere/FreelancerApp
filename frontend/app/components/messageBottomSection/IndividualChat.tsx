@@ -7,7 +7,7 @@ import { LuFiles } from "react-icons/lu";
 import { IoIosImages } from "react-icons/io";
 import { FaRegSmileBeam } from "react-icons/fa";
 import { MdKeyboardVoice } from "react-icons/md";
-import { openIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
+import { clickedIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -62,7 +62,7 @@ function IndividualChat() {
                     <div className='flex-grow'></div>
                     <div className='flex items-center '>
                         <VscChromeMinimize size={20} className='text-gray-500 pl-1  ' />
-                        <IoMdClose onClick={ () => dispatch(openIndividualChatSetter(false))}
+                        <IoMdClose onClick={ () => dispatch(clickedIndividualChatSetter(false))}
                          size={25} className='text-gray-500 px-1 cursor-pointer' />
                     </div>
                 </div>

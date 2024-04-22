@@ -20,13 +20,7 @@ function OpennedChatList() {
 
     console.log(messageArrayFromRedux,"hayda")
     
-      const messageArray = Array(ChatDatas.length - 1)
-        .fill(null) 
-        .map(() => ({ chatStart: false,
-            dateStart: "" })); 
 
-
-    
 
     const filteredUserNames = userNameDatas.filter((item) => {
         return item.name.toLowerCase().includes(keyLetters.toLowerCase())

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AiOutlineWechat } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
-import { openChatBoxSetter, clickedIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
+import { openChatBoxSetter, clickedIndividualChatSetter, messageArraySetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 import OpennedChatList from './OpennedChatList';
 import IndividualChat from './IndividualChat';
 
@@ -26,6 +26,25 @@ function PopUpMessageClick() {
 
   // 3. Get the latest three message boxes
   const latestThreeMessageBoxes = sortedByDateStart.slice(0, 3);
+
+  // 4. Do something with the fourth message box
+  function doSomethingWithFourthMessageBox() {
+    // Do something with the fourth message box
+    const fourthMessageBox = sortedByDateStart[3];
+    const messageArrayUpdate = messageArrayFromRedux.map((item) => {
+        if(item.dateStart === fourthMessageBox.dateStart){
+            return {...item, chatStart: false, dateStart: "", chatName: ""}
+        }
+        return item
+    })
+    dispatch(messageArraySetter(messageArrayUpdate))
+  }
+
+  useEffect(() => {
+    if(sortedByDateStart.length === 4){
+        doSomethingWithFourthMessageBox()
+    }
+  }, [sortedByDateStart])
 
   // Now you can use latestThreeMessageBoxes to access the data for the latest three opened chat boxes
   console.log("Latest three message boxes:", latestThreeMessageBoxes);
