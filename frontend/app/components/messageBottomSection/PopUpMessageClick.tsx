@@ -2,7 +2,7 @@ import React from 'react'
 import { AiOutlineWechat } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
-import { openChatBoxSetter, openIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
+import { openChatBoxSetter, clickedIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 import OpennedChatList from './OpennedChatList';
 import IndividualChat from './IndividualChat';
 
@@ -15,6 +15,7 @@ function PopUpMessageClick() {
    
     const toggleChatBox = () => {
         dispatch(openChatBoxSetter(!openChatBox));
+        console.log(openChatBox)
     }
 
   return (

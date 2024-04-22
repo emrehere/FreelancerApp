@@ -1,23 +1,36 @@
-// NavActions.js
+
 import { createSlice } from '@reduxjs/toolkit';
+import ChatDatas from '@/app/datas/chatDatas';
+
+const messageArray = Array(ChatDatas.length - 1)
+        .fill(null) 
+        .map(() => ({ chatStart: false,
+            dateStart: "" })); 
+
 
 const BottomMessageSlice = createSlice({
   name: 'BottomMessage',
   initialState: {
     openChatBox: false,
-    openIndividualChat: false
+    clickedIndividualChat: null,
+    clickedIndex: null,
+    messageStates : messageArray
   },
   reducers: {
     openChatBoxSetter: (state, action) => {
       state.openChatBox = action.payload;
+      console.log("trig")
     },
-    openIndividualChatSetter: (state, action) => {
-      state.openIndividualChat = action.payload;
-      console.log("openIndividualChat", state.openIndividualChat)
+    clickedIndividualChatSetter: (state, action) => {
+      state.clickedIndividualChat = action.payload;
+      console.log("clickedIndividualChat", state.clickedIndividualChat)
+    },
+    clickedIndexSetter: (state, action) => {
+      state.clickedIndex = action.payload
     }
   },
 });
 
-export const {  openChatBoxSetter, openIndividualChatSetter  } = BottomMessageSlice.actions;
+export const {  openChatBoxSetter, clickedIndividualChatSetter  } = BottomMessageSlice.actions;
 
 export default BottomMessageSlice.reducer;

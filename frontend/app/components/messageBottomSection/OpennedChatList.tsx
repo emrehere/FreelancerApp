@@ -1,12 +1,14 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FaSearch } from "react-icons/fa";
-import { openIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
+import { clickedIndividualChatSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/RootReducer';
 import { IoMdClose } from "react-icons/io";
 import { openChatBoxSetter } from '@/app/components/messageBottomSection/BottomMessageReducer';
+import  userNameDatas  from '@/app/datas/chatDatas';
+import ChatDatas from '@/app/datas/chatDatas';
 
 function OpennedChatList() {
 
@@ -14,16 +16,24 @@ function OpennedChatList() {
 
     const [keyLetters, setKeyLetters] = useState<string>("")
 
-    const userNameDatas = ["Ahmet", "Mehmet", "John", "Alice", "Bob", "Catherine", "David", "Emma", "Frank", "Grace",
-        "Harry", "Ivy", "Jack", "Karen", "Leo", "Maria", "Nathan", "Olivia",
-        "Peter", "Quincy", "Rachel", "Sophia"]
+    
+      const messageArray = Array(ChatDatas.length - 1)
+        .fill(null) 
+        .map(() => ({ chatStart: false,
+            dateStart: "" })); 
+
+      console.log(messageArray);
+
+    
 
     const filteredUserNames = userNameDatas.filter((item) => {
-        return item.toLowerCase().includes(keyLetters.toLowerCase())
+        return item.name.toLowerCase().includes(keyLetters.toLowerCase())
     })
 
-    const openIndividualChat = () => {
-        dispatch(openIndividualChatSetter(true))
+    const clickedIndividualChat = ( item : any ) => {
+        
+        dispatch(clickedIndividualChatSetter(item));
+        console.log(item)
     }
 
     return (
@@ -42,11 +52,11 @@ function OpennedChatList() {
                 {
                     filteredUserNames.map((item, index) => {
                         return (
-                            <div onClick={openIndividualChat} key={index} >
+                            <div onClick={() => clickedIndividualChat(item)} key={index} >
                                 <div  className='flex cursor-pointer items-center space-x-2 py-2 ml-2'>
                                     <Image className='rounded-full' src={"/kadin.webp"} width={30} height={30} alt="kadin" />
                                     <div  className='flex items-center '>
-                                        <p className=' tracking-wide'>{item}</p>
+                                        <p className=' tracking-wide'>{item.name}</p>
                                     </div>
 
                                 </div>
